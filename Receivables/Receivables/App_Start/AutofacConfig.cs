@@ -3,7 +3,7 @@ using Autofac.Integration.Mvc;
 using AutoMapper;
 using Microsoft.Owin.Security;
 using Receivables.BusinessLogic.Interfaces;
-using Receivables.BusinessLogic.Services;
+using Receivables.Bll;
 using Receivables.Dal.Context;
 using Receivables.Dal.Interfaces;
 using Receivables.DAL.Repositories;

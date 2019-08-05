@@ -10,34 +10,35 @@ using System.Linq;
 using System.Threading.Tasks;
 using Receivables.Dal.Models;
 
-namespace Receivables.BusinessLogic.Services
+namespace Receivables.Bll
 {
-    public class StoreService : BaseService, IStoreService
+    public class StoreTypeService : BaseService, IStoreTypeService
     {
         private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
 
-        public StoreService(IUnitOfWork unitOfWork, IMapper mapper)
+        public StoreTypeService(IUnitOfWork unitOfWork, IMapper mapper)
            : base(unitOfWork, mapper)
         {
         }
 
-        public async Task<OperationDetails> AddStoreAsync(StoreDto storeDto)
+        public async Task<OperationDetails> AddStoreTypeAsync(StoreTypeDto storeTypeDto)
         {
-            if (storeDto == null)
+            if (storeTypeDto == null)
             {
                 Logger.Error("Something went wrong");
                 return new OperationDetails(false, "Something went wrong", "Store");
             }
 
-            Store store = mapper.Map<StoreDto, Store>(storeDto);
+            StoreType storeType = mapper.Map<StoreTypeDto, StoreType>(storeTypeDto);
+
             try
             {
-                if (unitOfWork.StoreRepository.GetByName(store.Name) != null)
+                if (unitOfWork.StoreTypeRepository.GetByName(storeType.Name) != null)
                 {
-                    Logger.Error("A Store with this name already exists");
-                    return new OperationDetails(false, "A Store with this name already exists", "StoreType");
+                    Logger.Error("A Store type with this name already exists");
+                    return new OperationDetails(false, "A Store type with this name already exists", "StoreType");
                 }
-                await unitOfWork.StoreRepository.CreateAsync(store);
+                await unitOfWork.StoreTypeRepository.CreateAsync(storeType);
                 await unitOfWork.SaveAsync();
                 Logger.Info("Successfully added");
                 return new OperationDetails(true);
@@ -45,28 +46,28 @@ namespace Receivables.BusinessLogic.Services
             catch (Exception ex)
             {
                 Logger.Error(ex.Message);
-                return new OperationDetails(false, "Unfortunately, something went wrong....", "Store");
+                return new OperationDetails(false, "Unfortunately, something went wrong....", "StoreType");
             }
         }
 
-        public async Task<OperationDetails> DeleteStoreAsync(StoreDto storeDto)
+        public async Task<OperationDetails> DeleteStoreTypeAsync(StoreTypeDto storeTypeDto)
         {
-            if (storeDto == null)
+            if (storeTypeDto == null)
             {
                 Logger.Error("Something went wrong");
                 return new OperationDetails(false, "Something went wrong", "Store");
             }
 
-            Store store = await unitOfWork.StoreRepository.GetByIdAsync(storeDto.Id);
-            if (store == null)
+            StoreType storeType = await unitOfWork.StoreTypeRepository.GetByIdAsync(storeTypeDto.Id);
+            if (storeType == null)
             {
-                Logger.Error("Store not found");
-                return new OperationDetails(false, "Store not found", "Store");
+                Logger.Error("Store type not found");
+                return new OperationDetails(false, "Store type not found", "Store");
             }
 
             try
             {
-                await unitOfWork.StoreRepository.DeleteAsync(store);
+                await unitOfWork.StoreTypeRepository.DeleteAsync(storeType);
                 await unitOfWork.SaveAsync();
                 Logger.Info("Successfully deleted");
                 return new OperationDetails(true);
@@ -78,19 +79,18 @@ namespace Receivables.BusinessLogic.Services
             }
         }
 
-        public async Task<OperationDetails> UpdateStoreAsync(StoreDto storeDto)
+        public async Task<OperationDetails> UpdateStoreTypeAsync(StoreTypeDto storeTypeDto)
         {
-            if (storeDto == null)
+            if (storeTypeDto == null)
             {
                 Logger.Error("Something went wrong");
                 return new OperationDetails(false, "Something went wrong", "Store");
             }
 
-            Store store = mapper.Map<StoreDto, Store>(storeDto);
-
+            StoreType storeType = mapper.Map<StoreTypeDto, StoreType>(storeTypeDto);
             try
             {
-                await unitOfWork.StoreRepository.UpdateAsync(store);
+                await unitOfWork.StoreTypeRepository.UpdateAsync(storeType);
                 await unitOfWork.SaveAsync();
                 Logger.Info("Successfully updated");
                 return new OperationDetails(true);
@@ -102,16 +102,17 @@ namespace Receivables.BusinessLogic.Services
             }
         }
 
-        public IList<StoreDto> GetAllStore(int storeTypeId)
+        public IList<StoreTypeDto> GetAllStoreType()
         {
-            var result = unitOfWork.StoreRepository.GetAllByStoreTypeId(storeTypeId);
-            return result.Select(x => mapper.Map<Store, StoreDto>(x)).ToList();
+            var result = unitOfWork.StoreTypeRepository.GetAllStoreType();
+            return result.Select(p => mapper.Map<StoreType, StoreTypeDto>(p)).ToList();
         }
 
-        public async Task<StoreDto> GetStoreByIdAsync(int id)
+        public async Task<StoreTypeDto> GetStoreTypeByIdAsync(int id)
         {
-            Store store = await unitOfWork.StoreRepository.GetByIdAsync(id);
-            return mapper.Map<Store, StoreDto>(store);
+            StoreType storeType = await unitOfWork.StoreTypeRepository.GetByIdAsync(id);
+            return mapper.Map<StoreType, StoreTypeDto>(storeType);
         }
+
     }
 }

@@ -246,6 +246,10 @@
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Receivables.Bll\Receivables.Bll.csproj">
+      <Project>{bae98368-1625-4223-bb09-21d3b686f58b}</Project>
+      <Name>Receivables.Bll</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Receivables.BusinessLogic.Infrastructure\Receivables.BusinessLogic.Infrastructure.csproj">
       <Project>{fe01841b-4ab1-4c7e-bbfa-ca386286cd5f}</Project>
       <Name>Receivables.BusinessLogic.Infrastructure</Name>
@@ -253,10 +257,6 @@
     <ProjectReference Include="..\Receivables.BusinessLogic.Interfaces\Receivables.BusinessLogic.Interfaces.csproj">
       <Project>{e575fd2e-0ed8-4ece-9f81-a7c0cea99373}</Project>
       <Name>Receivables.BusinessLogic.Interfaces</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Receivables.BusinessLogic.Services\Receivables.BusinessLogic.Services.csproj">
-      <Project>{bae98368-1625-4223-bb09-21d3b686f58b}</Project>
-      <Name>Receivables.BusinessLogic.Services</Name>
     </ProjectReference>
     <ProjectReference Include="..\Receivables.Dal\Receivables.Dal.csproj">
       <Project>{4ba73d3c-4d07-4418-9142-5d85e967526a}</Project>

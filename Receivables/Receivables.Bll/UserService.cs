@@ -9,7 +9,7 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using Receivables.Dal.Models;
 
-namespace Receivables.BusinessLogic.Services
+namespace Receivables.Bll
 {
     public class UserService : BaseService, IUserService
     {

@@ -2,7 +2,7 @@
 using Receivables.Dal.Interfaces;
 using System;
 
-namespace Receivables.BusinessLogic.Services
+namespace Receivables.Bll
 {
     public abstract class BaseService
     {

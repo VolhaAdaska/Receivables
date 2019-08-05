@@ -11,8 +11,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Receivables.BusinessLogic.I
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Receivables.BusinessLogic.Interfaces", "Receivables.BusinessLogic.Interfaces\Receivables.BusinessLogic.Interfaces.csproj", "{E575FD2E-0ED8-4ECE-9F81-A7C0CEA99373}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Receivables.BusinessLogic.Services", "Receivables.BusinessLogic.Services\Receivables.BusinessLogic.Services.csproj", "{BAE98368-1625-4223-BB09-21D3B686F58B}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Receivables.DTO", "Receivables.DTO\Receivables.DTO.csproj", "{6CE0E358-D856-47B7-A837-D3EF36694B05}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Receivables.Dal", "Receivables.Dal\Receivables.Dal.csproj", "{4BA73D3C-4D07-4418-9142-5D85E967526A}"
@@ -20,6 +18,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Receivables.DAL.Repositories", "Receivables.DAL.Repositories\Receivables.DAL.Repositories.csproj", "{684459E0-65DA-41E9-98C6-287C372D853A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Receivables", "Receivables\Receivables.csproj", "{1CBBC0E0-3418-4D3C-935B-343E4C76207A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Receivables.Bll", "Receivables.Bll\Receivables.Bll.csproj", "{BAE98368-1625-4223-BB09-21D3B686F58B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,10 +35,6 @@ Global
 		{E575FD2E-0ED8-4ECE-9F81-A7C0CEA99373}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E575FD2E-0ED8-4ECE-9F81-A7C0CEA99373}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E575FD2E-0ED8-4ECE-9F81-A7C0CEA99373}.Release|Any CPU.Build.0 = Release|Any CPU
-		{BAE98368-1625-4223-BB09-21D3B686F58B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BAE98368-1625-4223-BB09-21D3B686F58B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BAE98368-1625-4223-BB09-21D3B686F58B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BAE98368-1625-4223-BB09-21D3B686F58B}.Release|Any CPU.Build.0 = Release|Any CPU
 		{6CE0E358-D856-47B7-A837-D3EF36694B05}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{6CE0E358-D856-47B7-A837-D3EF36694B05}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6CE0E358-D856-47B7-A837-D3EF36694B05}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -55,6 +51,10 @@ Global
 		{1CBBC0E0-3418-4D3C-935B-343E4C76207A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1CBBC0E0-3418-4D3C-935B-343E4C76207A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1CBBC0E0-3418-4D3C-935B-343E4C76207A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BAE98368-1625-4223-BB09-21D3B686F58B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BAE98368-1625-4223-BB09-21D3B686F58B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BAE98368-1625-4223-BB09-21D3B686F58B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BAE98368-1625-4223-BB09-21D3B686F58B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -62,10 +62,10 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{FE01841B-4AB1-4C7E-BBFA-CA386286CD5F} = {F494532F-81C8-48D9-99A7-BAB08ED299CD}
 		{E575FD2E-0ED8-4ECE-9F81-A7C0CEA99373} = {F494532F-81C8-48D9-99A7-BAB08ED299CD}
-		{BAE98368-1625-4223-BB09-21D3B686F58B} = {F494532F-81C8-48D9-99A7-BAB08ED299CD}
 		{6CE0E358-D856-47B7-A837-D3EF36694B05} = {F494532F-81C8-48D9-99A7-BAB08ED299CD}
 		{4BA73D3C-4D07-4418-9142-5D85E967526A} = {B5A8FC9A-EC5A-4344-B84F-D2E8215A2165}
 		{684459E0-65DA-41E9-98C6-287C372D853A} = {B5A8FC9A-EC5A-4344-B84F-D2E8215A2165}
+		{BAE98368-1625-4223-BB09-21D3B686F58B} = {F494532F-81C8-48D9-99A7-BAB08ED299CD}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E0A2AAD5-66E0-4F21-B5FE-E613D78EBFE1}

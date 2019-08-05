@@ -7,8 +7,8 @@
     <ProjectGuid>{BAE98368-1625-4223-BB09-21D3B686F58B}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Receivables.BusinessLogic.Services</RootNamespace>
-    <AssemblyName>Receivables.BusinessLogic.Services</AssemblyName>
+    <RootNamespace>Receivables.Bll</RootNamespace>
+    <AssemblyName>Receivables.Bll</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
