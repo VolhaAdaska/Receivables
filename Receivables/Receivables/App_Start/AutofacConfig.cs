@@ -2,14 +2,13 @@
 using Autofac.Integration.Mvc;
 using AutoMapper;
 using Microsoft.Owin.Security;
-using Receivables.BusinessLogic.Interfaces;
-using Receivables.Bll;
+using Receivables.Bll.Interfaces;
+using Receivables.Bll.Services;
 using Receivables.Dal.Context;
 using Receivables.Dal.Interfaces;
 using Receivables.DAL.Repositories;
 using System.Reflection;
 using System.Web;
-using Receivables.Bll.Services;
 
 namespace Receivables
 {

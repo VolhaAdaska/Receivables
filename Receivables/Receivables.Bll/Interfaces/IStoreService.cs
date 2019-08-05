@@ -1,10 +1,10 @@
-﻿using System.Collections.Generic;
-using Receivables.DTO;
-using Receivables.BusinessLogic.Infrastructure;
+﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
-using System;
+using Receivables.BusinessLogic.Infrastructure;
+using Receivables.DTO;
 
-namespace Receivables.BusinessLogic.Interfaces
+namespace Receivables.Bll.Interfaces
 {
     public interface IStoreService : IDisposable
     {

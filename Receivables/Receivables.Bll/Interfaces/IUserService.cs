@@ -1,10 +1,10 @@
-﻿using System.Security.Claims;
+﻿using System;
+using System.Security.Claims;
 using System.Threading.Tasks;
-using Receivables.DTO;
 using Receivables.BusinessLogic.Infrastructure;
-using System;
+using Receivables.DTO;
 
-namespace Receivables.BusinessLogic.Interfaces
+namespace Receivables.Bll.Interfaces
 {
     public interface IUserService : IDisposable
     {

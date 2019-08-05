@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Security.Claims;
 using System.Threading.Tasks;
-using Receivables.BusinessLogic.Interfaces;
 using Microsoft.Owin.Security;
 using System.Web.Mvc;
 using AutoMapper;
+using Receivables.Bll.Interfaces;
 using Receivables.DTO;
 using Receivables.BusinessLogic.Infrastructure;
 using Receivables.Dal;

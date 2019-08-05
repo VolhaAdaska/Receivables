@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
+using Receivables.Bll.Interfaces;
 using Receivables.BusinessLogic.Infrastructure;
-using Receivables.BusinessLogic.Interfaces;
 using Receivables.Dal;
 using Receivables.DTO;
 using Receivables.Models;
