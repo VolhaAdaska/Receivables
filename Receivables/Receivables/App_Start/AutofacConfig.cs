@@ -1,18 +1,17 @@
-﻿using System.Web;
+﻿using System.Reflection;
+using System.Web;
 using Autofac;
+using Autofac.Integration.Mvc;
 using AutoMapper;
+using Microsoft.Owin.Security;
 using Receivables.BusinessLogic.Interfaces;
 using Receivables.BusinessLogic.Services;
 using Receivables.DAL.Core.Context;
 using Receivables.DAL.Interfaces;
-using Receivables.DAL.Repositories;
-using Microsoft.Owin.Security;
 using Receivables.DAL.Interfaces.Repositories;
-using Autofac.Integration.Mvc;
-using System.Reflection;
-using Receivables.AutoMapper;
+using Receivables.DAL.Repositories;
 
-namespace Receivables.IoC
+namespace Receivables
 {
     public static class AutofacConfig
     {

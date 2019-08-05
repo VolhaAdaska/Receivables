@@ -6,7 +6,7 @@ using Receivables.DAL.Models;
 
 namespace Receivables.DAL.Core.Context
 {
-    public class GodelBenefitContextInitializer : DropCreateDatabaseIfModelChanges<GodelBenefitContext>
+    public class GodelBenefitContextInitializer : DropCreateDatabaseAlways<GodelBenefitContext>
     {
         protected override void Seed(GodelBenefitContext context)
         {

@@ -5,7 +5,6 @@ using Microsoft.Owin.Security.Cookies;
 using Owin;
 using Receivables;
 using System.Web.Mvc;
-using Receivables.IoC;
 
 [assembly: OwinStartup(typeof(Startup))]
 

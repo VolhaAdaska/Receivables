@@ -1,11 +1,10 @@
 ﻿using AutoMapper;
-using Receivables.Models;
-using Receivables.DTO;
-using Receivables.DAL.Models.Identity;
 using Receivables.DAL.Models;
+using Receivables.DAL.Models.Identity;
+using Receivables.DTO;
 using Receivables.Models;
 
-namespace Receivables.AutoMapper
+namespace Receivables
 {
     public class AutomapperConfig : Profile
     {
