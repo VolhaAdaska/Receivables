@@ -1,12 +1,11 @@
-﻿using Receivables.Dal.Context;
-using Receivables.DAL.Models.Identity;
-using Receivables.DAL.Interfaces;
+﻿using Autofac;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
-using Receivables.DAL.Interfaces.Repositories;
-using System.Threading.Tasks;
+using Receivables.Dal.Context;
+using Receivables.Dal.Interfaces;
+using Receivables.DAL.Models.Identity;
 using System;
-using Autofac;
+using System.Threading.Tasks;
 
 namespace Receivables.DAL.Repositories
 {

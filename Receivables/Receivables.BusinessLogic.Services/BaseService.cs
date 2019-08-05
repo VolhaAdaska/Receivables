@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using Receivables.DAL.Interfaces;
+using Receivables.Dal.Interfaces;
 using System;
 
 namespace Receivables.BusinessLogic.Services

@@ -1,7 +1,7 @@
-﻿using Receivables.DAL.Models;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
+using Receivables.DAL.Models;
 
-namespace Receivables.DAL.Interfaces.Repositories
+namespace Receivables.Dal.Interfaces
 {
     public interface IBaseRepository<T>
         where T : BaseEntity

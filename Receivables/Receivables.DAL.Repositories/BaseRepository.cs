@@ -1,9 +1,9 @@
-﻿using System;
+﻿using Receivables.Dal.Context;
+using Receivables.Dal.Interfaces;
+using Receivables.DAL.Models;
+using System;
 using System.Data.Entity;
 using System.Data.Entity.Migrations;
-using Receivables.Dal.Context;
-using Receivables.DAL.Interfaces.Repositories;
-using Receivables.DAL.Models;
 using System.Threading.Tasks;
 
 namespace Receivables.DAL.Repositories

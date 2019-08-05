@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Receivables.DAL.Models;
 
-namespace Receivables.DAL.Interfaces.Repositories
+namespace Receivables.Dal.Interfaces
 {
     public interface IStoreTypeRepository : IBaseRepository<StoreType>
     {

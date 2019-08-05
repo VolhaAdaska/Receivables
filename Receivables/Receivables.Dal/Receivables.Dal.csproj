@@ -57,6 +57,10 @@
     <Compile Include="Context\Configurations\StoreTypeConfigurations.cs" />
     <Compile Include="Context\GodelBenefitContext.cs" />
     <Compile Include="Context\GodelBenefitContextInitializer.cs" />
+    <Compile Include="Interfaces\IBaseRepository.cs" />
+    <Compile Include="Interfaces\IStoreRepository.cs" />
+    <Compile Include="Interfaces\IStoreTypeRepository.cs" />
+    <Compile Include="Interfaces\IUnitOfWork.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserRoles.cs" />
   </ItemGroup>

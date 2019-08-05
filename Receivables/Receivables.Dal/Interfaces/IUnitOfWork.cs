@@ -1,10 +1,9 @@
 ﻿using Microsoft.AspNet.Identity;
-using Receivables.DAL.Interfaces.Repositories;
 using Receivables.DAL.Models.Identity;
 using System;
 using System.Threading.Tasks;
 
-namespace Receivables.DAL.Interfaces
+namespace Receivables.Dal.Interfaces
 {
     public interface IUnitOfWork : IDisposable
     {

@@ -1,14 +1,14 @@
-﻿using System;
+﻿using AutoMapper;
+using NLog;
+using Receivables.BusinessLogic.Infrastructure;
+using Receivables.BusinessLogic.Interfaces;
+using Receivables.Dal.Interfaces;
+using Receivables.DAL.Models;
+using Receivables.DTO;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using AutoMapper;
-using Receivables.DTO;
-using Receivables.BusinessLogic.Infrastructure;
-using Receivables.BusinessLogic.Interfaces;
-using Receivables.DAL.Models;
-using NLog;
-using Receivables.DAL.Interfaces;
 
 namespace Receivables.BusinessLogic.Services
 {

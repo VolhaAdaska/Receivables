@@ -1,13 +1,13 @@
-﻿using System;
-using System.Security.Claims;
-using System.Threading.Tasks;
-using AutoMapper;
-using Receivables.DTO;
+﻿using AutoMapper;
+using Microsoft.AspNet.Identity;
 using Receivables.BusinessLogic.Infrastructure;
 using Receivables.BusinessLogic.Interfaces;
+using Receivables.Dal.Interfaces;
 using Receivables.DAL.Models.Identity;
-using Receivables.DAL.Interfaces;
-using Microsoft.AspNet.Identity;
+using Receivables.DTO;
+using System;
+using System.Security.Claims;
+using System.Threading.Tasks;
 
 namespace Receivables.BusinessLogic.Services
 {

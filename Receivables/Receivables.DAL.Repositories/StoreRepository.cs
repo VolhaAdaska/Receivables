@@ -1,9 +1,8 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using Receivables.Dal.Context;
-using Receivables.DAL.Interfaces.Repositories;
+﻿using Receivables.Dal.Context;
+using Receivables.Dal.Interfaces;
 using Receivables.DAL.Models;
-using System.Threading.Tasks;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Receivables.DAL.Repositories
 {
