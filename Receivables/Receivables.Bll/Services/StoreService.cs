@@ -1,16 +1,16 @@
-﻿using AutoMapper;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using AutoMapper;
 using NLog;
 using Receivables.BusinessLogic.Infrastructure;
 using Receivables.BusinessLogic.Interfaces;
 using Receivables.Dal.Interfaces;
-using Receivables.DTO;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Receivables.Dal.Models;
+using Receivables.DTO;
 
-namespace Receivables.Bll
+namespace Receivables.Bll.Services
 {
     public class StoreService : BaseService, IStoreService
     {

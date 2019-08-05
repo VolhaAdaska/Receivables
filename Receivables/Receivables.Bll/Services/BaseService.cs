@@ -1,8 +1,8 @@
-﻿using AutoMapper;
+﻿using System;
+using AutoMapper;
 using Receivables.Dal.Interfaces;
-using System;
 
-namespace Receivables.Bll
+namespace Receivables.Bll.Services
 {
     public abstract class BaseService
     {

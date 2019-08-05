@@ -1,15 +1,15 @@
-﻿using AutoMapper;
+﻿using System;
+using System.Security.Claims;
+using System.Threading.Tasks;
+using AutoMapper;
 using Microsoft.AspNet.Identity;
 using Receivables.BusinessLogic.Infrastructure;
 using Receivables.BusinessLogic.Interfaces;
 using Receivables.Dal.Interfaces;
-using Receivables.DTO;
-using System;
-using System.Security.Claims;
-using System.Threading.Tasks;
 using Receivables.Dal.Models;
+using Receivables.DTO;
 
-namespace Receivables.Bll
+namespace Receivables.Bll.Services
 {
     public class UserService : BaseService, IUserService
     {
