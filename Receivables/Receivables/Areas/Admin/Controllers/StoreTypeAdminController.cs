@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
+using Receivables.Bll.Dto;
+using Receivables.Bll.Infrastructure;
 using Receivables.Bll.Interfaces;
-using Receivables.BusinessLogic.Infrastructure;
 using Receivables.Dal;
-using Receivables.DTO;
 using Receivables.Models;
 using System;
 using System.Collections.Generic;

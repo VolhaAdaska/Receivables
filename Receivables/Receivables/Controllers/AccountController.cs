@@ -4,9 +4,9 @@ using System.Threading.Tasks;
 using Microsoft.Owin.Security;
 using System.Web.Mvc;
 using AutoMapper;
+using Receivables.Bll.Dto;
+using Receivables.Bll.Infrastructure;
 using Receivables.Bll.Interfaces;
-using Receivables.DTO;
-using Receivables.BusinessLogic.Infrastructure;
 using Receivables.Dal;
 using Receivables.Models;
 

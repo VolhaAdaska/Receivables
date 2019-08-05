@@ -1,4 +1,4 @@
-﻿namespace Receivables.DTO
+﻿namespace Receivables.Bll.Dto
 {
     public class UserDto
     {

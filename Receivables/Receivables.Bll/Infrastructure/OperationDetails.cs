@@ -1,4 +1,4 @@
-﻿namespace Receivables.BusinessLogic.Infrastructure
+﻿namespace Receivables.Bll.Infrastructure
 {
     public class OperationDetails
     {

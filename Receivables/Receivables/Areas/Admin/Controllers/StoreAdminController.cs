@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Web.Mvc;
 using AutoMapper;
-using Receivables.DTO;
-using Receivables.BusinessLogic.Infrastructure;
 using System.Linq;
 using Receivables.Dal;
 using System.Threading.Tasks;
 using System.Collections.Generic;
+using Receivables.Bll.Dto;
+using Receivables.Bll.Infrastructure;
 using Receivables.Bll.Interfaces;
 using Receivables.Models;
 

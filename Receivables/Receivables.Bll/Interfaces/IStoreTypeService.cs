@@ -1,8 +1,8 @@
-﻿using System;
+﻿using Receivables.Bll.Dto;
+using Receivables.Bll.Infrastructure;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Receivables.BusinessLogic.Infrastructure;
-using Receivables.DTO;
 
 namespace Receivables.Bll.Interfaces
 {

@@ -1,10 +1,10 @@
 ﻿using AutoMapper;
 using NLog;
+using Receivables.Bll.Dto;
+using Receivables.Bll.Infrastructure;
 using Receivables.Bll.Interfaces;
-using Receivables.BusinessLogic.Infrastructure;
 using Receivables.Dal.Interfaces;
 using Receivables.Dal.Models;
-using Receivables.DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;

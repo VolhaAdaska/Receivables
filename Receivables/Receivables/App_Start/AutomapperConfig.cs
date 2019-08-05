@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
+using Receivables.Bll.Dto;
 using Receivables.Dal.Models;
-using Receivables.DTO;
 using Receivables.Models;
 
 namespace Receivables

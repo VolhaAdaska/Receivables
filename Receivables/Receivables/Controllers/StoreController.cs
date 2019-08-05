@@ -1,9 +1,9 @@
 ﻿using AutoMapper;
-using Receivables.DTO;
 using Receivables.Models;
 using System;
 using System.Collections.Generic;
 using System.Web.Mvc;
+using Receivables.Bll.Dto;
 using Receivables.Bll.Interfaces;
 
 namespace Receivables.Controllers
