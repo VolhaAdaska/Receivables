@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using Receivables.DAL.Core.Context;
+using Receivables.Dal.Context;
 using Receivables.DAL.Interfaces.Repositories;
 using Receivables.DAL.Models;
 using System.Threading.Tasks;

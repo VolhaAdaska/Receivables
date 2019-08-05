@@ -7,8 +7,8 @@
     <ProjectGuid>{4BA73D3C-4D07-4418-9142-5D85E967526A}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Receivables.DAL.Core</RootNamespace>
-    <AssemblyName>Receivables.DAL.Core</AssemblyName>
+    <RootNamespace>Receivables.Dal</RootNamespace>
+    <AssemblyName>Receivables.Dal</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

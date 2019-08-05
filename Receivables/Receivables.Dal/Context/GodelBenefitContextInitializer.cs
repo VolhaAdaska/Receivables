@@ -4,7 +4,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Receivables.DAL.Models;
 
-namespace Receivables.DAL.Core.Context
+namespace Receivables.Dal.Context
 {
     public class GodelBenefitContextInitializer : DropCreateDatabaseAlways<GodelBenefitContext>
     {

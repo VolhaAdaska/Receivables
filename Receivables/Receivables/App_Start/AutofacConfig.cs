@@ -6,7 +6,7 @@ using AutoMapper;
 using Microsoft.Owin.Security;
 using Receivables.BusinessLogic.Interfaces;
 using Receivables.BusinessLogic.Services;
-using Receivables.DAL.Core.Context;
+using Receivables.Dal.Context;
 using Receivables.DAL.Interfaces;
 using Receivables.DAL.Interfaces.Repositories;
 using Receivables.DAL.Repositories;

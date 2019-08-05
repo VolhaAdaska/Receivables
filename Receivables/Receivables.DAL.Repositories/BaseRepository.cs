@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Data.Entity;
 using System.Data.Entity.Migrations;
-using Receivables.DAL.Core.Context;
+using Receivables.Dal.Context;
 using Receivables.DAL.Interfaces.Repositories;
 using Receivables.DAL.Models;
 using System.Threading.Tasks;

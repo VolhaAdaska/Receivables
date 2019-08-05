@@ -1,4 +1,4 @@
-﻿using Receivables.DAL.Core.Context;
+﻿using Receivables.Dal.Context;
 using Receivables.DAL.Models.Identity;
 using Receivables.DAL.Interfaces;
 using Microsoft.AspNet.Identity;

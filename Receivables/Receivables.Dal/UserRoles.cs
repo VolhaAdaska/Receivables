@@ -1,4 +1,4 @@
-﻿namespace Receivables.DAL.Core
+﻿namespace Receivables.Dal
 {
     public static class UserRoles
     {

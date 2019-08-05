@@ -5,7 +5,7 @@ using Receivables.DTO;
 using Receivables.BusinessLogic.Infrastructure;
 using Receivables.BusinessLogic.Interfaces;
 using System.Linq;
-using Receivables.DAL.Core;
+using Receivables.Dal;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 using Receivables.Models;

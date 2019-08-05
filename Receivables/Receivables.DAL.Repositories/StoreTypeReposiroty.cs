@@ -1,4 +1,4 @@
-﻿using Receivables.DAL.Core.Context;
+﻿using Receivables.Dal.Context;
 using Receivables.DAL.Models;
 using System.Collections.Generic;
 using System.Linq;

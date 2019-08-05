@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Data.Entity;
-using Receivables.DAL.Core.Context.Configurations;
+using Receivables.Dal.Context.Configurations;
 using Receivables.DAL.Models;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Receivables.DAL.Models.Identity;
 
-namespace Receivables.DAL.Core.Context
+namespace Receivables.Dal.Context
 {
     public class GodelBenefitContext : IdentityDbContext<ApplicationUser>
     {

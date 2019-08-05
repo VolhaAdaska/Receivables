@@ -1,15 +1,16 @@
 ﻿using System.Data.Entity.ModelConfiguration;
 using Receivables.DAL.Models;
 
-namespace Receivables.DAL.Core.Context.Configurations
+namespace Receivables.Dal.Context.Configurations
 {
-    public class StoreTypeConfigurations : EntityTypeConfiguration<StoreType>
+    public class StoreConfigurations : EntityTypeConfiguration<Store>
     {
-        public StoreTypeConfigurations()
+        public StoreConfigurations()
         {
             HasKey(x => x.Id);
             Property(x => x.Name).IsRequired().HasMaxLength(100);
             HasIndex(x => x.Name).IsUnique();
+            Property(x => x.Promocode).HasMaxLength(20);
         }
     }
 }

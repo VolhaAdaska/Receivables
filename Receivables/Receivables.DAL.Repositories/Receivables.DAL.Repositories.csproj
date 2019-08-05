@@ -63,9 +63,9 @@
     <Compile Include="UnitOfWork.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Receivables.DAL.Core\Receivables.DAL.Core.csproj">
+    <ProjectReference Include="..\Receivables.Dal\Receivables.Dal.csproj">
       <Project>{4ba73d3c-4d07-4418-9142-5d85e967526a}</Project>
-      <Name>Receivables.DAL.Core</Name>
+      <Name>Receivables.Dal</Name>
     </ProjectReference>
     <ProjectReference Include="..\Receivables.DAL.Interfaces\Receivables.DAL.Interfaces.csproj">
       <Project>{517c9d19-2aa1-4409-86a7-7dba0ab7fa76}</Project>
