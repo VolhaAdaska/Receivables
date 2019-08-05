@@ -6,7 +6,7 @@ using System.Data.Entity;
 using System.Data.Entity.Migrations;
 using System.Threading.Tasks;
 
-namespace Receivables.DAL.Repositories
+namespace Receivables.Dal.Repositories
 {
     public class BaseRepository<T> : IBaseRepository<T>
         where T : BaseEntity

@@ -70,6 +70,7 @@
     <Compile Include="Models\Store.cs" />
     <Compile Include="Models\StoreType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\BaseRepository.cs" />
     <Compile Include="Repositories\UnitOfWork.cs" />
     <Compile Include="UserRoles.cs" />
   </ItemGroup>
