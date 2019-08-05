@@ -7,8 +7,8 @@ using System.Web.Mvc;
 using AutoMapper;
 using Receivables.DTO;
 using Receivables.BusinessLogic.Infrastructure;
-using Receivables.Models;
 using Receivables.DAL.Core;
+using Receivables.Models;
 
 namespace Receivables.Controllers
 {
