@@ -1,4 +1,4 @@
-﻿namespace Receivables.DAL.Models
+﻿namespace Receivables.Dal.Models
 {
     public class StoreType : BaseEntity
     {

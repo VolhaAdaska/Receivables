@@ -3,11 +3,11 @@ using Microsoft.AspNet.Identity;
 using Receivables.BusinessLogic.Infrastructure;
 using Receivables.BusinessLogic.Interfaces;
 using Receivables.Dal.Interfaces;
-using Receivables.DAL.Models.Identity;
 using Receivables.DTO;
 using System;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using Receivables.Dal.Models;
 
 namespace Receivables.BusinessLogic.Services
 {

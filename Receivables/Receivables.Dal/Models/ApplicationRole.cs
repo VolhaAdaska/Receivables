@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNet.Identity.EntityFramework;
 
-namespace Receivables.DAL.Models.Identity
+namespace Receivables.Dal.Models
 {
     public class ApplicationRole : IdentityRole
     {

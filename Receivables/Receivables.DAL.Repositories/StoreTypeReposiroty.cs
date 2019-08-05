@@ -1,6 +1,6 @@
 ﻿using Receivables.Dal.Context;
 using Receivables.Dal.Interfaces;
-using Receivables.DAL.Models;
+using Receivables.Dal.Models;
 using System.Collections.Generic;
 using System.Linq;
 

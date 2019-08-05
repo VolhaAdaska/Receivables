@@ -1,6 +1,6 @@
 ﻿using Receivables.Dal.Context;
 using Receivables.Dal.Interfaces;
-using Receivables.DAL.Models;
+using Receivables.Dal.Models;
 using System;
 using System.Data.Entity;
 using System.Data.Entity.Migrations;

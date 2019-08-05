@@ -3,9 +3,9 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Receivables.Dal.Context;
 using Receivables.Dal.Interfaces;
-using Receivables.DAL.Models.Identity;
 using System;
 using System.Threading.Tasks;
+using Receivables.Dal.Models;
 
 namespace Receivables.DAL.Repositories
 {

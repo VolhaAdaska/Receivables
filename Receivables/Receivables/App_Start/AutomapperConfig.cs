@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
-using Receivables.DAL.Models;
-using Receivables.DAL.Models.Identity;
+using Receivables.Dal.Models;
 using Receivables.DTO;
 using Receivables.Models;
 

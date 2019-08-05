@@ -3,12 +3,12 @@ using NLog;
 using Receivables.BusinessLogic.Infrastructure;
 using Receivables.BusinessLogic.Interfaces;
 using Receivables.Dal.Interfaces;
-using Receivables.DAL.Models;
 using Receivables.DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Receivables.Dal.Models;
 
 namespace Receivables.BusinessLogic.Services
 {

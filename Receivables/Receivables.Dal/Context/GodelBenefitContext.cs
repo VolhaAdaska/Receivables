@@ -1,9 +1,8 @@
-﻿using System;
-using System.Data.Entity;
+﻿using Microsoft.AspNet.Identity.EntityFramework;
 using Receivables.Dal.Context.Configurations;
-using Receivables.DAL.Models;
-using Microsoft.AspNet.Identity.EntityFramework;
-using Receivables.DAL.Models.Identity;
+using Receivables.Dal.Models;
+using System;
+using System.Data.Entity;
 
 namespace Receivables.Dal.Context
 {

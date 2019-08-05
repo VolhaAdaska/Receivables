@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using Receivables.DAL.Models;
+using Receivables.Dal.Models;
 
 namespace Receivables.Dal.Interfaces
 {

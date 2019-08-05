@@ -1,5 +1,5 @@
 ﻿using System.Data.Entity.ModelConfiguration;
-using Receivables.DAL.Models;
+using Receivables.Dal.Models;
 
 namespace Receivables.Dal.Context.Configurations
 {

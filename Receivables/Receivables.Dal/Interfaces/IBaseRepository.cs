@@ -1,5 +1,5 @@
-﻿using System.Threading.Tasks;
-using Receivables.DAL.Models;
+﻿using Receivables.Dal.Models;
+using System.Threading.Tasks;
 
 namespace Receivables.Dal.Interfaces
 {
