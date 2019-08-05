@@ -7,7 +7,7 @@ using System;
 using System.Threading.Tasks;
 using Receivables.Dal.Models;
 
-namespace Receivables.DAL.Repositories
+namespace Receivables.Dal.Repositories
 {
     public class UnitOfWork : IUnitOfWork
     {
