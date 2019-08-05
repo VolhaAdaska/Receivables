@@ -3,9 +3,8 @@ using Receivables.Dal.Interfaces;
 using Receivables.Dal.Models;
 using System.Collections.Generic;
 using System.Linq;
-using Receivables.Dal.Repositories;
 
-namespace Receivables.DAL.Repositories
+namespace Receivables.Dal.Repositories
 {
     public class StoreRepository : BaseRepository<Store>, IStoreRepository
     {

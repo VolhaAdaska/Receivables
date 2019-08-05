@@ -6,10 +6,9 @@ using Receivables.Bll.Interfaces;
 using Receivables.Bll.Services;
 using Receivables.Dal.Context;
 using Receivables.Dal.Interfaces;
-using Receivables.DAL.Repositories;
+using Receivables.Dal.Repositories;
 using System.Reflection;
 using System.Web;
-using Receivables.Dal.Repositories;
 
 namespace Receivables
 {
