@@ -254,10 +254,6 @@
       <Project>{4ba73d3c-4d07-4418-9142-5d85e967526a}</Project>
       <Name>Receivables.Dal</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Receivables.DAL.Repositories\Receivables.DAL.Repositories.csproj">
-      <Project>{684459e0-65da-41e9-98c6-287c372d853a}</Project>
-      <Name>Receivables.DAL.Repositories</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
