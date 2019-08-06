@@ -163,15 +163,7 @@
     <Content Include="Content\css\overlays\09.png" />
     <Content Include="Content\css\style.css" />
     <Content Include="Content\css\vegas.min.css" />
-    <Content Include="Content\img\back2.jpg" />
-    <Content Include="Content\img\Error.jpg" />
-    <Content Include="Content\img\logo.png" />
     <Content Include="Content\img\back.jpg" />
-    <Content Include="Content\img\menu-icon.png" />
-    <Content Include="Content\img\social-icons\twitter.png" />
-    <Content Include="Content\img\square.png" />
-    <Content Include="Content\img\square_grey.png" />
-    <Content Include="Content\img\status.gif" />
     <Content Include="Global.asax" />
     <Content Include="Content\img\favicon.png" />
     <Content Include="Scripts\js\bootstrap.js" />
@@ -241,6 +233,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\img\social-icons\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
