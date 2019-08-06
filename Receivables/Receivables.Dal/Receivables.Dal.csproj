@@ -58,8 +58,8 @@
   <ItemGroup>
     <Compile Include="Context\Configurations\StoreConfigurations.cs" />
     <Compile Include="Context\Configurations\StoreTypeConfigurations.cs" />
-    <Compile Include="Context\GodelBenefitContext.cs" />
-    <Compile Include="Context\GodelBenefitContextInitializer.cs" />
+    <Compile Include="Context\ReceivablesContext.cs" />
+    <Compile Include="Context\ReceivablesContextInitializer.cs" />
     <Compile Include="Interfaces\IBaseRepository.cs" />
     <Compile Include="Interfaces\IStoreRepository.cs" />
     <Compile Include="Interfaces\IStoreTypeRepository.cs" />

@@ -11,12 +11,12 @@ namespace Receivables.Dal.Repositories
 {
     public class UnitOfWork : IUnitOfWork
     {
-        private readonly GodelBenefitContext context;
+        private readonly ReceivablesContext context;
         private readonly ILifetimeScope lifetimeScope;
         private UserManager<ApplicationUser> userManager;
         private RoleManager<ApplicationRole> roleManager;
 
-        public UnitOfWork(GodelBenefitContext context, ILifetimeScope lifetimeScope)
+        public UnitOfWork(ReceivablesContext context, ILifetimeScope lifetimeScope)
         {
             this.context = context ?? throw new ArgumentNullException(nameof(context));
             this.lifetimeScope = lifetimeScope ?? throw new ArgumentNullException(nameof(lifetimeScope));

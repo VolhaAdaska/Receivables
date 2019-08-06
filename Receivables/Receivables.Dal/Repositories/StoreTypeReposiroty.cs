@@ -8,7 +8,7 @@ namespace Receivables.Dal.Repositories
 {
     public class StoreTypeReposiroty : BaseRepository<StoreType>, IStoreTypeRepository
     {
-        public StoreTypeReposiroty(GodelBenefitContext context)
+        public StoreTypeReposiroty(ReceivablesContext context)
             : base(context)
         {
         }

@@ -11,10 +11,10 @@ namespace Receivables.Dal.Repositories
     public class BaseRepository<T> : IBaseRepository<T>
         where T : BaseEntity
     {
-        protected readonly GodelBenefitContext context;
+        protected readonly ReceivablesContext context;
         protected readonly DbSet<T> entities;
 
-        public BaseRepository(GodelBenefitContext context)
+        public BaseRepository(ReceivablesContext context)
         {
             this.context = context;
             entities = context.Set<T>();

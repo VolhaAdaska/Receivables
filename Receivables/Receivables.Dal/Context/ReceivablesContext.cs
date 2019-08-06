@@ -6,23 +6,23 @@ using System.Data.Entity;
 
 namespace Receivables.Dal.Context
 {
-    public class GodelBenefitContext : IdentityDbContext<ApplicationUser>
+    public class ReceivablesContext : IdentityDbContext<ApplicationUser>
     {
         public DbSet<Store> Stores { get; set; }
         public DbSet<StoreType> StoreTypes { get; set; }
 
-        public GodelBenefitContext()
-            : base("GodelBenefitDatabase")
+        public ReceivablesContext()
+            : base("ReceivablesDatabase")
         {
-            Database.SetInitializer(new GodelBenefitContextInitializer());
+            Database.SetInitializer(new ReceivablesContextInitializer());
             Database.Initialize(false);
 
             Type providerService = typeof(System.Data.Entity.SqlServer.SqlProviderServices);
         }
 
-        public static GodelBenefitContext Create()
+        public static ReceivablesContext Create()
         {
-            return new GodelBenefitContext();
+            return new ReceivablesContext();
         }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

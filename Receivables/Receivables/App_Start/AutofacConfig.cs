@@ -30,7 +30,7 @@ namespace Receivables
 
         private static void RegisterContext(ContainerBuilder builder)
         {
-            builder.RegisterType<GodelBenefitContext>().AsSelf().InstancePerRequest();
+            builder.RegisterType<ReceivablesContext>().AsSelf().InstancePerRequest();
             builder.Register(c => HttpContext.Current.GetOwinContext().Authentication).As<IAuthenticationManager>();
         }
 
