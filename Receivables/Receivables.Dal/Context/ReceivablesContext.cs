@@ -29,6 +29,8 @@ namespace Receivables.Dal.Context
         {
             modelBuilder.Configurations.Add(new StoreConfigurations());
             modelBuilder.Configurations.Add(new StoreTypeConfigurations());
+            modelBuilder.Configurations.Add(new AgreementConfigurations());
+            modelBuilder.Configurations.Add(new CustomerConfigurations());
 
             base.OnModelCreating(modelBuilder);
         }
