@@ -12,13 +12,7 @@ namespace Receivables.Dal.Repositories
            : base(context)
         {
         }
-
-        public IList<Store> GetAllByStoreTypeId(int storeTypeId)
-        {
-            var result = entities.Where(x => x.StoreTypeId == storeTypeId);
-            return result.ToList();
-        }
-
+        
         public Store GetByName(string storeName)
         {
             return entities.FirstOrDefault(x => x.Name.Equals(storeName, System.StringComparison.InvariantCultureIgnoreCase));

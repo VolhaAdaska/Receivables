@@ -9,7 +9,6 @@ namespace Receivables.Dal.Context
     public class ReceivablesContext : IdentityDbContext<ApplicationUser>
     {
         public DbSet<Store> Stores { get; set; }
-        public DbSet<StoreType> StoreTypes { get; set; }
 
         public ReceivablesContext()
             : base("ReceivablesDatabase")
@@ -28,7 +27,6 @@ namespace Receivables.Dal.Context
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Configurations.Add(new StoreConfigurations());
-            modelBuilder.Configurations.Add(new StoreTypeConfigurations());
             modelBuilder.Configurations.Add(new AgreementConfigurations());
             modelBuilder.Configurations.Add(new CustomerConfigurations());
 

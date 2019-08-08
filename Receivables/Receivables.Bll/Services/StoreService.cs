@@ -1,14 +1,12 @@
 ﻿using AutoMapper;
 using NLog;
+using Receivables.Bll.Dto;
+using Receivables.Bll.Infrastructure;
 using Receivables.Bll.Interfaces;
 using Receivables.Dal.Interfaces;
 using Receivables.Dal.Models;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
-using Receivables.Bll.Dto;
-using Receivables.Bll.Infrastructure;
 
 namespace Receivables.Bll.Services
 {
@@ -35,7 +33,7 @@ namespace Receivables.Bll.Services
                 if (unitOfWork.StoreRepository.GetByName(store.Name) != null)
                 {
                     Logger.Error("A Store with this name already exists");
-                    return new OperationDetails(false, "A Store with this name already exists", "StoreType");
+                    return new OperationDetails(false, "A Store with this name already exists", "Store");
                 }
                 await unitOfWork.StoreRepository.CreateAsync(store);
                 await unitOfWork.SaveAsync();
@@ -101,13 +99,7 @@ namespace Receivables.Bll.Services
                 return new OperationDetails(false, ex.Message);
             }
         }
-
-        public IList<StoreDto> GetAllStore(int storeTypeId)
-        {
-            var result = unitOfWork.StoreRepository.GetAllByStoreTypeId(storeTypeId);
-            return result.Select(x => mapper.Map<Store, StoreDto>(x)).ToList();
-        }
-
+        
         public async Task<StoreDto> GetStoreByIdAsync(int id)
         {
             Store store = await unitOfWork.StoreRepository.GetByIdAsync(id);

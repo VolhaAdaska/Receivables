@@ -27,23 +27,14 @@ namespace Receivables.Dal.Context
             var simpleUserRole = userManager.FindByEmail(simpleUser.Email);
             userManager.AddToRole(simpleUserRole.Id, UserRoles.User);
 
-            StoreType storeTypeBook = new StoreType { Name = "Book" };
-            StoreType storeTypeFood = new StoreType { Name = "Food" };
-            context.StoreTypes.Add(storeTypeBook);
-            context.StoreTypes.Add(storeTypeFood);
-
             Store storeBook = new Store
             {
-                Name = "oz.by",
-                Promocode = "4GTE1",
-                StoreType = storeTypeBook
+                Name = "oz.by"
             };
 
             Store storeFood = new Store
             {
-                Name = "e-dostavka",
-                Promocode = "4GTE1234",
-                StoreType = storeTypeFood
+                Name = "e-dostavka"
             };
 
             context.Stores.Add(storeBook);

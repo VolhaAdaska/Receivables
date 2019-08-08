@@ -16,36 +16,18 @@ namespace Receivables.Areas.Admin.Controllers
     public class StoreAdminController : Controller
     {
         private readonly IStoreService storeService;
-        private readonly IStoreTypeService storeTypeService;
         private readonly IMapper mapper;
 
-        public StoreAdminController(IStoreService storeService, IStoreTypeService storeTypeService, IMapper mapper)
+        public StoreAdminController(IStoreService storeService, IMapper mapper)
         {
             this.storeService = storeService ?? throw new ArgumentNullException(nameof(storeService));
-            this.storeTypeService = storeTypeService ?? throw new ArgumentNullException(nameof(storeTypeService));
             this.mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
         }
-
-        [HttpGet]
-        public ActionResult StoreList(int id)
-        {
-            var result = storeService.GetAllStore(id);
-            if (result.Count == 0)
-            {
-                return View("Error");
-            }
-            var newModel = mapper.Map<IList<StoreDto>, IList<StoreViewModel>>(result);
-
-            return View(newModel);
-        }
-
+        
         [HttpGet]
         public ActionResult AddStore()
         {
-            StoreViewModel storeViewModel = new StoreViewModel
-            {
-                StoreTypeList = CreateStoreTypeList()
-            };
+            StoreViewModel storeViewModel = new StoreViewModel();
 
             return View(storeViewModel);
         }
@@ -53,8 +35,6 @@ namespace Receivables.Areas.Admin.Controllers
         [HttpPost]
         public async Task<ActionResult> AddStore(StoreViewModel model)
         {
-            model.StoreTypeList = model.StoreTypeList ?? CreateStoreTypeList();
-
             if (!ModelState.IsValid)
             {
                 return View(model);
@@ -70,15 +50,7 @@ namespace Receivables.Areas.Admin.Controllers
             return View(model);
         }
 
-        private IList<SelectListItem> CreateStoreTypeList()
-        {
-            var resultStoreType = storeTypeService.GetAllStoreType();
-            return resultStoreType.Select(x => new SelectListItem
-            {
-                Value = x.Id.ToString(),
-                Text = x.Name
-            }).ToList();
-        }
+    
 
         [HttpGet]
         public async Task<ActionResult> DeleteStore(StoreViewModel model)
@@ -88,10 +60,10 @@ namespace Receivables.Areas.Admin.Controllers
             OperationDetails operationDetails = await storeService.DeleteStoreAsync(storeDto);
             if (operationDetails.Succedeed)
             {
-                return RedirectToAction("StoreTypeList", "StoreTypeAdmin");
+                return View("StoreList");
             }
             ModelState.AddModelError(operationDetails.Property, operationDetails.Message);
-            return RedirectToAction("StoreTypeList", "StoreTypeAdmin");
+            return View("StoreList");
         }
 
         [HttpGet]
@@ -109,10 +81,10 @@ namespace Receivables.Areas.Admin.Controllers
             OperationDetails operationDetails = await storeService.UpdateStoreAsync(storeDto);
             if (operationDetails.Succedeed)
             {
-                return RedirectToAction("StoreTypeList", "StoreTypeAdmin");
+                return View("StoreList");
             }
             ModelState.AddModelError(operationDetails.Property, operationDetails.Message);
-            return RedirectToAction("StoreTypeList", "StoreTypeAdmin");
+            return View("StoreList");
         }
     }
 }

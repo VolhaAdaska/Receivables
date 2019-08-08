@@ -16,6 +16,5 @@ namespace Receivables.Bll.Interfaces
 
         Task<StoreDto> GetStoreByIdAsync(int id);
 
-        IList<StoreDto> GetAllStore(int storeTypeId);
     }
 }

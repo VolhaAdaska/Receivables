@@ -77,10 +77,6 @@
                     {
                         if (isAdmin)
                         {
-                            <li data-menuanchor="store">
-                                @Html.ActionLink("Store", "StoreTypeList", "StoreTypeAdmin", new { area = "Admin" }, null)
-                            </li>
-
                             <li data-menuanchor="dropdownCreate">
                                 <a class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="false" aria-expanded="false">
                                     Create
@@ -88,7 +84,6 @@
                                 </a>
                             
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    @Html.ActionLink("Create store type", "AddStoreType", "StoreTypeAdmin", new { area = "Admin" }, new { @class = "dropdown-item text-dark" }) <br>
                                     @Html.ActionLink("Create store", "AddStore", "StoreAdmin", new { area = "Admin" }, new { @class = "dropdown-item  text-dark" })
                                 </div>
                             </li>
@@ -97,7 +92,7 @@
                         else
                         {
                             <li data-menuanchor="store">
-                                @Html.ActionLink("Store", "StoreTypeList", "Store", new { area = "" }, new { @class = "nav-link" })
+                                @Html.ActionLink("Store", "StoreList", "Store", new { area = "" }, new { @class = "nav-link" })
                             </li>
                         }
 

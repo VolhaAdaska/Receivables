@@ -1,6 +1,4 @@
-﻿using System.Security.AccessControl;
-
-namespace Receivables.Dal.Models
+﻿namespace Receivables.Dal.Models
 {
     public class Customer : BaseEntity
     {
@@ -9,5 +7,9 @@ namespace Receivables.Dal.Models
         public string FullName { get; set; }
 
         public string INN { get; set; }
+
+        public virtual ApplicationUser ApplicationUser { get; set; }
+
+        public bool IsBlocked { get; set; }
     }
 }

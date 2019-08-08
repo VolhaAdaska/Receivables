@@ -13,5 +13,7 @@ namespace Receivables.Dal.Models
         public int CustomerId { get; set; }
 
         public virtual Customer Customer { get; set; }
+
+        public virtual ApplicationUser ApplicationUser { get; set; }
     }
 }

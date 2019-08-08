@@ -22,20 +22,8 @@
                                     <div class="contact-form">
                                         <div class="col-md-12 col-sm-12">
                                             <div class="form-group">
-                                                @Html.DropDownListFor(x => x.StoreTypeId, Model.StoreTypeList, new { @class = "form-control nobottommargin input-border-bottom text-dark" })
-                                                @Html.ValidationMessageFor(x => x.StoreTypeId, "", new { @class = "text-white" })
-                                            </div>
-                                        </div>
-                                        <div class="col-md-12 col-sm-12">
-                                            <div class="form-group">
                                                 @Html.EditorFor(x => x.Name, new { htmlAttributes = new { @class = "form-control nobottommargin input-border-bottom", @placeholder = "Name store", @required = "required" } })
                                                 @Html.ValidationMessageFor(x => x.Name, "", new { @class = "text-white" })
-                                            </div>
-                                        </div>
-                                        <div class="col-md-12 col-sm-12">
-                                            <div class="form-group">
-                                                @Html.EditorFor(x => x.Promocode, new { htmlAttributes = new { @class = "form-control nobottommargin input-border-bottom", @placeholder = "Promocode", @required = "required" } })
-                                                @Html.ValidationMessageFor(x => x.Promocode, "", new { @class = "text-white" })
                                             </div>
                                         </div>
                                         <div class="form-group">
