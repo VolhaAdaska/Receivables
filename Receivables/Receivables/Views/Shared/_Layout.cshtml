@@ -1,156 +1,95 @@
-﻿@using Receivables.Dal
-@{
-    var isAuthenticated = User.Identity.IsAuthenticated;
-    var isAdmin = false;
+﻿<!DOCTYPE html>
 
-    if (isAuthenticated)
-    {
-        isAdmin = User.IsInRole(UserRoles.Admin);
-    }
-
-}
-
-<!DOCTYPE html>
-<html class="no-js" lang="en-US">
+<html>
 <head>
-
     <title>@ViewBag.Title</title>
+    <link rel="icon" type="image/png" href="~/Assets/img/favicon.png">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
 
-    <!-- META DATA -->
-    <meta http-equiv="content-type" content="text/html;charset=UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="">
-    <meta name="keywords" content="">
-    <meta name="author" content="Erilisdesign.com">
-
-    <!-- CSS Global Compulsory -->
-    <link rel="stylesheet" href="~/Content/css/bootstrap.min.css">
-    <link rel="stylesheet" href="~/Content/css/style.css">
-    <link rel="stylesheet" href="~/Content/css/custom.css">
-
-    <!-- CSS Implementing Plugins -->
-    <link rel="stylesheet" href="~/Content/css/jquery.fullpage.min.css" type="text/css">
-    <link rel="stylesheet" href="~/Content/css/vegas.min.css" type="text/css">
-    <link rel="stylesheet" href="~/Content/css/font-awesome.min.css" type="text/css">
-    <link rel="stylesheet" href="~/Content/css/ionicons.min.css" type="text/css">
-    <link rel="stylesheet" href="~/Content/css/animate.min.css" type="text/css">
-    <link rel="stylesheet" href="~/Content/css/flexslider.css" type="text/css">
-    <link rel="stylesheet" href="~/Content/css/magnific-popup.css" type="text/css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
-
-    <!-- FONTS -->
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700%7CRaleway:400,200,300,500' rel='stylesheet' type='text/css'>
-
-    <!-- JS -->
-    <script type="text/javascript" src="~/Scripts/js/modernizr.js"></script>
-
-    <!-- FAVICONS -->
-    <link rel="shortcut icon" href="~/Content/img/favicon.png">
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+    <!--     Fonts and icons     -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
+    <!-- CSS Files -->
+    <link href="~/Assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Assets/css/paper-dashboard.css?v=2.0.0" rel="stylesheet" />
+    <link href="~/Assets/demo/demo.css" rel="stylesheet" />
 
 </head>
+
 <body>
-
-    <div id="preloader">
-        <div id="loading-animation">&nbsp;</div>
-    </div>
-
-    <nav class="navbar navbar-fixed-top">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-absolute fixed-top navbar-transparent">
         <div class="container-fluid">
-            <div id="navbar" class="navbar-collapse collapse">
-
-                <ul id="fp-menu" class="nav navbar-nav navbar-right">
-
-                    <li data-menuanchor="home">
-                        @Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "nav-link" })
-                    </li>
-
-                    @if (!isAuthenticated)
-                    {
-                        <li data-menuanchor="signIn">
-                            @Html.ActionLink("Sign In", "Login", "Account", null, new { @class = "nav-link" })
-                        </li>
-                        <li data-menuanchor="register">
-                            @Html.ActionLink("Register", "Register", "Account", null, new { @class = "nav-link" })
-                        </li>
-                    }
-                    else
-                    {
-                        if (isAdmin)
-                        {
-                            <li data-menuanchor="dropdownCreate">
-                                <a class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="false" aria-expanded="false">
-                                    Create
-                                    <i class="fa fa-caret-square-o-down"></i>
-                                </a>
-                            
-                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    @Html.ActionLink("Create store", "AddStore", "StoreAdmin", new { area = "Admin" }, new { @class = "dropdown-item  text-dark" })
-                                </div>
-                            </li>
-
-                        }
-                        else
-                        {
-                            <li data-menuanchor="store">
-                                @Html.ActionLink("Store", "StoreList", "Store", new { area = "" }, new { @class = "nav-link" })
-                            </li>
-                        }
-
-                        <li data-menuanchor="signOut">
-                            @Html.ActionLink("Sign Out", "Logout", "Account", new { area = "" }, new { @class = "nav-link" })
-                        </li>
-                    }
-                </ul>
-            </div><!--/.nav-collapse -->
-        </div><!--/.container-fluid -->
-        <div class="navbar-overlay"></div>
-    </nav>
-
-    <div class="main-container">
-        <div id="bt-fullpage">
-            <div data-element-id="home" class="bt-section">
-                <section class="section home-section fullscreen-element">
-                    <div class="overlay">
-                        <div class="overlay-wrapper">
-                            <div class="overlay-inner cover-background" id="bg-block"></div>
-                            <div class="overlay-inner background-dark opacity-30"></div>
-                        </div>
-                    </div>
-                    @RenderBody()
-                </section>
+            <div class="navbar-wrapper">
+                <div class="navbar-toggle">
+                    <button type="button" class="navbar-toggler">
+                        <span class="navbar-toggler-bar bar1"></span>
+                        <span class="navbar-toggler-bar bar2"></span>
+                        <span class="navbar-toggler-bar bar3"></span>
+                    </button>
+                </div>
+                <a class="navbar-brand" href="#pablo">Дебиторская задолженность</a>
             </div>
-            <!-- Footer -->
-            <footer class="site-footer">
-                <div class="section-container">
-                    <!-- Copyright -->
-                    <div class="copyright">
-                        <div class="container-fluid">
-                            <div class="row">
-                                <div class="col-md-6 text-left">
-                                    © 2018 <a href="http://gcp.godeltech.com/people/personDetails/780/generalInfo"> Volha Adaska </a>
-                                </div>
-                                <div class="col-md-6">
-                                    <nav class="socials-icons pull-right">
-                                        <ul>
-                                            @*<li><a href="https://en-gb.facebook.com/godeltech/" class="social-icon"><i class="ion-social-facebook"></i></a></li>
-                                                <li><a href="https://twitter.com/GodelTech" class="social-icon"><i class="ion-social-twitter"></i></a></li>
-                                                <li><a href="https://www.instagram.com/godel_technologies/" class="social-icon"><i class="ion-social-instagram"></i></a></li>*@
-                                        </ul>
-                                    </nav>
-                                </div>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-bar navbar-kebab"></span>
+                <span class="navbar-toggler-bar navbar-kebab"></span>
+                <span class="navbar-toggler-bar navbar-kebab"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navigation">
+                <form>
+                    <div class="input-group no-border">
+                        <input type="text" value="" class="form-control" placeholder="Search...">
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <i class="nc-icon nc-zoom-split"></i>
                             </div>
                         </div>
-                    </div><!-- .copyright end -->
-                </div>
-            </footer><!-- .site-footer end -->
-        </div><!-- #fullpage end -->
-    </div><!-- .main-container end -->
-    <!-- JS -->
-    <script type="text/javascript" src="~/Scripts/js/jquery.min.js"></script>
-    <script type="text/javascript" src="~/Scripts/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="~/Scripts/js/plugins.js"></script>
+                    </div>
+                </form>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link btn-magnify" href="#pablo">
+                            <i class="nc-icon nc-layout-11"></i>
+                            <p>
+                                <span class="d-lg-none d-md-block">Stats</span>
+                            </p>
+                        </a>
+                    </li>
+                    <li class="nav-item btn-rotate dropdown">
+                        <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="nc-icon nc-bell-55"></i>
+                            <p>
+                                <span class="d-lg-none d-md-block">Some Actions</span>
+                            </p>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item" href="#">Action</a>
+                            <a class="dropdown-item" href="#">Another action</a>
+                            <a class="dropdown-item" href="#">Something else here</a>
+                        </div>
+                    </li>
+                   
+                </ul>
+            </div>
+        </div>
+    </nav>
 
-    <script type="text/javascript" src="~/Scripts/js/main.js"></script>
 
+    <div class="page-header" style="background-image: url('../../Assets/img/back.jpg')">
+        @RenderBody()
+    </div>
+
+    <script src="~/Assets/js/core/jquery.min.js"></script>
+    <script src="~/Assets/js/core/popper.min.js"></script>
+    <script src="~/Assets/js/core/bootstrap.min.js"></script>
+    <script src="~/Assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
+    <script src="~/Assets/js/plugins/chartjs.min.js"></script>
+    <script src="~/Assets/js/plugins/bootstrap-notify.js"></script>
+    <script src="~/Assets/js/paper-dashboard.min.js?v=2.0.0" type="text/javascript"></script>
+    <script src="~/Assets/demo/demo.js"></script>
 </body>
+
 </html>

@@ -141,39 +141,42 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\css\animate.min.css" />
-    <Content Include="Content\css\bootstrap.css" />
-    <Content Include="Content\css\bootstrap.min.css" />
-    <Content Include="Content\css\custom.css" />
-    <Content Include="Content\css\flexslider.css" />
-    <Content Include="Content\css\font-awesome.css" />
-    <Content Include="Content\css\font-awesome.min.css" />
-    <Content Include="Content\css\ie.css" />
-    <Content Include="Content\css\ionicons.min.css" />
-    <Content Include="Content\css\jquery.fullpage.min.css" />
-    <Content Include="Content\css\magnific-popup.css" />
-    <Content Include="Content\css\overlays\01.png" />
-    <Content Include="Content\css\overlays\02.png" />
-    <Content Include="Content\css\overlays\03.png" />
-    <Content Include="Content\css\overlays\04.png" />
-    <Content Include="Content\css\overlays\05.png" />
-    <Content Include="Content\css\overlays\06.png" />
-    <Content Include="Content\css\overlays\07.png" />
-    <Content Include="Content\css\overlays\08.png" />
-    <Content Include="Content\css\overlays\09.png" />
-    <Content Include="Content\css\style.css" />
-    <Content Include="Content\css\vegas.min.css" />
-    <Content Include="Content\img\back.jpg" />
+    <Content Include="Assets\css\bootstrap.min.css" />
+    <Content Include="Assets\css\paper-dashboard.css" />
+    <Content Include="Assets\css\paper-dashboard.min.css" />
+    <Content Include="Assets\demo\demo.css" />
+    <Content Include="Assets\demo\demo.js" />
+    <Content Include="Assets\img\apple-icon.png" />
+    <Content Include="Assets\img\bg5.jpg" />
+    <Content Include="Assets\img\back.jpg" />
+    <Content Include="Assets\img\damir-bosnjak.jpg" />
+    <Content Include="Assets\img\default-avatar.png" />
+    <Content Include="Assets\img\faces\ayo-ogunseinde-1.jpg" />
+    <Content Include="Assets\img\faces\ayo-ogunseinde-2.jpg" />
+    <Content Include="Assets\img\faces\clem-onojeghuo-1.jpg" />
+    <Content Include="Assets\img\faces\clem-onojeghuo-2.jpg" />
+    <Content Include="Assets\img\faces\clem-onojeghuo-3.jpg" />
+    <Content Include="Assets\img\faces\clem-onojeghuo-4.jpg" />
+    <Content Include="Assets\img\faces\erik-lucatero-1.jpg" />
+    <Content Include="Assets\img\faces\erik-lucatero-2.jpg" />
+    <Content Include="Assets\img\faces\joe-gardner-1.jpg" />
+    <Content Include="Assets\img\faces\joe-gardner-2.jpg" />
+    <Content Include="Assets\img\faces\kaci-baum-1.jpg" />
+    <Content Include="Assets\img\faces\kaci-baum-2.jpg" />
+    <Content Include="Assets\img\favicon.png" />
+    <Content Include="Assets\img\header.jpg" />
+    <Content Include="Assets\img\jan-sendereks.jpg" />
+    <Content Include="Assets\img\logo-small.png" />
+    <Content Include="Assets\img\mike.jpg" />
+    <Content Include="Assets\js\core\bootstrap.min.js" />
+    <Content Include="Assets\js\core\jquery.min.js" />
+    <Content Include="Assets\js\core\popper.min.js" />
+    <Content Include="Assets\js\paper-dashboard.js" />
+    <Content Include="Assets\js\paper-dashboard.min.js" />
+    <Content Include="Assets\js\plugins\bootstrap-notify.js" />
+    <Content Include="Assets\js\plugins\chartjs.min.js" />
+    <Content Include="Assets\js\plugins\perfect-scrollbar.jquery.min.js" />
     <Content Include="Global.asax" />
-    <Content Include="Content\img\favicon.png" />
-    <Content Include="Scripts\js\bootstrap.js" />
-    <Content Include="Scripts\js\bootstrap.min.js" />
-    <Content Include="Scripts\js\jquery.min.js" />
-    <Content Include="Scripts\js\main-sections.js" />
-    <Content Include="Scripts\js\main.js" />
-    <Content Include="Scripts\js\modernizr.js" />
-    <Content Include="Scripts\js\plugins.js" />
-    <Content Include="Scripts\js\respond.min.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -200,14 +203,19 @@
   <ItemGroup>
     <Content Include="Views\web.config" />
     <Content Include="Areas\Admin\Views\web.config" />
-    <Content Include="Content\css\bootstrap.css.map" />
-    <Content Include="Content\css\bootstrap.min.css.map" />
     <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Admin\Views\StoreAdmin\StoreList.cshtml" />
     <Content Include="Areas\Admin\Views\StoreAdmin\SuccessAdd.cshtml" />
     <Content Include="Areas\Admin\Views\StoreAdmin\AddStore.cshtml" />
     <Content Include="Areas\Admin\Views\StoreAdmin\UpdateStore.cshtml" />
     <Content Include="Areas\Admin\Views\StoreAdmin\Error.cshtml" />
+    <Content Include="Assets\css\bootstrap.min.css.map" />
+    <Content Include="Assets\css\paper-dashboard.css.map" />
+    <Content Include="Assets\fonts\nucleo-icons.eot" />
+    <Content Include="Assets\fonts\nucleo-icons.ttf" />
+    <Content Include="Assets\fonts\nucleo-icons.woff" />
+    <Content Include="Assets\fonts\nucleo-icons.woff2" />
+    <Content Include="Assets\js\paper-dashboard.js.map" />
     <None Include="packages.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
@@ -226,7 +234,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Content\img\social-icons\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
