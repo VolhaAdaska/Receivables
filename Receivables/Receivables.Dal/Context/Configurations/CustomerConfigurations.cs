@@ -11,6 +11,12 @@ namespace Receivables.Dal.Context.Configurations
             Property(x => x.Name).IsRequired().HasMaxLength(100);
             Property(x => x.FullName).HasMaxLength(256);
             Property(x => x.INN).IsRequired();
+
+            Property(x => x.UserId).IsRequired();
+            HasRequired(x => x.User)
+                .WithMany(g => g.Customers)
+                .HasForeignKey(x => x.UserId)
+                .WillCascadeOnDelete(false);
         }
     }
 }

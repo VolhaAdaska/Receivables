@@ -56,6 +56,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Context\Configurations\ContractConfigurations.cs" />
     <Compile Include="Context\Configurations\CustomerConfigurations.cs" />
     <Compile Include="Context\Configurations\StoreConfigurations.cs" />
     <Compile Include="Context\Configurations\AgreementConfigurations.cs" />
@@ -68,6 +69,7 @@
     <Compile Include="Models\ApplicationRole.cs" />
     <Compile Include="Models\ApplicationUser.cs" />
     <Compile Include="Models\BaseEntity.cs" />
+    <Compile Include="Models\Contract.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\Store.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

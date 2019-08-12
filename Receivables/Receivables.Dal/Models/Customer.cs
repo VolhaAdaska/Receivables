@@ -1,4 +1,6 @@
-﻿namespace Receivables.Dal.Models
+﻿ using System.Collections.Generic;
+
+ namespace Receivables.Dal.Models
 {
     public class Customer : BaseEntity
     {
@@ -8,8 +10,12 @@
 
         public string INN { get; set; }
 
-        public virtual ApplicationUser ApplicationUser { get; set; }
+        public virtual ApplicationUser User { get; set; }
+
+        public string UserId { get; set; }
 
         public bool IsBlocked { get; set; }
+
+        public virtual ICollection<Contract> Contracts { get; set; }
     }
 }

@@ -144,6 +144,7 @@
     <Content Include="Assets\css\bootstrap.min.css" />
     <Content Include="Assets\css\paper-dashboard.css" />
     <Content Include="Assets\css\paper-dashboard.min.css" />
+    <Content Include="Assets\css\paper-kit.css" />
     <Content Include="Assets\demo\demo.css" />
     <Content Include="Assets\demo\demo.js" />
     <Content Include="Assets\img\apple-icon.png" />
