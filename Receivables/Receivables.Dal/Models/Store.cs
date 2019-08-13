@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Receivables.Dal.Models
 {
@@ -15,5 +16,7 @@ namespace Receivables.Dal.Models
         public Contract Contract { get; set; }
 
         public int ContractId { get; set; }
+
+        public virtual ICollection<Product> Products { get; set; }
     }
 }

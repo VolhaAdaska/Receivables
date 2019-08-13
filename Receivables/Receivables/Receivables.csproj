@@ -142,8 +142,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\css\bootstrap.min.css" />
-    <Content Include="Assets\css\paper-dashboard.css" />
-    <Content Include="Assets\css\paper-dashboard.min.css" />
+    <Content Include="Assets\css\demo.css" />
+    <Content Include="Assets\css\IsAuthenticated\bootstrap.min.css" />
+    <Content Include="Assets\css\IsAuthenticated\paper-dashboard.css" />
+    <Content Include="Assets\css\IsAuthenticated\paper-dashboard.min.css" />
+    <Content Include="Assets\css\nucleo-icons.css" />
     <Content Include="Assets\css\paper-kit.css" />
     <Content Include="Assets\demo\demo.css" />
     <Content Include="Assets\demo\demo.js" />
@@ -178,6 +181,12 @@
     <Content Include="Assets\js\plugins\chartjs.min.js" />
     <Content Include="Assets\js\plugins\perfect-scrollbar.jquery.min.js" />
     <Content Include="Global.asax" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\jquery-3.0.0.min.js" />
+    <Content Include="Scripts\moment.min.js" />
+    <Content Include="Scripts\nouislider.js" />
+    <Content Include="Scripts\paper-kit.js" />
+    <Content Include="Scripts\popper.min.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -210,13 +219,14 @@
     <Content Include="Areas\Admin\Views\StoreAdmin\AddStore.cshtml" />
     <Content Include="Areas\Admin\Views\StoreAdmin\UpdateStore.cshtml" />
     <Content Include="Areas\Admin\Views\StoreAdmin\Error.cshtml" />
-    <Content Include="Assets\css\bootstrap.min.css.map" />
-    <Content Include="Assets\css\paper-dashboard.css.map" />
+    <Content Include="Assets\css\IsAuthenticated\bootstrap.min.css.map" />
+    <Content Include="Assets\css\IsAuthenticated\paper-dashboard.css.map" />
     <Content Include="Assets\fonts\nucleo-icons.eot" />
     <Content Include="Assets\fonts\nucleo-icons.ttf" />
     <Content Include="Assets\fonts\nucleo-icons.woff" />
     <Content Include="Assets\fonts\nucleo-icons.woff2" />
     <Content Include="Assets\js\paper-dashboard.js.map" />
+    <Content Include="Assets\css\bootstrap.min.css.map" />
     <None Include="packages.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
@@ -226,6 +236,9 @@
     <Content Include="Views\Account\SuccessRegister.cshtml" />
     <Content Include="Views\Store\StoreList.cshtml" />
     <Content Include="Views\Error\NotFound.cshtml" />
+    <Content Include="Scripts\bootstrap.min.js.map" />
+    <Content Include="Scripts\jquery-3.0.0.min.map" />
+    <Content Include="Scripts\popper.min.js.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

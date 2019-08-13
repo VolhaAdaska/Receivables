@@ -26,20 +26,7 @@ namespace Receivables.Dal.Context
             userManager.Create(simpleUser, "!13InsAdaska");
             var simpleUserRole = userManager.FindByEmail(simpleUser.Email);
             userManager.AddToRole(simpleUserRole.Id, UserRoles.User);
-
-            //Store storeBook = new Store
-            //{
-            //    Name = "oz.by"
-            //};
-
-            //Store storeFood = new Store
-            //{
-            //    Name = "e-dostavka"
-            //};
-
-            //context.Stores.Add(storeBook);
-            //context.Stores.Add(storeFood);
-
+            
             context.SaveChanges();
 
             base.Seed(context);
