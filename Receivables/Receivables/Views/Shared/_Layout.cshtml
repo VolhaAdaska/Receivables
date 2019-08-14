@@ -78,24 +78,25 @@
         </div>
     </nav>
 
-    <div class="wrapper">
-        <div class="page-header section-dark" style="background-image: url('../../Assets/img/jan-sendereks.jpg')">
-            <div class="filter"></div>
-            <div class="content-center">
-                @if (IsSectionDefined("Header"))
-                {
-                    @RenderSection("Header")
-                }
-            </div>
+<div class="wrapper">
+    <div class="page-header section-dark" style="background-image: url('../../Assets/img/jan-sendereks.jpg')">
+        <div class="filter"></div>
+        <div class="content-center">
+            @if (IsSectionDefined("Header"))
+            {
+                @RenderSection("Header")
+            }
         </div>
-
-        @RenderBody()
-
     </div>
+
+    @RenderBody()
+
+</div>
+
+
 @if (User.Identity.IsAuthenticated)
 {
-    <script src="~/Assets/js/core/jquery.min.js"></script>
-    <script src="~/Assets/js/core/popper.min.js"></script>
+
     <script src="~/Assets/js/core/bootstrap.min.js"></script>
     <script src="~/Assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
     <script src="~/Assets/js/plugins/chartjs.min.js"></script>
