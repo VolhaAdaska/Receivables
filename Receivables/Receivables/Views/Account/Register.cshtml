@@ -5,20 +5,70 @@
 }
 
 @section Header{
-    <div class="container">
-        <div class="title-brand">
-            <h1 class="presentation-title">Register</h1>
+    <div class="header bg-gradient-primary py-7 py-lg-8">
+        <div class="container">
+            <div class="header-body text-center mb-7">
+                <div class="row justify-content-center">
+                    <div class="col-lg-5 col-md-6">
+
+                        <p>Welcome</p>
+                    </div>
+                </div>
+            </div>
         </div>
-        <form action="Register" method="post" class="form-group register-form register-card" role="form">
-            @Html.AntiForgeryToken()
-            @Html.ValidationSummary()
-            @Html.LabelFor(x => x.Email, new { @class = "presentation-subtitle" })
-            @Html.EditorFor(x => x.Email, new { htmlAttributes = new { @class = "form-control", @placeholder = "Email" } })
-            @Html.LabelFor(x => x.Password, new { @class = "presentation-subtitle" })
-            @Html.EditorFor(x => x.Password, new { htmlAttributes = new { @class = "form-control", @placeholder = "Password" } })
-            @Html.LabelFor(x => x.ConfirmPassword, new { @class = "presentation-subtitle" })
-            @Html.EditorFor(x => x.ConfirmPassword, new { htmlAttributes = new { @class = "form-control", @placeholder = "Confirm Password" } })
-            <button class="btn btn-dark btn-block" type="submit">Register</button>
-        </form>
+        <div class="separator separator-bottom separator-skew zindex-100">
+            <svg x="0" y="0" viewBox="0 0 2560 100" preserveAspectRatio="none" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                <polygon class="fill-default" points="2560 0 2560 100 0 100"></polygon>
+            </svg>
+        </div>
+    </div>
+    <div class="container mt--8 pb-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-6 col-md-8">
+                <div class="card bg-secondary shadow border-0">
+                    <div class="card-header bg-transparent pb-5">
+                        <div class="text-muted text-center mt-2 mb-4">Create account</div>
+                    </div>
+                    <div class="card-body px-lg-5 py-lg-5">
+                        <form action="Register" method="post" role="form">
+                            @Html.AntiForgeryToken()
+                            @Html.ValidationSummary()
+                            <div class="form-group">
+                                <div class="input-group input-group-alternative mb-3">
+                                    @Html.LabelFor(x => x.Email, new { @class = "input-group-text" })
+                                    @Html.EditorFor(x => x.Email, new { htmlAttributes = new { @class = "form-control" } })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-group input-group-alternative">
+                                    @Html.LabelFor(x => x.Password, new { @class = "input-group-text" })
+                                    @Html.EditorFor(x => x.Password, new { htmlAttributes = new { @class = "form-control" } })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-group input-group-alternative mb-3">
+                                    @Html.LabelFor(x => x.ConfirmPassword, new { @class = "input-group-text" })
+                                    @Html.EditorFor(x => x.ConfirmPassword, new { htmlAttributes = new { @class = "form-control" } })
+                                </div>
+                            </div>
+                            @*<div class="text-muted font-italic"><small>password strength: <span class="text-success font-weight-700">strong</span></small></div>*@
+                            <div class="row my-4">
+                                <div class="col-12">
+                                    <div class="custom-control custom-control-alternative custom-checkbox">
+                                        <input class="custom-control-input" id="customCheckRegister" type="checkbox">
+                                        <label class="custom-control-label" for="customCheckRegister">
+                                            <span class="text-muted">I agree with the <a href="#!">Privacy Policy</a></span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="text-center">
+                                <button class="btn btn-primary mt-4" type="submit">Register</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 }

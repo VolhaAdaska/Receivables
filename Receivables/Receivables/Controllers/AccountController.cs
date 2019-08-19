@@ -50,7 +50,7 @@ namespace Receivables.Controllers
             {
                 authManager.SignOut();
                 authManager.SignIn(new AuthenticationProperties { IsPersistent = true }, claim);
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Index", "Profile");
             }
             return View(model);
         }
