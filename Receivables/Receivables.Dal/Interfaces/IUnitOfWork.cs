@@ -13,6 +13,8 @@ namespace Receivables.Dal.Interfaces
 
         IStoreRepository StoreRepository { get; }
 
+        ICustomerRepository CustomerRepository { get; }
+
         Task SaveAsync();
     }
 }

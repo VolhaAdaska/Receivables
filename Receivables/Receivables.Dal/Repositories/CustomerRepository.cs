@@ -1,0 +1,26 @@
+﻿using System.Collections.Generic;
+using System.Linq;
+using Receivables.Dal.Context;
+using Receivables.Dal.Interfaces;
+using Receivables.Dal.Models;
+
+namespace Receivables.Dal.Repositories
+{
+    public class CustomerRepository : BaseRepository<Customer>, ICustomerRepository
+    {
+        public CustomerRepository(ReceivablesContext context)
+          : base(context)
+        {
+        }
+
+        public IEnumerable<Customer> GetActiveCustomer(string userId)
+        {
+            return entities.Where(x => x.UserId == userId && x.IsActive == true);
+        }
+
+        public Customer GetByINN(string INN)
+        {
+            return entities.FirstOrDefault(x => x.Name.Equals(INN, System.StringComparison.InvariantCultureIgnoreCase));
+        }
+    }
+}

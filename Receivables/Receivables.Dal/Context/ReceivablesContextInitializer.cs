@@ -26,7 +26,17 @@ namespace Receivables.Dal.Context
             userManager.Create(simpleUser, "!13InsAdaska");
             var simpleUserRole = userManager.FindByEmail(simpleUser.Email);
             userManager.AddToRole(simpleUserRole.Id, UserRoles.User);
-            
+
+            var customer = new Customer
+            {
+                Name = "Belagro",
+                INN = "1236547891023",
+                FullName = "ООО Белагро Бел",
+                User = simpleUser,
+                UserId = simpleUser.Id,
+                IsActive = true 
+            };
+            context.Customers.Add(customer);
             context.SaveChanges();
 
             base.Seed(context);

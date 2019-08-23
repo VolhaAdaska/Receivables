@@ -35,7 +35,8 @@ namespace Receivables.Dal.Repositories
         }
 
         public IStoreRepository StoreRepository => GetRepository<IStoreRepository>();
-        
+
+        public ICustomerRepository CustomerRepository => GetRepository<ICustomerRepository>();
 
         public async Task SaveAsync()
         {

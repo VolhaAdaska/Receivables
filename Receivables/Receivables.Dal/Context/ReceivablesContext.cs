@@ -9,6 +9,7 @@ namespace Receivables.Dal.Context
     public class ReceivablesContext : IdentityDbContext<ApplicationUser>
     {
         public DbSet<Store> Stores { get; set; }
+        public DbSet<Customer> Customers { get; set; }
 
         public ReceivablesContext()
             : base("ReceivablesDatabase")
