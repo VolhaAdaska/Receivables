@@ -23,6 +23,12 @@ namespace Receivables.Models
 
         public bool IsBlocked { get; set; }
 
+        [DataType(DataType.EmailAddress)]
+        public string Email { get; set; }
+
+        [StringLength(256)]
+        public string Address { get; set; }
+
         public IEnumerable<ContractModel> ContractModels { get; set; }
     }
 }

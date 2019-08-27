@@ -18,6 +18,10 @@
 
         public bool IsBlocked { get; set; }
 
+        public string Email { get; set; }
+
+        public string Address { get; set; }
+
         public virtual ICollection<Contract> Contracts { get; set; }
     }
 }

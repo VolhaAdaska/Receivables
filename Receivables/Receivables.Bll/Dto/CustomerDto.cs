@@ -19,6 +19,10 @@ namespace Receivables.Bll.Dto
 
         public bool IsBlocked { get; set; }
 
+        public string Email { get; set; }
+
+        public string Address { get; set; }
+
         public virtual IEnumerable<Contract> Contracts { get; set; }
     }
 }

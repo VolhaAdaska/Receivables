@@ -242,6 +242,10 @@
     <Content Include="Views\Profile\Index.cshtml" />
     <Content Include="Views\Customer\Index.cshtml" />
     <Content Include="Views\Customer\Profile.cshtml" />
+    <Content Include="Views\Customer\AddCustomer.cshtml" />
+    <Content Include="Views\Customer\UpdateCustomer.cshtml" />
+    <Content Include="Views\Customer\DeleteCustomer.cshtml" />
+    <Content Include="Views\Customer\BlockedCustomer.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
