@@ -86,14 +86,35 @@ namespace Receivables.Bll.Services
             return customers.Select(p => mapper.Map<Customer, CustomerDto>(p)).ToList();
         }
 
-        public Task<CustomerDto> GetCustomerByIdAsync(int id)
+        public async Task<CustomerDto> GetCustomerByIdAsync(int id)
         {
-            throw new System.NotImplementedException();
+            Customer customer = await unitOfWork.CustomerRepository.GetByIdAsync(id);
+            return mapper.Map<Customer, CustomerDto>(customer);
         }
 
-        public Task<OperationDetails> UpdateCustomerAsync(CustomerDto customerDto)
+        public async Task<OperationDetails> UpdateCustomerAsync(CustomerDto customerDto)
         {
-            throw new System.NotImplementedException();
+            if (customerDto == null)
+            {
+                Logger.Error("Customer is null");
+                return new OperationDetails(false, "Something went wrong", "Контрагенты");
+            }
+
+            Customer customer = mapper.Map<CustomerDto, Customer>(customerDto);
+            customer.User = await unitOfWork.UserManager.FindByIdAsync(customerDto.UserId);
+
+            try
+            {
+                await unitOfWork.CustomerRepository.UpdateAsync(customer);
+                await unitOfWork.SaveAsync();
+                Logger.Info("Successfully updated");
+                return new OperationDetails(true);
+            }
+            catch (Exception ex)
+            {
+                Logger.Error(ex.Message);
+                return new OperationDetails(false, ex.Message);
+            }
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using Receivables.Dal.Models;
 
 namespace Receivables.Models
 {
@@ -29,6 +30,10 @@ namespace Receivables.Models
         [StringLength(256)]
         public string Address { get; set; }
 
-        public IEnumerable<ContractModel> ContractModels { get; set; }
+        public ApplicationUser User { get; set; }
+
+        public string UserId { get; set; }
+
+        public IEnumerable<ContractModel> Contracts { get; set; }
     }
 }

@@ -23,6 +23,8 @@ namespace Receivables.Bll.Dto
 
         public string Address { get; set; }
 
+        public ApplicationUser User { get; set; }
+
         public virtual IEnumerable<Contract> Contracts { get; set; }
     }
 }

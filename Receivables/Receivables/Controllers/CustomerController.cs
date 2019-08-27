@@ -16,7 +16,7 @@ namespace Receivables.Controllers
     {
         private readonly ICustomerService customerService;
         private readonly IMapper mapper;
-
+        
         public CustomerController(ICustomerService customerService, IMapper mapper)
         {
             this.customerService = customerService ?? throw new ArgumentNullException(nameof(customerService));
@@ -71,8 +71,31 @@ namespace Receivables.Controllers
         public async Task<ActionResult> DeleteCustomer(int id)
         {
             CustomerDto customerDto = new CustomerDto { Id = id };
+            string userId = User.Identity.GetUserId();
 
             OperationDetails operationDetails = await customerService.DeleteCustomerAsync(customerDto);
+            if (operationDetails.Succedeed)
+            {
+                return RedirectToAction("Index", "Customer", userId);
+            }
+            ModelState.AddModelError(operationDetails.Property, operationDetails.Message);
+            return RedirectToAction("Index", "Customer", userId);
+        }
+
+        [HttpGet]
+        public async Task<ActionResult> UpdateCustomer(int id)
+        {
+            CustomerDto customerDto = await customerService.GetCustomerByIdAsync(id);
+            return View(mapper.Map<CustomerDto, CustomerModel>(customerDto));
+        }
+
+        [HttpPost]
+        public async Task<ActionResult> UpdateCustomer(CustomerModel model)
+        {
+            CustomerDto customerDto = mapper.Map<CustomerModel, CustomerDto>(model);
+
+            OperationDetails operationDetails = await customerService.UpdateCustomerAsync(customerDto);
+                                  
             if (operationDetails.Succedeed)
             {
                 return RedirectToAction("Index", "Customer");
@@ -81,25 +104,11 @@ namespace Receivables.Controllers
             return RedirectToAction("Index", "Customer");
         }
 
-        //[HttpGet]
-        //public async Task<ActionResult> UpdateStore(int id)
-        //{
-        //    //StoreDto storeDto = await storeService.GetStoreByIdAsync(id);
-        //    //return View(mapper.Map<StoreDto, StoreViewModel>(storeDto));
-        //}
-
-        //[HttpPost]
-        //public async Task<ActionResult> UpdateStore(StoreViewModel model)
-        //{
-        //    //StoreDto storeDto = mapper.Map<StoreViewModel, StoreDto>(model);
-
-        //    //OperationDetails operationDetails = await storeService.UpdateStoreAsync(storeDto);
-        //    //if (operationDetails.Succedeed)
-        //    //{
-        //    //    return View("StoreList");
-        //    //}
-        //    //ModelState.AddModelError(operationDetails.Property, operationDetails.Message);
-        //    //return View("StoreList");
-        //}
+        [HttpGet]
+        public async Task<ActionResult> Profile(int id)
+        {
+            CustomerDto customerDto = await customerService.GetCustomerByIdAsync(id);
+            return View(mapper.Map<CustomerDto, CustomerModel>(customerDto));
+        }
     }
 }
