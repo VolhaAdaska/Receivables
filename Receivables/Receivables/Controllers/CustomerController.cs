@@ -67,5 +67,39 @@ namespace Receivables.Controllers
             return View(model);
         }
 
+        [HttpGet]
+        public async Task<ActionResult> DeleteCustomer(int id)
+        {
+            CustomerDto customerDto = new CustomerDto { Id = id };
+
+            OperationDetails operationDetails = await customerService.DeleteCustomerAsync(customerDto);
+            if (operationDetails.Succedeed)
+            {
+                return RedirectToAction("Index", "Customer");
+            }
+            ModelState.AddModelError(operationDetails.Property, operationDetails.Message);
+            return RedirectToAction("Index", "Customer");
+        }
+
+        //[HttpGet]
+        //public async Task<ActionResult> UpdateStore(int id)
+        //{
+        //    //StoreDto storeDto = await storeService.GetStoreByIdAsync(id);
+        //    //return View(mapper.Map<StoreDto, StoreViewModel>(storeDto));
+        //}
+
+        //[HttpPost]
+        //public async Task<ActionResult> UpdateStore(StoreViewModel model)
+        //{
+        //    //StoreDto storeDto = mapper.Map<StoreViewModel, StoreDto>(model);
+
+        //    //OperationDetails operationDetails = await storeService.UpdateStoreAsync(storeDto);
+        //    //if (operationDetails.Succedeed)
+        //    //{
+        //    //    return View("StoreList");
+        //    //}
+        //    //ModelState.AddModelError(operationDetails.Property, operationDetails.Message);
+        //    //return View("StoreList");
+        //}
     }
 }

@@ -51,9 +51,33 @@ namespace Receivables.Bll.Services
             }
         }
 
-        public Task<OperationDetails> DeleteCustomerAsync(CustomerDto customerDto)
+        public async Task<OperationDetails> DeleteCustomerAsync(CustomerDto customerDto)
         {
-            throw new System.NotImplementedException();
+            if (customerDto == null)
+            {
+                Logger.Error("Customer is null");
+                return new OperationDetails(false, "Something went wrong", "Контрагенты");
+            }
+
+            Customer customer = await unitOfWork.CustomerRepository.GetByIdAsync(customerDto.Id);
+            if (customer == null)
+            {
+                Logger.Error("Контрагент не найден");
+                return new OperationDetails(false, "Контрагент не найден", "Контрагенты");
+            }
+
+            try
+            {
+                await unitOfWork.CustomerRepository.DeleteAsync(customer);
+                await unitOfWork.SaveAsync();
+                Logger.Info("Successfully deleted");
+                return new OperationDetails(true);
+            }
+            catch (Exception ex)
+            {
+                Logger.Error(ex.Message);
+                return new OperationDetails(false, ex.Message);
+            }
         }
 
         public IEnumerable<CustomerDto> GetActiveCustomer(string userId)
