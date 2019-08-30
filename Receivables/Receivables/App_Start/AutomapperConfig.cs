@@ -17,8 +17,8 @@ namespace Receivables
             CreateMap<RegisterModel, UserDto>();
             CreateMap<StoreDto, Store>();
             CreateMap<Store, StoreDto>();
-            CreateMap<StoreViewModel, StoreDto>();
-            CreateMap<StoreDto, StoreViewModel>();
+            CreateMap<StoreModel, StoreDto>();
+            CreateMap<StoreDto, StoreModel>();
             CreateMap<CustomerDto, Customer>();
             CreateMap<Customer, CustomerDto>();
             CreateMap<CustomerModel, CustomerDto>();

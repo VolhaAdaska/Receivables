@@ -15,6 +15,8 @@ namespace Receivables.Dal.Interfaces
 
         ICustomerRepository CustomerRepository { get; }
 
+        IAgreementRepository AgreementRepository { get; }
+
         Task SaveAsync();
     }
 }

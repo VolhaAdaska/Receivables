@@ -201,7 +201,7 @@
     <Compile Include="Models\CustomerModel.cs" />
     <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Models\RegisterModel.cs" />
-    <Compile Include="Models\StoreViewModel.cs" />
+    <Compile Include="Models\StoreModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

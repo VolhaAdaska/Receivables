@@ -2,7 +2,7 @@
 
 namespace Receivables.Models
 {
-    public class StoreViewModel
+    public class StoreModel
     {
         [Required]
         public int Id { get; set; }

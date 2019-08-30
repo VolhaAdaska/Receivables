@@ -38,6 +38,8 @@ namespace Receivables.Dal.Repositories
 
         public ICustomerRepository CustomerRepository => GetRepository<ICustomerRepository>();
 
+        public IAgreementRepository AgreementRepository => GetRepository<IAgreementRepository>();
+
         public async Task SaveAsync()
         {
             await context.SaveChangesAsync();

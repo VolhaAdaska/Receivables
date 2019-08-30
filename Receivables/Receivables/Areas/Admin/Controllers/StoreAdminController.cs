@@ -27,20 +27,20 @@ namespace Receivables.Areas.Admin.Controllers
         [HttpGet]
         public ActionResult AddStore()
         {
-            StoreViewModel storeViewModel = new StoreViewModel();
+            StoreModel storeViewModel = new StoreModel();
 
             return View(storeViewModel);
         }
 
         [HttpPost]
-        public async Task<ActionResult> AddStore(StoreViewModel model)
+        public async Task<ActionResult> AddStore(StoreModel model)
         {
             if (!ModelState.IsValid)
             {
                 return View(model);
             }
 
-            StoreDto storeDto = mapper.Map<StoreViewModel, StoreDto>(model);
+            StoreDto storeDto = mapper.Map<StoreModel, StoreDto>(model);
             OperationDetails operationDetails = await storeService.AddStoreAsync(storeDto);
             if (operationDetails.Succedeed)
             {
@@ -53,9 +53,9 @@ namespace Receivables.Areas.Admin.Controllers
     
 
         [HttpGet]
-        public async Task<ActionResult> DeleteStore(StoreViewModel model)
+        public async Task<ActionResult> DeleteStore(StoreModel model)
         {
-            StoreDto storeDto = mapper.Map<StoreViewModel, StoreDto>(model);
+            StoreDto storeDto = mapper.Map<StoreModel, StoreDto>(model);
 
             OperationDetails operationDetails = await storeService.DeleteStoreAsync(storeDto);
             if (operationDetails.Succedeed)
@@ -70,13 +70,13 @@ namespace Receivables.Areas.Admin.Controllers
         public async Task<ActionResult> UpdateStore(int id)
         {
             StoreDto storeDto = await storeService.GetStoreByIdAsync(id);
-            return View(mapper.Map<StoreDto, StoreViewModel>(storeDto));
+            return View(mapper.Map<StoreDto, StoreModel>(storeDto));
         }
 
         [HttpPost]
-        public async Task<ActionResult> UpdateStore(StoreViewModel model)
+        public async Task<ActionResult> UpdateStore(StoreModel model)
         {
-            StoreDto storeDto = mapper.Map<StoreViewModel, StoreDto>(model);
+            StoreDto storeDto = mapper.Map<StoreModel, StoreDto>(model);
 
             OperationDetails operationDetails = await storeService.UpdateStoreAsync(storeDto);
             if (operationDetails.Succedeed)

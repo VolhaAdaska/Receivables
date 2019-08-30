@@ -30,7 +30,6 @@ namespace Receivables.Bll.Services
             }
 
             Customer customer = mapper.Map<CustomerDto, Customer>(customerDto);
-            customer.User = await unitOfWork.UserManager.FindByIdAsync(customerDto.UserId);
 
             try
             {
@@ -101,8 +100,7 @@ namespace Receivables.Bll.Services
             }
 
             Customer customer = mapper.Map<CustomerDto, Customer>(customerDto);
-            customer.User = await unitOfWork.UserManager.FindByIdAsync(customerDto.UserId);
-
+            
             try
             {
                 await unitOfWork.CustomerRepository.UpdateAsync(customer);
