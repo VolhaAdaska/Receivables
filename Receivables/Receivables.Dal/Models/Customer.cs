@@ -22,6 +22,6 @@
 
         public string Address { get; set; }
 
-        public virtual ICollection<Contract> Contracts { get; set; }
+        public virtual ICollection<Agreement> Agreements { get; set; }
     }
 }

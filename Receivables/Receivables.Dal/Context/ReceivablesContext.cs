@@ -27,11 +27,11 @@ namespace Receivables.Dal.Context
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            base.OnModelCreating(modelBuilder);
+
             modelBuilder.Configurations.Add(new StoreConfigurations());
             modelBuilder.Configurations.Add(new AgreementConfigurations());
             modelBuilder.Configurations.Add(new CustomerConfigurations());
-
-            base.OnModelCreating(modelBuilder);
         }
     }
 }

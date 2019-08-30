@@ -25,6 +25,6 @@ namespace Receivables.Bll.Dto
 
         public ApplicationUser User { get; set; }
 
-        public virtual IEnumerable<Contract> Contracts { get; set; }
+        public virtual IEnumerable<Agreement> Agreements { get; set; }
     }
 }

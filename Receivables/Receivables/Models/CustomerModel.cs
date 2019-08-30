@@ -34,6 +34,6 @@ namespace Receivables.Models
 
         public string UserId { get; set; }
 
-        public IEnumerable<ContractModel> Contracts { get; set; }
+        public IEnumerable<AgreementModel> Agreements { get; set; }
     }
 }

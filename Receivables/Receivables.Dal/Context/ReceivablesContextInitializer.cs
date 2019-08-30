@@ -5,7 +5,7 @@ using System.Data.Entity;
 
 namespace Receivables.Dal.Context
 {
-    public class ReceivablesContextInitializer : DropCreateDatabaseAlways<ReceivablesContext>
+    public class ReceivablesContextInitializer : CreateDatabaseIfNotExists<ReceivablesContext>
     {
         protected override void Seed(ReceivablesContext context)
         {
@@ -17,7 +17,7 @@ namespace Receivables.Dal.Context
 
             var user = new ApplicationUser { Email = "adaskoov@gmail.com", UserName = UserRoles.Admin };
             userManager.Create(user, "!13InsAdmin");
-
+            
             var admin = userManager.FindByEmail(user.Email);
             userManager.AddToRole(admin.Id, UserRoles.Admin);
             userManager.AddToRole(admin.Id, UserRoles.User);
@@ -27,19 +27,49 @@ namespace Receivables.Dal.Context
             var simpleUserRole = userManager.FindByEmail(simpleUser.Email);
             userManager.AddToRole(simpleUserRole.Id, UserRoles.User);
 
-            var customer = new Customer
+            context.SaveChanges();
+
+            InitializeCustomer(context, simpleUser);
+
+           // base.Seed(context);
+        }
+
+        private void InitializeCustomer(ReceivablesContext context, ApplicationUser user)
+        {
+            var belagro = new Customer
             {
                 Name = "Belagro",
                 INN = "1236547891023",
                 FullName = "ООО Белагро Бел",
-                User = simpleUser,
-                UserId = simpleUser.Id,
-                IsActive = true 
+                User = user,
+                UserId = user.Id,
+                IsActive = true
             };
-            context.Customers.Add(customer);
-            context.SaveChanges();
 
-            base.Seed(context);
+            var aptekar = new Customer
+            {
+                Name = "Аптекарь",
+                INN = "qwer1234",
+                FullName = "Группа компаний Аптекарь",
+                User = user,
+                UserId = user.Id,
+                IsActive = true
+            };
+
+            var wikium = new Customer
+            {
+                Name = "Викиум",
+                INN = "sst567",
+                FullName = " Викиум.ру",
+                User = user,
+                UserId = user.Id,
+                IsActive = true
+            };
+
+            context.Customers.Add(belagro);
+            context.Customers.Add(aptekar);
+            context.Customers.Add(wikium);
+            context.SaveChanges();
         }
     }
 }

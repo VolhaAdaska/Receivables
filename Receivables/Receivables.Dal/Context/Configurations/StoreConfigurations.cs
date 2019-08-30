@@ -13,10 +13,10 @@ namespace Receivables.Dal.Context.Configurations
             Property(x => x.Date).IsRequired();
             Property(x => x.Sum).IsRequired();
 
-            Property(x => x.ContractId).IsRequired();
-            HasRequired(x => x.Contract)
+            Property(x => x.AgreementId).IsRequired();
+            HasRequired(x => x.Agreement)
                 .WithMany(g => g.Stores)
-                .HasForeignKey(x => x.ContractId)
+                .HasForeignKey(x => x.AgreementId)
                 .WillCascadeOnDelete(false);
         }
     }

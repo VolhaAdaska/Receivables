@@ -1,6 +1,6 @@
 ﻿namespace Receivables.Models
 {
-    public class ContractModel
+    public class AgreementModel
     {
     }
 }

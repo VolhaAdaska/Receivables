@@ -13,9 +13,9 @@ namespace Receivables.Dal.Models
 
         public decimal Sum { get; set; }
 
-        public Contract Contract { get; set; }
+        public Agreement Agreement { get; set; }
 
-        public int ContractId { get; set; }
+        public int AgreementId { get; set; }
 
         public virtual ICollection<Product> Products { get; set; }
     }
