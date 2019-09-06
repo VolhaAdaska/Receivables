@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
 using NLog;
@@ -81,11 +82,10 @@ namespace Receivables.Bll.Services
             //}
         }
 
-        public IEnumerable<AgreementDto> GetActiveAgreement(string userId)
+        public IEnumerable<AgreementDto> GetActiveAgreement(int customerId)
         {
-            throw new System.NotImplementedException();
-            //var customers = unitOfWork.CustomerRepository.GetActiveCustomer(userId);
-            //return customers.Select(p => mapper.Map<Customer, CustomerDto>(p)).ToList();
+            var agreements = unitOfWork.AgreementRepository.GetActiveAgreement(customerId);
+            return agreements.Select(p => mapper.Map<Agreement, AgreementDto>(p)).ToList();
         }
 
         public async Task<AgreementDto> GetAgreementByIdAsync(int id)

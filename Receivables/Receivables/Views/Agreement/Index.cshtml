@@ -1,0 +1,82 @@
+﻿@model Receivables.Models.AgreementModel
+
+@{
+    ViewBag.Title = "Contract";
+}
+
+@section Header{
+    <div class="col-xl-12 order-xl-1">
+        <div class="card bg-secondary shadow">
+            <div class="card-header bg-white border-0">
+                <div class="row align-items-center">
+                    <div class="col-8">
+                        <h3 class="mb-0">Договор контрагента</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.HiddenFor(m => m.CustomerId)
+
+                    <h6 class="heading-small text-muted mb-4">Профиль договора</h6>
+                    <div class="pl-lg-4">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.Name, "Название", new { @class = "form-control-label" })
+                                    @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.Number, "Номер", new { @class = "form-control-label" })
+                                    @Html.TextBoxFor(m => m.Number, new { @class = "form-control" })
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.Postponement, "Количество дней отсрочки", new { @class = "form-control-label" })
+                                    @Html.TextBoxFor(m => m.Postponement, new { @class = "form-control" })
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.StartDate, "Дата от", new { @class = "form-control-label" })
+                                    @Html.TextBoxFor(m => m.StartDate, new { @class = "form-control" })
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.EndDate, "Дата до", new { @class = "form-control-label" })
+                                    @Html.TextBoxFor(m => m.EndDate, new { @class = "form-control" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-3">
+                                <div class="custom-control custom-checkbox">
+                                    @Html.CheckBoxFor(m => m.IsClosed, new { @class = "custom-control-input" })
+                                    @Html.LabelFor(m => m.IsClosed, "Закрыт", new { @class = "custom-control-label" })
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr class="my-4" />
+                    <h6 class="heading-small text-muted mb-4">Файлы</h6>
+
+
+                    @*<button class="btn btn-outline-info" type="submit">Update</button>*@
+                }
+            </div>
+        </div>
+    </div>
+}
+

@@ -19,7 +19,6 @@
                 @using (Html.BeginForm())
                 {
                     @Html.AntiForgeryToken()
-                    @Html.HiddenFor(m => m.User)
                     @Html.HiddenFor(m => m.UserId)
                     <h6 class="heading-small text-muted mb-4">Профиль контрагента</h6>
                     <div class="pl-lg-4">

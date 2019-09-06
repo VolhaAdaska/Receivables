@@ -15,11 +15,16 @@ namespace Receivables.Controllers
     public class CustomerController : Controller
     {
         private readonly ICustomerService customerService;
+        private readonly IAgreementService agreementService;
         private readonly IMapper mapper;
         
-        public CustomerController(ICustomerService customerService, IMapper mapper)
+        public CustomerController(
+            ICustomerService customerService,
+            IAgreementService agreementService,
+            IMapper mapper)
         {
             this.customerService = customerService ?? throw new ArgumentNullException(nameof(customerService));
+            this.agreementService = agreementService ?? throw new ArgumentNullException(nameof(agreementService));
             this.mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
         }
 
@@ -108,7 +113,11 @@ namespace Receivables.Controllers
         public async Task<ActionResult> Profile(int id)
         {
             CustomerDto customerDto = await customerService.GetCustomerByIdAsync(id);
-            return View(mapper.Map<CustomerDto, CustomerModel>(customerDto));
+            var customer = mapper.Map<CustomerDto, CustomerModel>(customerDto);
+            var agreements = agreementService.GetActiveAgreement(id);
+            var agreementsView = agreements.Select(doc => mapper.Map<AgreementDto, AgreementModel>(doc));
+            customer.Agreements = agreementsView;
+            return View(customer);
         }
     }
 }

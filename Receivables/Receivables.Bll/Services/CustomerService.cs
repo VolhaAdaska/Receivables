@@ -36,7 +36,7 @@ namespace Receivables.Bll.Services
                 if (unitOfWork.CustomerRepository.GetByINN(customerDto.INN) != null)
                 {
                     Logger.Error("A Customer with this name already exists");
-                    return new OperationDetails(false, "Контрагент с таким ИНН уже существует", "Контрагенты");
+                    return new OperationDetails(false, "Контрагент с таким ИНН уже существует", "Customer");
                 }
                 await unitOfWork.CustomerRepository.CreateAsync(customer);
                 await unitOfWork.SaveAsync();
@@ -46,7 +46,7 @@ namespace Receivables.Bll.Services
             catch (Exception ex)
             {
                 Logger.Error(ex.Message);
-                return new OperationDetails(false, "Unfortunately, something went wrong....", "Контрагенты");
+                return new OperationDetails(false, "Unfortunately, something went wrong....", "Customer");
             }
         }
 
@@ -55,14 +55,14 @@ namespace Receivables.Bll.Services
             if (customerDto == null)
             {
                 Logger.Error("Customer is null");
-                return new OperationDetails(false, "Something went wrong", "Контрагенты");
+                return new OperationDetails(false, "Something went wrong", "Customer");
             }
 
             Customer customer = await unitOfWork.CustomerRepository.GetByIdAsync(customerDto.Id);
             if (customer == null)
             {
                 Logger.Error("Контрагент не найден");
-                return new OperationDetails(false, "Контрагент не найден", "Контрагенты");
+                return new OperationDetails(false, "Контрагент не найден", "Customer");
             }
 
             try
@@ -96,7 +96,7 @@ namespace Receivables.Bll.Services
             if (customerDto == null)
             {
                 Logger.Error("Customer is null");
-                return new OperationDetails(false, "Something went wrong", "Контрагенты");
+                return new OperationDetails(false, "Something went wrong", "Customer");
             }
 
             Customer customer = mapper.Map<CustomerDto, Customer>(customerDto);

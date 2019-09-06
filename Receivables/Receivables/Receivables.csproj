@@ -152,21 +152,13 @@
     <Content Include="Assets\img\back.jpg" />
     <Content Include="Assets\img\damir-bosnjak.jpg" />
     <Content Include="Assets\img\default-avatar.png" />
-    <Content Include="Assets\img\faces\ayo-ogunseinde-1.jpg" />
-    <Content Include="Assets\img\faces\ayo-ogunseinde-2.jpg" />
-    <Content Include="Assets\img\faces\clem-onojeghuo-1.jpg" />
-    <Content Include="Assets\img\faces\clem-onojeghuo-2.jpg" />
-    <Content Include="Assets\img\faces\clem-onojeghuo-3.jpg" />
-    <Content Include="Assets\img\faces\clem-onojeghuo-4.jpg" />
-    <Content Include="Assets\img\faces\erik-lucatero-1.jpg" />
-    <Content Include="Assets\img\faces\erik-lucatero-2.jpg" />
-    <Content Include="Assets\img\faces\joe-gardner-1.jpg" />
-    <Content Include="Assets\img\faces\joe-gardner-2.jpg" />
-    <Content Include="Assets\img\faces\kaci-baum-1.jpg" />
-    <Content Include="Assets\img\faces\kaci-baum-2.jpg" />
     <Content Include="Assets\img\favicon.png" />
     <Content Include="Assets\img\header.jpg" />
     <Content Include="Assets\img\jan-sendereks.jpg" />
+    <Content Include="Assets\img\Kate\Kate1.jpeg" />
+    <Content Include="Assets\img\Kate\Kate2.jpeg" />
+    <Content Include="Assets\img\Kate\Kate4.jpeg" />
+    <Content Include="Assets\img\Kate\Kate3.jpeg" />
     <Content Include="Assets\img\logo-small.png" />
     <Content Include="Assets\img\mike.jpg" />
     <Content Include="Assets\js\argon-dashboard.js" />
@@ -189,9 +181,11 @@
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\StoreAdminController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AgreementController.cs" />
     <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\ProfileController.cs" />
     <Compile Include="Controllers\StoreController.cs" />
     <Compile Include="Global.asax.cs">
@@ -200,6 +194,8 @@
     <Compile Include="Models\AgreementModel.cs" />
     <Compile Include="Models\CustomerModel.cs" />
     <Compile Include="Models\LoginModel.cs" />
+    <Compile Include="Models\ProductModel.cs" />
+    <Compile Include="Models\ProfileModel.cs" />
     <Compile Include="Models\RegisterModel.cs" />
     <Compile Include="Models\StoreModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -241,9 +237,10 @@
     <Content Include="Views\Error\NotFound.cshtml" />
     <Content Include="Views\Profile\Index.cshtml" />
     <Content Include="Views\Customer\Index.cshtml" />
-    <Content Include="Views\Customer\Profile.cshtml" />
     <Content Include="Views\Customer\AddCustomer.cshtml" />
     <Content Include="Views\Customer\UpdateCustomer.cshtml" />
+    <Content Include="Views\Agreement\Index.cshtml" />
+    <Content Include="Views\Customer\Profile.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -253,6 +250,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Product\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />

@@ -13,7 +13,7 @@ namespace Receivables.Dal.Models
 
         public decimal Sum { get; set; }
 
-        public Agreement Agreement { get; set; }
+        public virtual Agreement Agreement { get; set; }
 
         public int AgreementId { get; set; }
 

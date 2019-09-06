@@ -1,12 +1,12 @@
-﻿namespace Receivables.Dal.Models
+﻿namespace Receivables.Bll.Dto
 {
-    public class Product : BaseEntity
+    public class ProductDto
     {
+        public int Id { get; set; }
+
         public string Name { get; set; }
 
         public int Code { get; set; }
-
-        public virtual Store Store { get; set; }
 
         public int StoreId { get; set; }
     }

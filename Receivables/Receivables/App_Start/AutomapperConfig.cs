@@ -23,6 +23,16 @@ namespace Receivables
             CreateMap<Customer, CustomerDto>();
             CreateMap<CustomerModel, CustomerDto>();
             CreateMap<CustomerDto, CustomerModel>();
+            CreateMap<AgreementDto, Agreement>();
+            CreateMap<Agreement, AgreementDto>();
+            CreateMap<AgreementModel, AgreementDto>();
+            CreateMap<AgreementDto, AgreementModel>();
+            CreateMap<ProductDto, Product>();
+            CreateMap<Product, ProductDto>();
+            CreateMap<ProductModel, ProductDto>();
+            CreateMap<ProductDto, ProductModel>();
+            CreateMap<UserDto, ProfileModel>();
+            CreateMap<ProfileModel, UserDto>();
         }
     }
 }

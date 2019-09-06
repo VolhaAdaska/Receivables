@@ -11,5 +11,9 @@ namespace Receivables.Bll.Interfaces
         Task<OperationDetails> AddUserAsync(UserDto userDto);
 
         Task<ClaimsIdentity> CheckUserCredentialsAsync(UserDto userDto);
+
+        Task<UserDto> GetUserByIdAsync(string userId);
+
+        Task<OperationDetails> UpdateProfileAsync(UserDto userDto);
     }
 }

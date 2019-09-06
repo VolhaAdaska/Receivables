@@ -19,12 +19,16 @@ namespace Receivables
             builder.RegisterType<UserService>().As<IUserService>().InstancePerRequest();
             builder.RegisterType<StoreService>().As<IStoreService>().InstancePerRequest();
             builder.RegisterType<CustomerService>().As<ICustomerService>().InstancePerRequest();
+            builder.RegisterType<AgreementService>().As<IAgreementService>().InstancePerRequest();
+            builder.RegisterType<ProductService>().As<IProductService>().InstancePerRequest();
         }
 
         private static void RegisterRepository(ContainerBuilder builder)
         {
             builder.RegisterType<StoreRepository>().As<IStoreRepository>().InstancePerRequest();
             builder.RegisterType<CustomerRepository>().As<ICustomerRepository>().InstancePerRequest();
+            builder.RegisterType<AgreementRepository>().As<IAgreementRepository>().InstancePerRequest();
+            builder.RegisterType<ProductRepository>().As<IProductRepository>().InstancePerRequest();
             builder.RegisterType<UnitOfWork>().As<IUnitOfWork>().InstancePerRequest();
         }
 

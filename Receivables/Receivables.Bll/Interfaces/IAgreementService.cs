@@ -1,11 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Receivables.Bll.Dto;
 using Receivables.Bll.Infrastructure;
 
 namespace Receivables.Bll.Interfaces
 {
-    public interface IAgreementService
+    public interface IAgreementService : IDisposable
     {
         Task<OperationDetails> AddAgreementAsync(AgreementDto AgreementDto);
 
@@ -15,6 +16,6 @@ namespace Receivables.Bll.Interfaces
 
         Task<AgreementDto> GetAgreementByIdAsync(int id);
 
-        IEnumerable<AgreementDto> GetActiveAgreement(string userId);
+        IEnumerable<AgreementDto> GetActiveAgreement(int customerId);
     }
 }

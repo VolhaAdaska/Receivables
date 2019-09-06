@@ -11,6 +11,8 @@ namespace Receivables.Dal.Context
         public DbSet<Store> Stores { get; set; }
         public DbSet<Customer> Customers { get; set; }
 
+        public DbSet<Agreement> Agreements { get; set; }
+
         public ReceivablesContext()
             : base("ReceivablesDatabase")
         {
@@ -29,6 +31,7 @@ namespace Receivables.Dal.Context
         {
             base.OnModelCreating(modelBuilder);
 
+            modelBuilder.Configurations.Add(new ApplicationUserConfiguration());
             modelBuilder.Configurations.Add(new StoreConfigurations());
             modelBuilder.Configurations.Add(new AgreementConfigurations());
             modelBuilder.Configurations.Add(new CustomerConfigurations());
