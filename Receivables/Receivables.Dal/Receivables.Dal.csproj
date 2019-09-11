@@ -66,6 +66,7 @@
     <Compile Include="Interfaces\IBaseRepository.cs" />
     <Compile Include="Interfaces\IAgreementRepository.cs" />
     <Compile Include="Interfaces\ICustomerRepository.cs" />
+    <Compile Include="Interfaces\IDebtRepository.cs" />
     <Compile Include="Interfaces\IProductRepository.cs" />
     <Compile Include="Interfaces\IStoreRepository.cs" />
     <Compile Include="Interfaces\IUnitOfWork.cs" />
@@ -74,6 +75,7 @@
     <Compile Include="Models\ApplicationUser.cs" />
     <Compile Include="Models\BaseEntity.cs" />
     <Compile Include="Models\Customer.cs" />
+    <Compile Include="Models\Debt.cs" />
     <Compile Include="Models\FileModel.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\Store.cs" />
@@ -81,6 +83,7 @@
     <Compile Include="Repositories\BaseRepository.cs" />
     <Compile Include="Repositories\AgreementRepository.cs" />
     <Compile Include="Repositories\CustomerRepository.cs" />
+    <Compile Include="Repositories\DebtRepository.cs" />
     <Compile Include="Repositories\ProductRepository.cs" />
     <Compile Include="Repositories\StoreRepository.cs" />
     <Compile Include="Repositories\UnitOfWork.cs" />

@@ -13469,7 +13469,7 @@ button.bg-lighter:focus {
 }
 
 .bg-gradient-primary {
-  background: linear-gradient(87deg, #5e72e4 0, #825ee4 100%) !important;
+    background: linear-gradient(87deg, #F2EEFC 0, #F2EEFC 100%) !important;
 }
 
 .bg-gradient-secondary {
@@ -13764,7 +13764,7 @@ button.section-darker:focus {
 }
 
 .bg-gradient-primary {
-  background: linear-gradient(87deg, #5e72e4 0, #825ee4 100%) !important;
+    background: linear-gradient(87deg, #F2EEFC 0, #F2EEFC 100%) !important;
 }
 
 .bg-gradient-secondary {
@@ -18499,6 +18499,21 @@ p {
 .heading-section.text-center img {
   margin-left: auto;
   margin-right: auto;
+}
+
+.heading-text-style {
+    font-size: 2.5rem;
+    text-align: center !important;
+    color: white;
+    font-weight: 500;
+}
+
+.subheading-text-style {
+    text-align: center !important;
+    color: white;
+    font-style: italic;
+    font-size: 18px;
+    font-weight: 400;
 }
 
 .display-1 span,

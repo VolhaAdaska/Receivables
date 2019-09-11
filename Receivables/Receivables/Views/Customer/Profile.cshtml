@@ -27,13 +27,13 @@
                         <div class="row">
                             <div class="col-lg-6">
                                 <div class="form-group">
-                                    @Html.LabelFor(m => m.Name, new { @class = "form-control-label" })
+                                    @Html.LabelFor(m => m.Name, "Имя", new { @class = "form-control-label" })
                                     @Html.TextBoxFor(m => m.Name, new { @class = "form-control", @disabled = "disabled" })
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="form-group">
-                                    @Html.LabelFor(m => m.FullName, new { @class = "form-control-label" })
+                                    @Html.LabelFor(m => m.FullName, "Полное имя", new { @class = "form-control-label" })
                                     @Html.TextBoxFor(m => m.FullName, new { @class = "form-control", @disabled = "disabled" })
                                 </div>
                             </div>
@@ -41,7 +41,7 @@
                         <div class="row">
                             <div class="col-lg-6">
                                 <div class="form-group">
-                                    @Html.LabelFor(m => m.INN, new { @class = "form-control-label" })
+                                    @Html.LabelFor(m => m.INN, "ИНН", new { @class = "form-control-label" })
                                     @Html.TextBoxFor(m => m.INN, new { @class = "form-control", @disabled = "disabled" })
                                 </div>
                             </div>
@@ -60,7 +60,7 @@
                             </div>
                             <div class="col-lg-6">
                                 <div class="form-group">
-                                    @Html.LabelFor(m => m.Address, new { @class = "form-control-label" })
+                                    @Html.LabelFor(m => m.Address, "Адрес", new { @class = "form-control-label" })
                                     @Html.TextBoxFor(m => m.Address, new { @class = "form-control", @disabled = "disabled" })
                                 </div>
                             </div>

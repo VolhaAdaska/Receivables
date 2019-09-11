@@ -21,6 +21,7 @@ namespace Receivables
             builder.RegisterType<CustomerService>().As<ICustomerService>().InstancePerRequest();
             builder.RegisterType<AgreementService>().As<IAgreementService>().InstancePerRequest();
             builder.RegisterType<ProductService>().As<IProductService>().InstancePerRequest();
+            builder.RegisterType<DebtService>().As<IDebtService>().InstancePerRequest();
         }
 
         private static void RegisterRepository(ContainerBuilder builder)
@@ -29,6 +30,7 @@ namespace Receivables
             builder.RegisterType<CustomerRepository>().As<ICustomerRepository>().InstancePerRequest();
             builder.RegisterType<AgreementRepository>().As<IAgreementRepository>().InstancePerRequest();
             builder.RegisterType<ProductRepository>().As<IProductRepository>().InstancePerRequest();
+            builder.RegisterType<DebtRepository>().As<IDebtRepository>().InstancePerRequest();
             builder.RegisterType<UnitOfWork>().As<IUnitOfWork>().InstancePerRequest();
         }
 

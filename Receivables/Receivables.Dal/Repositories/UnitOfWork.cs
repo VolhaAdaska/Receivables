@@ -42,6 +42,8 @@ namespace Receivables.Dal.Repositories
 
         public IProductRepository ProductRepository => GetRepository<IProductRepository>();
 
+        public IDebtRepository DebtRepository => GetRepository<IDebtRepository>();
+
         public async Task SaveAsync()
         {
             await context.SaveChangesAsync();

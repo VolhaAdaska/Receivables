@@ -183,6 +183,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AgreementController.cs" />
     <Compile Include="Controllers\CustomerController.cs" />
+    <Compile Include="Controllers\DebtController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
@@ -193,6 +194,7 @@
     </Compile>
     <Compile Include="Models\AgreementModel.cs" />
     <Compile Include="Models\CustomerModel.cs" />
+    <Compile Include="Models\DebtModel.cs" />
     <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Models\ProductModel.cs" />
     <Compile Include="Models\ProfileModel.cs" />
@@ -241,6 +243,7 @@
     <Content Include="Views\Customer\UpdateCustomer.cshtml" />
     <Content Include="Views\Agreement\Index.cshtml" />
     <Content Include="Views\Customer\Profile.cshtml" />
+    <Content Include="Views\Debt\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

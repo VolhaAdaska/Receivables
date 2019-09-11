@@ -4,7 +4,7 @@
 }
 
 @section Header{
-    @using (Html.BeginForm())
+    @using (Html.BeginForm("Index", "Profile", new { ViewBag.ReturnUrl }, FormMethod.Post, new { role = "form" }))
     {
         @Html.ValidationSummary()
         <div class="header pb-8 pt-5 pt-lg-8 d-flex align-items-center" style="min-height: 600px; background-image: url(../../Assets/img/bg5.jpg); background-size: cover; background-position: center top;">
