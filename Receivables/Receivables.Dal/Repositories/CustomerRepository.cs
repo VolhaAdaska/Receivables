@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using Receivables.Dal.Context;
 using Receivables.Dal.Interfaces;
 using Receivables.Dal.Models;
@@ -20,7 +21,12 @@ namespace Receivables.Dal.Repositories
 
         public Customer GetByINN(string INN)
         {
-            return entities.FirstOrDefault(x => x.Name.Equals(INN, System.StringComparison.InvariantCultureIgnoreCase));
+            return entities.FirstOrDefault(x => x.INN.Equals(INN, System.StringComparison.InvariantCultureIgnoreCase));
+        }
+
+        public Customer GetCustomerByName(string name)
+        {
+            return entities.FirstOrDefault(x => x.Name.Equals(name, System.StringComparison.InvariantCultureIgnoreCase));
         }
     }
 }

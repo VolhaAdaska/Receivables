@@ -18,7 +18,7 @@ namespace Receivables.Controllers
         }
 
         [HttpGet]
-        public ActionResult StoreList(int id)
+        public ActionResult StoreList()
         {
             return View();
         }

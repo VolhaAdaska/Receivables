@@ -1,0 +1,101 @@
+﻿@model Receivables.Models.CalculationModel
+
+@{
+    ViewBag.Title = "Взаиморасчеты";
+}
+
+@section Header{
+    <div class="col-xl-12 order-xl-1">
+        <div class="card bg-secondary shadow">
+            <div class="card-header bg-white border-0">
+                <div class="row align-items-center">
+                    <div class="col-8">
+                        <h3 class="mb-0">Взаиморасчеты</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.HiddenFor(m => m.CustomerId)
+
+                    <div class="pl-lg-4">
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.CustomerName, "Контрагент", new { @class = "form-control-label" })
+                                    <div class="input-group mb-4">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="ni ni-zoom-split-in"></i></span>
+                                        </div>
+                                        <input class="customer-search form-control" placeholder="Search" type="text" id="CustomerName">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.StartDate, "Дата с", new { @class = "form-control-label" })
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="ni ni-calendar-grid-58"></i></span>
+                                        </div>
+                                        <input class="datepicker form-control" placeholder="Select date" type="text" value="@Model.StartDate" id="StartDate">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.EndDate, "Дата до", new { @class = "form-control-label" })
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="ni ni-calendar-grid-58"></i></span>
+                                        </div>
+                                        <input class="datepicker form-control" placeholder="Select date" type="text" value="@Model.EndDate" id="EndDate">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="btn btn-outline-success" type='button' id="submit">Сформировать</button>
+
+                    <div id="results"></div>
+                }
+            </div>
+        </div>
+    </div>
+}
+
+@section Scripts {
+    <script type="text/javascript">
+        $('.datepicker').datepicker({
+            weekStart: 1,
+            color: 'red'
+        });
+
+
+         $(document).ready(function () {
+                $('#submit').click(function (e) {
+                    e.preventDefault();
+                    var customerName = $('#CustomerName').val();
+                    var startDate = $('#StartDate').val();
+                    var endDate = $('#EndDate').val();
+                    @*$('#results').load('@Url.Action("Index", "Calculation")?name='+name)*@
+                    $.post("@Url.Action("Index", "Calculation")", { customerName: customerName, startDate: startDate, endDate: endDate }, function (data) {
+                //var object = JSON.parse(data);
+                //chartInit.initDashboardPageCharts(object.Values, object.Dates, object.CurrencyName);
+            });
+                });
+            });
+        @*function getReport() {
+;
+            $.post("@Url.Action("Index", "Calculation")", { name: customerName, startDate: startDate, endDate: endDate }, function (data) {
+                //var object = JSON.parse(data);
+                //chartInit.initDashboardPageCharts(object.Values, object.Dates, object.CurrencyName);
+            });
+        }*@
+    </script>
+}
+

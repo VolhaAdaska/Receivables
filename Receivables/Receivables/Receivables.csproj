@@ -162,6 +162,7 @@
     <Content Include="Assets\img\logo-small.png" />
     <Content Include="Assets\img\mike.jpg" />
     <Content Include="Assets\js\argon-dashboard.js" />
+    <Content Include="Assets\js\bootstrap-datepicker.js" />
     <Content Include="Assets\js\bootstrap.bundle.min.js" />
     <Content Include="Assets\js\clipboard.min.js" />
     <Content Include="Assets\js\jquery.min.js" />
@@ -182,6 +183,7 @@
     <Compile Include="Areas\Admin\Controllers\StoreAdminController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AgreementController.cs" />
+    <Compile Include="Controllers\CalculationController.cs" />
     <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\DebtController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
@@ -192,7 +194,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\AccountModel.cs" />
     <Compile Include="Models\AgreementModel.cs" />
+    <Compile Include="Models\CalculationModel.cs" />
     <Compile Include="Models\CustomerModel.cs" />
     <Compile Include="Models\DebtModel.cs" />
     <Compile Include="Models\LoginModel.cs" />
@@ -244,6 +248,8 @@
     <Content Include="Views\Agreement\Index.cshtml" />
     <Content Include="Views\Customer\Profile.cshtml" />
     <Content Include="Views\Debt\Index.cshtml" />
+    <Content Include="Views\Product\Index.cshtml" />
+    <Content Include="Views\Calculation\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -253,7 +259,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Product\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />

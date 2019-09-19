@@ -10,12 +10,6 @@ namespace Receivables.Dal.Context.Configurations
             HasKey(x => x.Id);
             Property(x => x.Name).IsRequired().HasMaxLength(256);
             Property(x => x.Code).IsRequired();
-
-            Property(x => x.StoreId).IsRequired();
-            HasRequired(x => x.Store)
-                .WithMany(g => g.Products)
-                .HasForeignKey(x => x.StoreId)
-                .WillCascadeOnDelete(false);
         }
     }
 }

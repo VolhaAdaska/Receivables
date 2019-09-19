@@ -10,8 +10,6 @@ namespace Receivables.Dal.Context.Configurations
             HasKey(x => x.Id);
             Property(x => x.Name).IsRequired().HasMaxLength(256);
             Property(x => x.Number).IsRequired();
-            Property(x => x.Date).IsRequired();
-            Property(x => x.Sum).IsRequired();
 
             Property(x => x.AgreementId).IsRequired();
             HasRequired(x => x.Agreement)

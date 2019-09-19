@@ -18,12 +18,13 @@ namespace Receivables.Dal.Context
 
             var user = new ApplicationUser { Email = "adaskoov@gmail.com", UserName = UserRoles.Admin };
             userManager.Create(user, "!13InsAdmin");
-            
+
             var admin = userManager.FindByEmail(user.Email);
             userManager.AddToRole(admin.Id, UserRoles.Admin);
             userManager.AddToRole(admin.Id, UserRoles.User);
 
-            var simpleUser = new ApplicationUser {
+            var simpleUser = new ApplicationUser
+            {
                 Email = "v.adaska@godeltech.com",
                 UserName = UserRoles.User,
                 FirstName = "Екатерина",
@@ -42,8 +43,11 @@ namespace Receivables.Dal.Context
 
             InitializeCustomer(context, simpleUser);
             InitializeAgreement(context);
+            InitializeStore(context);
+            InitializeProduct(context);
+            InitializeAccount(context);
 
-           // base.Seed(context);
+            // base.Seed(context);
         }
 
         private void InitializeCustomer(ReceivablesContext context, ApplicationUser user)
@@ -128,6 +132,102 @@ namespace Receivables.Dal.Context
                 Number = 56,
                 IsClosed = false,
                 Postponement = 0
+            });
+
+            context.SaveChanges();
+        }
+
+        private void InitializeStore(ReceivablesContext context)
+        {
+            context.Stores.Add(new Store
+            {
+                Name = "Реализация товаров №1 от " + DateTime.Now.ToString(),
+                Number = 1,
+                CurrencyCode = 933,
+                AgreementId = 1
+            });
+
+            context.Stores.Add(new Store
+            {
+                Name = "Реализация товаров №1 от " + DateTime.Now.ToString(),
+                Number = 1,
+                CurrencyCode = 933,
+                AgreementId = 2
+            });
+
+            context.Stores.Add(new Store
+            {
+                Name = "Реализация товаров №1 от " + DateTime.Now.ToString(),
+                Number = 1,
+                CurrencyCode = 933,
+                AgreementId = 3
+            });
+
+            context.SaveChanges();
+        }
+
+        private void InitializeProduct(ReceivablesContext context)
+        {
+            context.Products.Add(new Product
+            {
+                Code = "Д243-91М",
+                Name = "Двигатель МТЗ-80, МТЗ-82 81 л.с.,со стартером, с комплектом ЗИП, ТНВД MOTORPAL, БЕЛАРУСЬ"
+                //StoreId = 1,
+                //Number = 1,
+                //Sum = 8154.66m
+            });
+
+            context.Products.Add(new Product
+            {
+                Code = "81FK0010RU",
+                Name = "Lenovo IdeaPad 330-15ICH"
+                //StoreId = 2,
+                //Number = 1,
+                //Sum = 1499.99m
+            });
+
+            context.Products.Add(new Product
+            {
+                Code = "MR7F2",
+                Name = "Apple iPad 2018 32GB"
+                //StoreId = 2,
+                //Number = 2,
+                //Sum = 1527.88m
+            });
+
+            context.Products.Add(new Product
+            {
+                Code = "C605XL",
+                Name = "МФУ Xerox VersaLink"
+                //StoreId = 3,
+                //Number = 1,
+                //Sum = 204435.06m
+            });
+
+            context.SaveChanges();
+        }
+
+        private void InitializeAccount(ReceivablesContext context)
+        {
+            context.Accounts.Add(new Account
+            {
+                Date = DateTime.Parse("02/09/2019"),
+                Sum = 2000m
+            });
+
+            context.Accounts.Add(new Account
+            {
+                StoreId = 1,
+                ProductId = 1,
+                Number = 1,
+                Date = DateTime.Parse("10/09/2019"),
+                Sum = -8154.66m
+            });
+
+            context.Accounts.Add(new Account
+            {
+                Date = DateTime.Parse("16/09/2019"),
+                Sum = 1500m
             });
 
             context.SaveChanges();

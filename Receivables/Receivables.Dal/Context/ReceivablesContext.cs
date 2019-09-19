@@ -8,10 +8,15 @@ namespace Receivables.Dal.Context
 {
     public class ReceivablesContext : IdentityDbContext<ApplicationUser>
     {
-        public DbSet<Store> Stores { get; set; }
         public DbSet<Customer> Customers { get; set; }
 
         public DbSet<Agreement> Agreements { get; set; }
+
+        public DbSet<Store> Stores { get; set; }
+
+        public DbSet<Product> Products { get; set; }
+
+        public DbSet<Account> Accounts { get; set; }
 
         public ReceivablesContext()
             : base("ReceivablesDatabase")
@@ -35,6 +40,8 @@ namespace Receivables.Dal.Context
             modelBuilder.Configurations.Add(new StoreConfigurations());
             modelBuilder.Configurations.Add(new AgreementConfigurations());
             modelBuilder.Configurations.Add(new CustomerConfigurations());
+            modelBuilder.Configurations.Add(new ProductConfigurations());
+            modelBuilder.Configurations.Add(new AccountConfigurations());
         }
     }
 }

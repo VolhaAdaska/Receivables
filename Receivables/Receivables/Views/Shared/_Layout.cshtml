@@ -117,8 +117,8 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link " href="../examples/tables.html">
-                                <i class="ni ni-bullet-list-67 text-red"></i>
+                            <a class="nav-link " href="@(Url.Action("Index", "Calculation"))">
+                                <i class="ni ni-bullet-list-67 text-red"></i> Взаиморасчеты
                             </a>
                         </li>
 
@@ -257,7 +257,8 @@
                 application: "argon-dashboard-free"
             });
     </script>
-
+    <script src="~/Assets/js/bootstrap-datepicker.js"></script>
+    @RenderSection("scripts", required: false)
 </body>
 
 </html>

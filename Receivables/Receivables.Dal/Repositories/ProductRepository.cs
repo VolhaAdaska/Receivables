@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using Receivables.Dal.Context;
 using Receivables.Dal.Interfaces;
 using Receivables.Dal.Models;
@@ -12,9 +13,9 @@ namespace Receivables.Dal.Repositories
         {
         }
 
-        public Product GetByCode(int codeId)
+        public Product GetByCode(string codeId)
         {
-            return entities.FirstOrDefault(x => x.Code == codeId);
+            return entities.FirstOrDefault(x => x.Code.Equals(codeId, StringComparison.InvariantCultureIgnoreCase));
         }
     }
 }

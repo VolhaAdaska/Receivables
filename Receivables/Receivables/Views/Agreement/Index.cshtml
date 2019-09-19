@@ -4,6 +4,7 @@
     ViewBag.Title = "Contract";
 }
 
+
 @section Header{
     <div class="col-xl-12 order-xl-1">
         <div class="card bg-secondary shadow">
@@ -50,13 +51,13 @@
                             <div class="col-lg-6">
                                 <div class="form-group">
                                     @Html.LabelFor(m => m.StartDate, "Дата от", new { @class = "form-control-label" })
-                                    @Html.TextBoxFor(m => m.StartDate, new { @class = "form-control" })
+                                    @Html.EditorFor(m => m.StartDate, new { @class = "form-control datepicker"})
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="form-group">
                                     @Html.LabelFor(m => m.EndDate, "Дата до", new { @class = "form-control-label" })
-                                    @Html.TextBoxFor(m => m.EndDate, new { @class = "form-control" })
+                                    @Html.TextBoxFor(m => m.EndDate, new { @class = "datepicker form-control" })
                                 </div>
                             </div>
                         </div>

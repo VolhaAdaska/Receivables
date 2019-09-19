@@ -91,6 +91,12 @@ namespace Receivables.Bll.Services
             return mapper.Map<Customer, CustomerDto>(customer);
         }
 
+        public CustomerDto GetCustomerByName(string name)
+        {
+            Customer customer = unitOfWork.CustomerRepository.GetCustomerByName(name);
+            return mapper.Map<Customer, CustomerDto>(customer);
+        }
+
         public async Task<OperationDetails> UpdateCustomerAsync(CustomerDto customerDto)
         {
             if (customerDto == null)

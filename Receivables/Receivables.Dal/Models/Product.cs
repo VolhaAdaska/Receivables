@@ -4,10 +4,6 @@
     {
         public string Name { get; set; }
 
-        public int Code { get; set; }
-
-        public virtual Store Store { get; set; }
-
-        public int StoreId { get; set; }
+        public string Code { get; set; }
     }
 }

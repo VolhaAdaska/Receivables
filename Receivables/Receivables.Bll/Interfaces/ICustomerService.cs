@@ -17,5 +17,7 @@ namespace Receivables.Bll.Interfaces
         Task<CustomerDto> GetCustomerByIdAsync(int id);
 
         IEnumerable<CustomerDto> GetActiveCustomer(string userId);
+
+        CustomerDto GetCustomerByName(string name);
     }
 }

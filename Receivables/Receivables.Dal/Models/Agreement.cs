@@ -22,7 +22,5 @@ namespace Receivables.Dal.Models
         public bool IsClosed { get; set; }
 
         public virtual ICollection<Store> Stores { get; set; }
-
-        public virtual ICollection<Agreement> Agreements { get; set; }
     }
 }

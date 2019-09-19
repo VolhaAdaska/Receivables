@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Receivables.Bll.Dto;
 using Receivables.Bll.Infrastructure;
@@ -15,5 +16,6 @@ namespace Receivables.Bll.Interfaces
 
         Task<StoreDto> GetStoreByIdAsync(int id);
 
+        IList<StoreDto> GetAllStore();
     }
 }

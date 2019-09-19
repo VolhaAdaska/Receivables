@@ -6,6 +6,8 @@ using Receivables.Bll.Interfaces;
 using Receivables.Dal.Interfaces;
 using Receivables.Dal.Models;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace Receivables.Bll.Services
@@ -104,6 +106,12 @@ namespace Receivables.Bll.Services
         {
             Store store = await unitOfWork.StoreRepository.GetByIdAsync(id);
             return mapper.Map<Store, StoreDto>(store);
+        }
+
+        public IList<StoreDto> GetAllStore()
+        {
+            var stores = unitOfWork.StoreRepository.GetAll();
+            return stores.Select(p => mapper.Map<Store, StoreDto>(p)).ToList();
         }
     }
 }
