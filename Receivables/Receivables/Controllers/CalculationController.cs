@@ -35,30 +35,7 @@ namespace Receivables.Controllers
         }
 
         [HttpPost]
-        public ActionResult Index(string customerName, DateTime? startDate, DateTime? endDate)
-        {
-            var model = new CalculationModel();
-
-            if (string.IsNullOrEmpty(customerName))
-            {
-                return PartialView(model);
-            }
-
-            var customerId = customerService.GetCustomerByName(customerName)?.Id;
-
-            if (string.IsNullOrEmpty(customerName))
-            {
-                return PartialView(model);
-            }
-
-            var accounts = calculationService.GetAccountsByCustomerId(customerId.Value);
-            model.Accounts = accounts.Select(p => mapper.Map<AccountDto, AccountModel>(p)).ToList();
-
-            return PartialView(model);
-        }
-
-        [HttpPost]
-        public ActionResult AccountSearch(string name)
+        public ActionResult AccountSearch(string name, DateTime? startDate, DateTime? endDate)
         {
             var model = new List<AccountModel>();
 
@@ -74,10 +51,14 @@ namespace Receivables.Controllers
                 return PartialView(model);
             }
 
-            var accounts = calculationService.GetAccountsByCustomerId(customerId.Value);
+            var accounts = calculationService.GetAccountsByCustomerId(customerId.Value, startDate, endDate);
             model = accounts.Select(p => mapper.Map<AccountDto, AccountModel>(p)).ToList();
 
-            return PartialView(model);
+            var result = from account in model
+                         orderby account.AgreementName, account.Date
+                         select account;
+
+            return PartialView(result);
         }
     }
 }

@@ -39,7 +39,7 @@
                                         <div class="input-group-prepend">
                                             <span class="input-group-text"><i class="ni ni-calendar-grid-58"></i></span>
                                         </div>
-                                        <input class="datepicker form-control" placeholder="Select date" type="text" value="@Model.StartDate" id="StartDate">
+                                        <input class="datepicker form-control" placeholder="Select date" type="text" value="@Model.StartDate" name="startDate">
                                     </div>
                                 </div>
                             </div>
@@ -50,24 +50,19 @@
                                         <div class="input-group-prepend">
                                             <span class="input-group-text"><i class="ni ni-calendar-grid-58"></i></span>
                                         </div>
-                                        <input class="datepicker form-control" placeholder="Select date" type="text" value="@Model.EndDate" id="EndDate">
+                                        <input class="datepicker form-control" placeholder="Select date" type="text" value="@Model.EndDate" name="endDate">
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        <button class="btn btn-outline-success" type="submit">Сформировать</button>
                     </div>
 
-                    <button class="btn btn-outline-success" type="submit">Сформировать</button>
+
                 }
-                <div id="results">
-                    @*@if (Model.Accounts != null)
-                    {
-                        @foreach (var item in Model.Accounts)
-                        {
-                            <li>@item.AgreementName</li>
-                        }
-                    }*@
-                </div>
+                <hr class="my-4" />
+
+                <div id="results"></div>
 
             </div>
         </div>
@@ -80,6 +75,7 @@
             weekStart: 1,
             color: 'red'
         });
+
     </script>
 }
 

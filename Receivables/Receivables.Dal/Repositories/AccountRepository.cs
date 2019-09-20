@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Receivables.Dal.Context;
 using Receivables.Dal.Interfaces;
@@ -13,9 +14,21 @@ namespace Receivables.Dal.Repositories
         {
         }
 
-        public IList<Account> GetAccountByCustomerId(int customerId)
+        public IList<Account> GetAccountByCustomerId(int customerId, DateTime? startDate, DateTime? endDate)
         {
-            return entities.Where(x => x.CustomerId == customerId).ToList();
+            if (startDate == null)
+            {
+                startDate = DateTime.MinValue;
+            }
+
+            if (endDate == null)
+            {
+                endDate = DateTime.MaxValue;
+            }
+
+            return entities.Where(x => x.CustomerId == customerId
+                                        && x.Date >= startDate.Value
+                                        && x.Date < endDate.Value).ToList();
         }
     }
 }

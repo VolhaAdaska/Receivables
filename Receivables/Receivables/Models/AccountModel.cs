@@ -16,4 +16,6 @@ namespace Receivables.Models
 
         public DateTime Date { get; set; }
     }
+
+    
 }

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using AutoMapper;
 using NLog;
@@ -18,9 +19,9 @@ namespace Receivables.Bll.Services
         {
         }
 
-        public IList<AccountDto> GetAccountsByCustomerId(int customerId)
+        public IList<AccountDto> GetAccountsByCustomerId(int customerId, DateTime? startDate, DateTime? endDate)
         {
-            var accounts = unitOfWork.AccountRepository.GetAccountByCustomerId(customerId);
+            var accounts = unitOfWork.AccountRepository.GetAccountByCustomerId(customerId, startDate, endDate);
             return accounts.Select(p => mapper.Map<Account, AccountDto>(p)).ToList();
         }
     }
