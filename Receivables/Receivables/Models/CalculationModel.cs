@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Receivables.Models
 {
@@ -11,5 +12,9 @@ namespace Receivables.Models
         public DateTime? EndDate { get; set; }
 
         public int? CustomerId { get; set; }
+
+        public IList<AccountModel> Accounts { get; set; }
+
+        public IList<SearchModel> Customers { get; set; }
     }
 }

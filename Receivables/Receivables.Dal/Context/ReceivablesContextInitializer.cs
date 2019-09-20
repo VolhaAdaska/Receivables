@@ -141,7 +141,15 @@ namespace Receivables.Dal.Context
         {
             context.Stores.Add(new Store
             {
-                Name = "Реализация товаров №1 от " + DateTime.Now.ToString(),
+                Name = "Реализация товаров №1 от 10/09/2019",
+                Number = 1,
+                CurrencyCode = 933,
+                AgreementId = 1
+            });
+
+            context.Stores.Add(new Store
+            {
+                Name = "Приходная накладная",
                 Number = 1,
                 CurrencyCode = 933,
                 AgreementId = 1
@@ -211,14 +219,26 @@ namespace Receivables.Dal.Context
         {
             context.Accounts.Add(new Account
             {
+                CustomerId = 1,
+                CustomerName = "Belagro",
+                AgreementId = 1,
+                AgreementName = "Договор №263",
+                StoreId = 2,
+                StoreName = "Приходная накладная",
                 Date = DateTime.Parse("02/09/2019"),
                 Sum = 2000m
             });
 
             context.Accounts.Add(new Account
             {
+                CustomerId = 1,
+                CustomerName = "Belagro",
+                AgreementId = 1,
+                AgreementName = "Договор №263",
                 StoreId = 1,
+                StoreName = "Реализация товаров №1 от 10/09/2019",
                 ProductId = 1,
+                ProductName = "Двигатель МТЗ-80, МТЗ-82 81 л.с.,со стартером, с комплектом ЗИП, ТНВД MOTORPAL, БЕЛАРУСЬ",
                 Number = 1,
                 Date = DateTime.Parse("10/09/2019"),
                 Sum = -8154.66m
@@ -226,6 +246,12 @@ namespace Receivables.Dal.Context
 
             context.Accounts.Add(new Account
             {
+                CustomerId = 1,
+                CustomerName = "Belagro",
+                AgreementId = 1,
+                StoreId = 2,
+                StoreName = "Приходная накладная",
+                AgreementName = "Договор №263",
                 Date = DateTime.Parse("16/09/2019"),
                 Sum = 1500m
             });

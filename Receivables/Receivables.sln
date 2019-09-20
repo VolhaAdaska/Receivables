@@ -9,8 +9,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Receivables", "Receivables\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Receivables.Bll", "Receivables.Bll\Receivables.Bll.csproj", "{BAE98368-1625-4223-BB09-21D3B686F58B}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Business logic", "Business logic", "{D46F0857-59CA-46F3-9258-9826C9B316C8}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -32,9 +30,6 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
-		{BAE98368-1625-4223-BB09-21D3B686F58B} = {D46F0857-59CA-46F3-9258-9826C9B316C8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E0A2AAD5-66E0-4F21-B5FE-E613D78EBFE1}

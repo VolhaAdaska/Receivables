@@ -1,24 +1,16 @@
 ﻿using System;
 
-namespace Receivables.Dal.Models
+namespace Receivables.Bll.Dto
 {
-    public class Account : BaseEntity
+    public class AccountDto
     {
-        public int CustomerId { get; set; }
-
         public int AgreementId { get; set; }
-
-        public string CustomerName { get; set; }
 
         public string AgreementName { get; set; }
 
         public string StoreName { get; set; }
 
         public string ProductName { get; set; }
-
-        public int? StoreId { get; set; }
-
-        public int? ProductId { get; set; }
 
         public int? Number { get; set; }
 

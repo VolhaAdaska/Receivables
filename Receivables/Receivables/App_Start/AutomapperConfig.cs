@@ -33,6 +33,10 @@ namespace Receivables
             CreateMap<ProductDto, ProductModel>();
             CreateMap<UserDto, ProfileModel>();
             CreateMap<ProfileModel, UserDto>();
+            CreateMap<AccountDto, Account>();
+            CreateMap<Account, AccountDto>();
+            CreateMap<AccountDto, AccountModel>();
+            CreateMap<AccountModel, AccountDto>();
         }
     }
 }
