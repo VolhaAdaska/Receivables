@@ -11,5 +11,7 @@
         public string CustomerINN { get; set; }
 
         public int SumDebt { get; set; }
+
+        public string Status { get; set; }
     }
 }

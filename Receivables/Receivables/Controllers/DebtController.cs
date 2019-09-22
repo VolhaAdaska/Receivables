@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Web.Mvc;
 using AutoMapper;
 using Receivables.Bll.Interfaces;
+using Receivables.Bll.Models;
 using Receivables.Models;
 
 namespace Receivables.Controllers
@@ -28,7 +29,8 @@ namespace Receivables.Controllers
                 CustomerId = 1,
                 CustomerName = "Belagro",
                 CustomerINN = "123456870",
-                SumDebt = 4414
+                SumDebt = 4414,
+                Status = StatusDebt.NewStatus
             });
             return View(debts);
         }

@@ -71,6 +71,8 @@
     <Compile Include="Dto\ProductDto.cs" />
     <Compile Include="Dto\StoreDto.cs" />
     <Compile Include="Dto\UserDto.cs" />
+    <Compile Include="Enum\Currency.cs" />
+    <Compile Include="Models\StatusDebt.cs" />
     <Compile Include="Infrastructure\OperationDetails.cs" />
     <Compile Include="Interfaces\IAgreementService.cs" />
     <Compile Include="Interfaces\ICalculationService.cs" />
@@ -98,8 +100,6 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Enum\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
