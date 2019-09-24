@@ -10,7 +10,7 @@ namespace Receivables.Dal.Context.Configurations
             HasKey(x => x.Id);
             Property(x => x.CustomerId).IsRequired();
             Property(x => x.AgreementId).IsRequired();
-            Property(x => x.SumDebt).IsRequired();
+            Property(x => x.SumAmount).IsRequired();
         }
     }
 }

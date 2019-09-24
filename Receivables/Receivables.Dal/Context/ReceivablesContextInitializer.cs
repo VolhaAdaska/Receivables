@@ -264,7 +264,7 @@ namespace Receivables.Dal.Context
         {
             context.Debts.Add(new Debt
             {
-                SumDebt = 4654.66m,
+                SumAmount = 4654.66m,
                 AgreementId = 1,
                 CustomerId = 1,
                 Date = DateTime.UtcNow,
