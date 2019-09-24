@@ -59,6 +59,7 @@
     <Compile Include="Context\Configurations\AccountConfigurations.cs" />
     <Compile Include="Context\Configurations\ApplicationUserConfiguration.cs" />
     <Compile Include="Context\Configurations\CustomerConfigurations.cs" />
+    <Compile Include="Context\Configurations\DebtConfigurations.cs" />
     <Compile Include="Context\Configurations\ProductConfigurations.cs" />
     <Compile Include="Context\Configurations\StoreConfigurations.cs" />
     <Compile Include="Context\Configurations\AgreementConfigurations.cs" />

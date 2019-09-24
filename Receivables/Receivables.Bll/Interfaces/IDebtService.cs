@@ -16,5 +16,7 @@ namespace Receivables.Bll.Interfaces
         Task<DebtDto> GetDebtByIdAsync(int id);
 
         IEnumerable<DebtDto> GetActiveDebt();
+
+        IList<DebtDto> GetAll();
     }
 }

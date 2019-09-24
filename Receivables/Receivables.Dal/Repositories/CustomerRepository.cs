@@ -19,6 +19,11 @@ namespace Receivables.Dal.Repositories
             return entities.Where(x => x.UserId == userId && x.IsActive == true);
         }
 
+        public IList<Customer> GetAll()
+        {
+            return entities.ToList();
+        }
+
         public Customer GetByINN(string INN)
         {
             return entities.FirstOrDefault(x => x.INN.Equals(INN, System.StringComparison.InvariantCultureIgnoreCase));

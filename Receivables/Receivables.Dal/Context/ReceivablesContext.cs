@@ -18,6 +18,8 @@ namespace Receivables.Dal.Context
 
         public DbSet<Account> Accounts { get; set; }
 
+        public DbSet<Debt> Debts { get; set; }
+
         public ReceivablesContext()
             : base("ReceivablesDatabase")
         {
@@ -42,6 +44,7 @@ namespace Receivables.Dal.Context
             modelBuilder.Configurations.Add(new CustomerConfigurations());
             modelBuilder.Configurations.Add(new ProductConfigurations());
             modelBuilder.Configurations.Add(new AccountConfigurations());
+            modelBuilder.Configurations.Add(new DebtConfigurations());
         }
     }
 }

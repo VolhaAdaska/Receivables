@@ -259,6 +259,7 @@
     <Content Include="Views\Product\Index.cshtml" />
     <Content Include="Views\Calculation\Index.cshtml" />
     <Content Include="Views\Calculation\AccountSearch.cshtml" />
+    <Content Include="Views\Debt\ProfileDebt.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

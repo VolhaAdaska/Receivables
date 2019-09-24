@@ -37,6 +37,10 @@ namespace Receivables
             CreateMap<Account, AccountDto>();
             CreateMap<AccountDto, AccountModel>();
             CreateMap<AccountModel, AccountDto>();
+            CreateMap<DebtDto, Debt>();
+            CreateMap<Debt, DebtDto>();
+            CreateMap<DebtDto, DebtModel>();
+            CreateMap<DebtModel, DebtDto>();
         }
     }
 }

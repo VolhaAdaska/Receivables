@@ -1,11 +1,14 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
 using NLog;
 using Receivables.Bll.Dto;
 using Receivables.Bll.Infrastructure;
 using Receivables.Bll.Interfaces;
+using Receivables.Bll.Models;
 using Receivables.Dal.Interfaces;
+using Receivables.Dal.Models;
 
 namespace Receivables.Bll.Services
 {
@@ -30,12 +33,20 @@ namespace Receivables.Bll.Services
 
         public IEnumerable<DebtDto> GetActiveDebt()
         {
-            throw new System.NotImplementedException();
+            var debts = unitOfWork.DebtRepository.GetActiveDebt(StatusDebt.Closed);
+            return debts.Select(p => mapper.Map<Debt, DebtDto>(p)).ToList();
         }
 
-        public Task<DebtDto> GetDebtByIdAsync(int id)
+        public IList<DebtDto> GetAll()
         {
-            throw new System.NotImplementedException();
+            var debts = unitOfWork.DebtRepository.GetAll();
+            return debts.Select(p => mapper.Map<Debt, DebtDto>(p)).ToList();
+        }
+
+        public async Task<DebtDto> GetDebtByIdAsync(int id)
+        {
+            Debt debt = await unitOfWork.DebtRepository.GetByIdAsync(id);
+            return mapper.Map<Debt, DebtDto>(debt);
         }
 
         public Task<OperationDetails> UpdateDebtAsync(DebtDto debtDto)

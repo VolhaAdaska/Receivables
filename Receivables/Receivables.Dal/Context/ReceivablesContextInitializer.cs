@@ -46,6 +46,7 @@ namespace Receivables.Dal.Context
             InitializeStore(context);
             InitializeProduct(context);
             InitializeAccount(context);
+            InitializeDebt(context);
 
             // base.Seed(context);
         }
@@ -254,6 +255,21 @@ namespace Receivables.Dal.Context
                 AgreementName = "Договор №263",
                 Date = DateTime.Parse("16/09/2019"),
                 Sum = 1500m
+            });
+
+            context.SaveChanges();
+        }
+
+        private void InitializeDebt(ReceivablesContext context)
+        {
+            context.Debts.Add(new Debt
+            {
+                SumDebt = 4654.66m,
+                AgreementId = 1,
+                CustomerId = 1,
+                Date = DateTime.UtcNow,
+                Number = 1,
+                Status = "Новый"
             });
 
             context.SaveChanges();

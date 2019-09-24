@@ -10,5 +10,7 @@ namespace Receivables.Dal.Interfaces
         IEnumerable<Customer> GetActiveCustomer(string userId);
 
         Customer GetCustomerByName(string name);
+
+        IList<Customer> GetAll();
     }
 }
