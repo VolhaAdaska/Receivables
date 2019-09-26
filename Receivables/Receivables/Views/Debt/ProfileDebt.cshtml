@@ -19,10 +19,10 @@
             <div class="nav-wrapper">
                 <ul class="nav nav-pills nav-fill flex-column flex-md-row" id="tabs-icons-text" role="tablist">
                     <li class="nav-item">
-                        <a class="nav-link mb-sm-3 mb-md-0 active" id="tabs-icons-text-1-tab" data-toggle="tab" href="#tabs-icons-text-1" role="tab" aria-controls="tabs-icons-text-1" aria-selected="true"><i class="ni ni-cloud-upload-96 mr-2"></i>Обращение в ЮО</a>
+                        <a class="nav-link mb-sm-3 mb-md-0 active" id="tabs-icons-text-1-tab" data-toggle="tab" href="#tabs-icons-text-1" role="tab" aria-controls="tabs-icons-text-1" aria-selected="true">Обращение в ЮО</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link mb-sm-3 mb-md-0" id="tabs-icons-text-2-tab" data-toggle="tab" href="#tabs-icons-text-2" role="tab" aria-controls="tabs-icons-text-2" aria-selected="false"><i class="ni ni-bell-55 mr-2"></i>Ответы</a>
+                        <a class="nav-link mb-sm-3 mb-md-0" id="tabs-icons-text-2-tab" data-toggle="tab" href="#tabs-icons-text-2" role="tab" aria-controls="tabs-icons-text-2" aria-selected="false">Ответы</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link mb-sm-3 mb-md-0" id="tabs-icons-text-3-tab" data-toggle="tab" href="#tabs-icons-text-3" role="tab" aria-controls="tabs-icons-text-3" aria-selected="false"><i class="ni ni-calendar-grid-58 mr-2"></i>Документы</a>
@@ -96,8 +96,8 @@
                                     </div>
                                     <div class="col-lg-1">
                                         <div class="form-group">
-                                            @Html.LabelFor(m => m.Penalties, "Валюта", new { @class = "form-control-label" })
-                                            @Html.TextBoxFor(m => m.Penalties, new { @class = "form-control" })
+                                            @Html.LabelFor(m => m.Currency, "Валюта", new { @class = "form-control-label" })
+                                            @Html.TextBoxFor(m => m.Currency, new { @class = "form-control" })
                                         </div>
                                     </div>
                                     <div class="col-lg-2">
@@ -108,13 +108,101 @@
                                     </div>
                                     <div class="col-lg-2">
                                         <div class="form-group">
-                                            @Html.LabelFor(m => m.Penalties, "Проценты", new { @class = "form-control-label" })
-                                            @Html.TextBoxFor(m => m.Penalties, new { @class = "form-control" })
+                                            @Html.LabelFor(m => m.InterestAmount, "Проценты", new { @class = "form-control-label" })
+                                            @Html.TextBoxFor(m => m.InterestAmount, new { @class = "form-control" })
                                         </div>
                                     </div>
                                     <div class="col-lg-2">
                                         <div class="form-group">
-                                            @Html.LabelFor(m => m.Penalties, "Штраф", new { @class = "form-control-label" })
+                                            @Html.LabelFor(m => m.Fine, "Штраф", new { @class = "form-control-label" })
+                                            @Html.TextBoxFor(m => m.Fine, new { @class = "form-control" })
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-1">
+                                        <div class="form-group">
+                                            @Html.LabelFor(m => m.StateDuty, "Госпошлина", new { @class = "form-control-label" })
+                                            @Html.TextBoxFor(m => m.StateDuty, new { @class = "form-control" })
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2">
+                                        <div class="form-group">
+                                            @Html.LabelFor(m => m.Total, "Всего", new { @class = "form-control-label" })
+                                            @Html.TextBoxFor(m => m.Total, new { @class = "form-control" })
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <!-- Взыскано -->
+                            <div class="pl-lg-4">
+                                <h6 class="heading-small text-muted mb-4">Взыскано</h6>
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        <div class="form-group">
+                                            @Html.LabelFor(m => m.SumExacted, "Сумма долга", new { @class = "form-control-label" })
+                                            @Html.TextBoxFor(m => m.SumExacted, new { @class = "form-control" })
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-1">
+                                        <div class="form-group">
+                                            @Html.LabelFor(m => m.Currency, "Валюта", new { @class = "form-control-label" })
+                                            @Html.TextBoxFor(m => m.Currency, new { @class = "form-control" })
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2">
+                                        <div class="form-group">
+                                            @Html.LabelFor(m => m.PenaltiesExacted, "Пеня", new { @class = "form-control-label" })
+                                            @Html.TextBoxFor(m => m.PenaltiesExacted, new { @class = "form-control" })
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2">
+                                        <div class="form-group">
+                                            @Html.LabelFor(m => m.InterestAmountExacted, "Проценты", new { @class = "form-control-label" })
+                                            @Html.TextBoxFor(m => m.InterestAmountExacted, new { @class = "form-control" })
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2">
+                                        <div class="form-group">
+                                            @Html.LabelFor(m => m.FineExacted, "Штраф", new { @class = "form-control-label" })
+                                            @Html.TextBoxFor(m => m.FineExacted, new { @class = "form-control" })
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-1">
+                                        <div class="form-group">
+                                            @Html.LabelFor(m => m.StateDutyExacted, "Госпошлина", new { @class = "form-control-label" })
+                                            @Html.TextBoxFor(m => m.StateDutyExacted, new { @class = "form-control" })
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2">
+                                        <div class="form-group">
+                                            @Html.LabelFor(m => m.TotalExacted, "Всего", new { @class = "form-control-label" })
+                                            @Html.TextBoxFor(m => m.TotalExacted, new { @class = "form-control" })
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <!-- Оплачено -->
+                            <div class="pl-lg-4">
+                                <h6 class="heading-small text-muted mb-4">Оплачено</h6>
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        <div class="form-group">
+                                            @Html.LabelFor(m => m.SumAmount, "Сумма долга", new { @class = "form-control-label" })
+                                            @Html.TextBoxFor(m => m.SumAmount, new { @class = "form-control" })
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-1">
+                                        <div class="form-group">
+                                            @Html.LabelFor(m => m.Currency, "Валюта", new { @class = "form-control-label" })
+                                            @Html.TextBoxFor(m => m.Currency, new { @class = "form-control" })
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            @Html.LabelFor(m => m.Penalties, "Штрафные санкции", new { @class = "form-control-label" })
                                             @Html.TextBoxFor(m => m.Penalties, new { @class = "form-control" })
                                         </div>
                                     </div>
@@ -134,49 +222,18 @@
                                 </div>
                             </div>
 
-                            <!-- Взыскано -->
+                            <!-- Исполнительный документ -->
                             <div class="pl-lg-4">
-                                <h6 class="heading-small text-muted mb-4">Взыскано</h6>
                                 <div class="row">
-                                    <div class="col-md-2">
+                                    <div class="col-md-3">
                                         <div class="form-group">
-                                            @Html.LabelFor(m => m.SumAmount, "Сумма долга", new { @class = "form-control-label" })
+                                            @Html.LabelFor(m => m.SumAmount, "Дата исполнительного документа", new { @class = "form-control-label" })
                                             @Html.TextBoxFor(m => m.SumAmount, new { @class = "form-control" })
                                         </div>
                                     </div>
-                                    <div class="col-lg-1">
+                                    <div class="col-lg-3">
                                         <div class="form-group">
-                                            @Html.LabelFor(m => m.Penalties, "Валюта", new { @class = "form-control-label" })
-                                            @Html.TextBoxFor(m => m.Penalties, new { @class = "form-control" })
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-2">
-                                        <div class="form-group">
-                                            @Html.LabelFor(m => m.Penalties, "Пеня", new { @class = "form-control-label" })
-                                            @Html.TextBoxFor(m => m.Penalties, new { @class = "form-control" })
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-2">
-                                        <div class="form-group">
-                                            @Html.LabelFor(m => m.Penalties, "Проценты", new { @class = "form-control-label" })
-                                            @Html.TextBoxFor(m => m.Penalties, new { @class = "form-control" })
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-2">
-                                        <div class="form-group">
-                                            @Html.LabelFor(m => m.Penalties, "Штраф", new { @class = "form-control-label" })
-                                            @Html.TextBoxFor(m => m.Penalties, new { @class = "form-control" })
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-1">
-                                        <div class="form-group">
-                                            @Html.LabelFor(m => m.Penalties, "Госпошлина", new { @class = "form-control-label" })
-                                            @Html.TextBoxFor(m => m.Penalties, new { @class = "form-control" })
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-2">
-                                        <div class="form-group">
-                                            @Html.LabelFor(m => m.Penalties, "Всего", new { @class = "form-control-label" })
+                                            @Html.LabelFor(m => m.Penalties, "Номер исполнительного документа", new { @class = "form-control-label" })
                                             @Html.TextBoxFor(m => m.Penalties, new { @class = "form-control" })
                                         </div>
                                     </div>

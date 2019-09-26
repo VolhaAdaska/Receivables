@@ -1,9 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
 using NLog;
 using Receivables.Bll.Dto;
+using Receivables.Bll.Enum;
 using Receivables.Bll.Infrastructure;
 using Receivables.Bll.Interfaces;
 using Receivables.Bll.Models;
@@ -26,6 +28,33 @@ namespace Receivables.Bll.Services
             throw new System.NotImplementedException();
         }
 
+        public async Task<OperationDetails> CloseDebt(int id)
+        {
+            DebtDto debtDto = await GetDebtByIdAsync(id);
+            if (debtDto == null)
+            {
+                Logger.Error("Debt is null");
+                return new OperationDetails(false, "Something went wrong", "Debt");
+            }
+
+            debtDto.Status = StatusDebt.Closed;
+
+            Debt debt = mapper.Map<DebtDto, Debt>(debtDto);
+
+            try
+            {
+                await unitOfWork.DebtRepository.UpdateAsync(debt);
+                await unitOfWork.SaveAsync();
+                Logger.Info("Successfully updated");
+                return new OperationDetails(true);
+            }
+            catch (Exception ex)
+            {
+                Logger.Error(ex.Message);
+                return new OperationDetails(false, ex.Message);
+            }
+        }
+
         public Task<OperationDetails> DeleteDebtAsync(DebtDto debtDto)
         {
             throw new System.NotImplementedException();
@@ -46,12 +75,33 @@ namespace Receivables.Bll.Services
         public async Task<DebtDto> GetDebtByIdAsync(int id)
         {
             Debt debt = await unitOfWork.DebtRepository.GetByIdAsync(id);
-            return mapper.Map<Debt, DebtDto>(debt);
+            var debtDto = mapper.Map<Debt, DebtDto>(debt);
+            debtDto.Currency = ((Currency)debt.Currency).ToString();
+            return debtDto;
         }
 
-        public Task<OperationDetails> UpdateDebtAsync(DebtDto debtDto)
+        public async Task<OperationDetails> UpdateDebtAsync(DebtDto debtDto)
         {
-            throw new System.NotImplementedException();
+            if (debtDto == null)
+            {
+                Logger.Error("Debt is null");
+                return new OperationDetails(false, "Something went wrong", "Debt");
+            }
+
+            Debt debt = mapper.Map<DebtDto, Debt>(debtDto);
+
+            try
+            {
+                await unitOfWork.DebtRepository.UpdateAsync(debt);
+                await unitOfWork.SaveAsync();
+                Logger.Info("Successfully updated");
+                return new OperationDetails(true);
+            }
+            catch (Exception ex)
+            {
+                Logger.Error(ex.Message);
+                return new OperationDetails(false, ex.Message);
+            }
         }
     }
 }

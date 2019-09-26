@@ -13,6 +13,8 @@ namespace Receivables.Bll.Interfaces
 
         Task<OperationDetails> UpdateDebtAsync(DebtDto debtDto);
 
+        Task<OperationDetails> CloseDebt(int id);
+
         Task<DebtDto> GetDebtByIdAsync(int id);
 
         IEnumerable<DebtDto> GetActiveDebt();

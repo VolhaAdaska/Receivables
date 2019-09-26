@@ -39,5 +39,11 @@ namespace Receivables.Models
         public decimal FineExacted { get; set; }
 
         public decimal StateDutyExacted { get; set; }
+
+        public string Currency { get; set; }
+
+        public decimal Total { get; set; }
+
+        public decimal TotalExacted { get; set; }
     }
 }

@@ -39,5 +39,11 @@ namespace Receivables.Bll.Dto
         public decimal FineExacted { get; set; }
 
         public decimal StateDutyExacted { get; set; }
+
+        public string Currency { get; set; }
+
+        public string NumDoc { get; set; }
+
+        public DateTime DateDoc { get; set; }
     }
 }

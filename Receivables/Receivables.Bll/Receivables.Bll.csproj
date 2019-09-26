@@ -67,7 +67,11 @@
     <Compile Include="Dto\AccountDto.cs" />
     <Compile Include="Dto\AgreementDto.cs" />
     <Compile Include="Dto\CustomerDto.cs" />
+    <Compile Include="Dto\DebtClaimDto.cs" />
     <Compile Include="Dto\DebtDto.cs" />
+    <Compile Include="Dto\DebtPaidDto.cs" />
+    <Compile Include="Dto\DebtStatusDto.cs" />
+    <Compile Include="Dto\DebtStoreDto.cs" />
     <Compile Include="Dto\ProductDto.cs" />
     <Compile Include="Dto\StoreDto.cs" />
     <Compile Include="Dto\UserDto.cs" />

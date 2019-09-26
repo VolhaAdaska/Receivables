@@ -33,6 +33,10 @@ namespace Receivables
             builder.RegisterType<ProductRepository>().As<IProductRepository>().InstancePerRequest();
             builder.RegisterType<DebtRepository>().As<IDebtRepository>().InstancePerRequest();
             builder.RegisterType<AccountRepository>().As<IAccountRepository>().InstancePerRequest();
+            builder.RegisterType<DebtClaimRepository>().As<IDebtClaimRepository>().InstancePerRequest();
+            builder.RegisterType<DebtPaidRepository>().As<IDebtPaidRepository>().InstancePerRequest();
+            builder.RegisterType<DebtStatusRepository>().As<IDebtStatusRepository>().InstancePerRequest();
+            builder.RegisterType<DebtStoreRepository>().As<IDebtStoreRepository>().InstancePerRequest();
             builder.RegisterType<UnitOfWork>().As<IUnitOfWork>().InstancePerRequest();
         }
 

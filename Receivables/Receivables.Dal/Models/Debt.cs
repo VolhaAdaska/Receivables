@@ -24,6 +24,8 @@ namespace Receivables.Dal.Models
 
         public decimal StateDuty { get; set; }
 
+        public int DebtId { get; set; }
+
         public decimal SumExacted { get; set; }
 
         public decimal PenaltiesExacted { get; set; }
@@ -33,5 +35,11 @@ namespace Receivables.Dal.Models
         public decimal FineExacted { get; set; }
 
         public decimal StateDutyExacted { get; set; }
+
+        public int Currency { get; set; }
+
+        public string NumDoc { get; set; }
+
+        public DateTime DateDoc { get; set; }
     }
 }

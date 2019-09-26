@@ -21,6 +21,14 @@ namespace Receivables.Dal.Interfaces
 
         IDebtRepository DebtRepository { get; }
 
+        IDebtClaimRepository DebtClaimRepository { get; }
+
+        IDebtPaidRepository DebtPaidRepository { get; }
+
+        IDebtStatusRepository DebtStatusRepository { get; }
+
+        IDebtStoreRepository DebtStoreRepository { get; }
+
         IAccountRepository AccountRepository { get; }
 
         Task SaveAsync();

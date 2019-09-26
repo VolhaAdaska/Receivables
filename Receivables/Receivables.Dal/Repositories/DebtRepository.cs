@@ -10,8 +10,6 @@ namespace Receivables.Dal.Repositories
 {
     public class DebtRepository : BaseRepository<Debt>, IDebtRepository
     {
-        protected readonly DbSet<Customer> customerEntity;
-
         public DebtRepository(ReceivablesContext context)
           : base(context)
         {

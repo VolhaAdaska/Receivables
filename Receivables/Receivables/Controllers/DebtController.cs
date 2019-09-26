@@ -4,11 +4,13 @@ using System.Threading.Tasks;
 using System.Web.Mvc;
 using AutoMapper;
 using Receivables.Bll.Dto;
+using Receivables.Bll.Infrastructure;
 using Receivables.Bll.Interfaces;
 using Receivables.Models;
 
 namespace Receivables.Controllers
 {
+    [Authorize]
     public class DebtController : Controller
     {
         private readonly IDebtService debtService;
@@ -50,6 +52,34 @@ namespace Receivables.Controllers
             return View(debt);
         }
 
+        [HttpPost]
+        public async Task<ActionResult> UpdateDebt(DebtModel model)
+        {
+            DebtDto debtDto = mapper.Map<DebtModel, DebtDto>(model);
+
+            OperationDetails operationDetails = await debtService.UpdateDebtAsync(debtDto);
+
+            if (operationDetails.Succedeed)
+            {
+                return RedirectToAction("Index", "Debt");
+            }
+            ModelState.AddModelError(operationDetails.Property, operationDetails.Message);
+            return RedirectToAction("Index", "Debt");
+        }
+
+        [HttpGet]
+        public async Task<ActionResult> CloseDebt(int id)
+        {
+            OperationDetails operationDetails = await debtService.CloseDebt(id);
+
+            if (operationDetails.Succedeed)
+            {
+                return RedirectToAction("Index", "Debt");
+            }
+            ModelState.AddModelError(operationDetails.Property, operationDetails.Message);
+            return RedirectToAction("Index", "Debt");
+        }
+
         private async Task<DebtModel> EnrichDebtModel(DebtModel debt, DebtDto debtDto)
         {
             var customerDto = await customerService.GetCustomerByIdAsync(debtDto.CustomerId).ConfigureAwait(false);
@@ -59,6 +89,8 @@ namespace Receivables.Controllers
             debt.CustomerName = customerDto.Name;
             debt.AgreementName = agreemnetDto.Name;
             debt.Postponement = agreemnetDto.Postponement;
+            debt.Total = debt.StateDuty + debt.Fine + debt.StateDuty + debt.Penalties + debt.InterestAmount;
+            debt.TotalExacted = debt.StateDutyExacted + debt.FineExacted + debt.StateDutyExacted + debt.PenaltiesExacted + debt.InterestAmountExacted;
 
             return debt;
         }

@@ -269,7 +269,10 @@ namespace Receivables.Dal.Context
                 CustomerId = 1,
                 Date = DateTime.UtcNow,
                 Number = 1,
-                Status = "Новый"
+                Status = "Новый",
+                Currency = 933,
+                NumDoc = "bla",
+                DateDoc = DateTime.UtcNow
             });
 
             context.SaveChanges();
