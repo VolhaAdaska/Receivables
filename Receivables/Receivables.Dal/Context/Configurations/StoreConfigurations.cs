@@ -15,7 +15,7 @@ namespace Receivables.Dal.Context.Configurations
             HasRequired(x => x.Agreement)
                 .WithMany(g => g.Stores)
                 .HasForeignKey(x => x.AgreementId)
-                .WillCascadeOnDelete(false);
+                .WillCascadeOnDelete(true);
         }
     }
 }

@@ -2,7 +2,7 @@
 
 namespace Receivables.Models
 {
-    public class DebtStatus
+    public class DebtStatusModel
     {
         public int Id { get; set; }
 

@@ -253,7 +253,7 @@
     <Compile Include="Models\CustomerSearchModel.cs" />
     <Compile Include="Models\DebtClaim.cs" />
     <Compile Include="Models\DebtPaid.cs" />
-    <Compile Include="Models\DebtStatus.cs" />
+    <Compile Include="Models\DebtStatusModel.cs" />
     <Compile Include="Models\DebtStore.cs" />
     <Compile Include="Models\SearchModel.cs" />
     <Compile Include="Models\CalculationModel.cs" />

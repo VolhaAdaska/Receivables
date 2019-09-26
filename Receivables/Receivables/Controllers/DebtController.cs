@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Mvc;
@@ -16,17 +17,20 @@ namespace Receivables.Controllers
         private readonly IDebtService debtService;
         private readonly ICustomerService customerService;
         private readonly IAgreementService agreementService;
+        private readonly IDebtStatusService debtStatus;
         private readonly IMapper mapper;
 
         public DebtController(
             IDebtService debtService, 
             ICustomerService customerService,
             IAgreementService agreementService,
+            IDebtStatusService debtStatus,
             IMapper mapper)
         {
             this.debtService = debtService ?? throw new ArgumentNullException(nameof(debtService));
             this.customerService = customerService ?? throw new ArgumentNullException(nameof(customerService));
             this.agreementService = agreementService ?? throw new ArgumentNullException(nameof(agreementService));
+            this.debtStatus = debtStatus ?? throw new ArgumentNullException(nameof(debtStatus));
             this.mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
         }
 
@@ -100,7 +104,10 @@ namespace Receivables.Controllers
             debt.Postponement = agreemnetDto.Postponement;
             debt.Total = debt.StateDuty + debt.Fine + debt.StateDuty + debt.Penalties + debt.InterestAmount;
             debt.TotalExacted = debt.StateDutyExacted + debt.FineExacted + debt.StateDutyExacted + debt.PenaltiesExacted + debt.InterestAmountExacted;
-
+            var statusDto = debtStatus.GetDebtStatusByDebtId(debt.Id);
+            var status = statusDto.Select(p => mapper.Map<DebtStatusDto, DebtStatusModel>(p)).ToList();
+            
+            debt.DebtStatuses = status ?? new List<DebtStatusModel>();
             return debt;
         }
     }

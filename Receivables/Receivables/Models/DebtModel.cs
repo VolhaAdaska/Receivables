@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Receivables.Models
 {
@@ -45,5 +46,17 @@ namespace Receivables.Models
         public decimal Total { get; set; }
 
         public decimal TotalExacted { get; set; }
+
+        public string NumDoc { get; set; }
+
+        public DateTime DateDoc { get; set; }
+
+        public DebtPaid DebtPaid { get; set; }
+
+        public IList<DebtStatusModel> DebtStatuses { get; set; }
+
+        public IList<DebtStore> DebtStores { get; set; }
+
+        public DebtClaim DebtClaim { get; set; }
     }
 }

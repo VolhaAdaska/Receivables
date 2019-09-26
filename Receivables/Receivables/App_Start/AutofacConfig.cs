@@ -22,6 +22,10 @@ namespace Receivables
             builder.RegisterType<AgreementService>().As<IAgreementService>().InstancePerRequest();
             builder.RegisterType<ProductService>().As<IProductService>().InstancePerRequest();
             builder.RegisterType<DebtService>().As<IDebtService>().InstancePerRequest();
+            builder.RegisterType<DebtClaimService>().As<IDebtClaimService>().InstancePerRequest();
+            builder.RegisterType<DebtPaidService>().As<IDebtPaidService>().InstancePerRequest();
+            builder.RegisterType<DebtStatusService>().As<IDebtStatusService>().InstancePerRequest();
+            builder.RegisterType<DebtStoreService>().As<IDebtStoreService>().InstancePerRequest();
             builder.RegisterType<CalculationService>().As<ICalculationService>().InstancePerRequest();
         }
 

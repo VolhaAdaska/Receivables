@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using Receivables.Bll.Dto;
 using Receivables.Bll.Infrastructure;
 
@@ -13,5 +14,7 @@ namespace Receivables.Bll.Interfaces
         Task<OperationDetails> UpdateDebtStatusAsync(DebtStatusDto DebtStatusDto);
 
         Task<DebtStatusDto> GetDebtStatusByIdAsync(int id);
+
+        IList<DebtStatusDto> GetDebtStatusByDebtId(int id);
     }
 }

@@ -22,7 +22,7 @@
                         <a class="nav-link mb-sm-3 mb-md-0 active" id="tabs-icons-text-1-tab" data-toggle="tab" href="#tabs-icons-text-1" role="tab" aria-controls="tabs-icons-text-1" aria-selected="true">Обращение в ЮО</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link mb-sm-3 mb-md-0" id="tabs-icons-text-2-tab" data-toggle="tab" href="@Url.Action("ProfileStatus", "Debt", new { id = Model.Id })" role="tab" aria-controls="tabs-icons-text-2" aria-selected="false">Ответы</a>
+                        <a class="nav-link mb-sm-3 mb-md-0" id="tabs-icons-text-2-tab" data-toggle="tab" href="#tabs-icons-text-2" role="tab" aria-controls="tabs-icons-text-2" aria-selected="false">Ответы</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link mb-sm-3 mb-md-0" id="tabs-icons-text-3-tab" data-toggle="tab" href="#tabs-icons-text-3" role="tab" aria-controls="tabs-icons-text-3" aria-selected="false"><i class="ni ni-calendar-grid-58 mr-2"></i>Документы</a>
@@ -97,7 +97,7 @@
                                     <div class="col-lg-1">
                                         <div class="form-group">
                                             @Html.LabelFor(m => m.Currency, "Валюта", new { @class = "form-control-label" })
-                                            @Html.TextBoxFor(m => m.Currency, new { @class = "form-control" })
+                                            @Html.TextBoxFor(m => m.Currency, new { @class = "form-control", @disabled = "disabled" })
                                         </div>
                                     </div>
                                     <div class="col-lg-2">
@@ -147,7 +147,7 @@
                                     <div class="col-lg-1">
                                         <div class="form-group">
                                             @Html.LabelFor(m => m.Currency, "Валюта", new { @class = "form-control-label" })
-                                            @Html.TextBoxFor(m => m.Currency, new { @class = "form-control" })
+                                            @Html.TextBoxFor(m => m.Currency, new { @class = "form-control", @disabled = "disabled" })
                                         </div>
                                     </div>
                                     <div class="col-lg-2">
@@ -197,7 +197,7 @@
                                     <div class="col-lg-1">
                                         <div class="form-group">
                                             @Html.LabelFor(m => m.Currency, "Валюта", new { @class = "form-control-label" })
-                                            @Html.TextBoxFor(m => m.Currency, new { @class = "form-control" })
+                                            @Html.TextBoxFor(m => m.Currency, new { @class = "form-control", @disabled = "disabled" })
                                         </div>
                                     </div>
                                     <div class="col-lg-6">
@@ -227,14 +227,19 @@
                                 <div class="row">
                                     <div class="col-md-3">
                                         <div class="form-group">
-                                            @Html.LabelFor(m => m.SumAmount, "Дата исполнительного документа", new { @class = "form-control-label" })
-                                            @Html.TextBoxFor(m => m.SumAmount, new { @class = "form-control" })
+                                            @Html.LabelFor(m => m.DateDoc, "Дата исполнительного документа", new { @class = "form-control-label" })
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text"><i class="ni ni-calendar-grid-58"></i></span>
+                                                </div>
+                                                <input class="datepicker form-control" placeholder="Select date" type="text" value="@Model.DateDoc" name="endDate">
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="col-lg-3">
                                         <div class="form-group">
-                                            @Html.LabelFor(m => m.Penalties, "Номер исполнительного документа", new { @class = "form-control-label" })
-                                            @Html.TextBoxFor(m => m.Penalties, new { @class = "form-control" })
+                                            @Html.LabelFor(m => m.NumDoc, "Номер исполнительного документа", new { @class = "form-control-label" })
+                                            @Html.TextBoxFor(m => m.NumDoc, new { @class = "form-control" })
                                         </div>
                                     </div>
 
@@ -242,7 +247,41 @@
                             </div>
                         </div>
                         <div class="tab-pane fade" id="tabs-icons-text-2" role="tabpanel" aria-labelledby="tabs-icons-text-2-tab">
-                           
+                            <!-- Ответы -->
+                            <div class="table-responsive">
+                                <table class="table align-items-center table-flush">
+                                    <thead class="thead-light">
+                                        <tr>
+                                            <th scope="col">Дата</th>
+                                            <th scope="col">Статус</th>
+                                            <th scope="col"></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var doc in @Model.DebtStatuses)
+                                        {
+                                            <tr>
+                                                @*<th scope="row">
+                                                    <div class="media align-items-center">
+                                                        <div class="media-body">
+                                                            @Html.ActionLink(doc.CustomerName, "ProfileDebt", "Debt", new { id = doc.Id }, new { @class = "mb-0 text-sm" })
+                                                        </div>
+                                                    </div>
+                                                </th>*@
+                                                <td>
+                                                    @doc.Date.Date
+                                                </td>
+                                                <td>
+                                                    @doc.Status
+                                                </td>
+                                                <td>
+                                                    @doc.Value
+                                                </td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                         <div class="tab-pane fade" id="tabs-icons-text-3" role="tabpanel" aria-labelledby="tabs-icons-text-3-tab">
                             <p class="description">Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth.</p>
@@ -252,4 +291,14 @@
             </div>
         </div>
     </div>
+}
+
+@section Scripts {
+    <script type="text/javascript">
+        $('.datepicker').datepicker({
+            weekStart: 1,
+            color: 'red'
+        });
+
+    </script>
 }

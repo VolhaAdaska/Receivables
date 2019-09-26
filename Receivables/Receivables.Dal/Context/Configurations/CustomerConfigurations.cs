@@ -17,7 +17,7 @@ namespace Receivables.Dal.Context.Configurations
             HasRequired(x => x.User)
                 .WithMany(g => g.Customers)
                 .HasForeignKey(x => x.UserId)
-                .WillCascadeOnDelete(false);
+                .WillCascadeOnDelete(true);
         }
     }
 }

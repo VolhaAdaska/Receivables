@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
 using NLog;
@@ -76,10 +78,16 @@ namespace Receivables.Bll.Services
             }
         }
 
+        public IList<DebtStatusDto> GetDebtStatusByDebtId(int id)
+        {
+            var debtStatus = unitOfWork.DebtStatusRepository.GetByDebtId(id);
+            return debtStatus.Select(p => mapper.Map<DebtStatus, DebtStatusDto>(p)).ToList();
+        }
+
         public async Task<DebtStatusDto> GetDebtStatusByIdAsync(int id)
         {
-            DebtStatus DebtStatus = await unitOfWork.DebtStatusRepository.GetByIdAsync(id);
-            return mapper.Map<DebtStatus, DebtStatusDto>(DebtStatus);
+            DebtStatus debtStatus = await unitOfWork.DebtStatusRepository.GetByIdAsync(id);
+            return mapper.Map<DebtStatus, DebtStatusDto>(debtStatus);
         }
 
         public async Task<OperationDetails> UpdateDebtStatusAsync(DebtStatusDto DebtStatusDto)
