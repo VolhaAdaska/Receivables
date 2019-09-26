@@ -32,11 +32,11 @@ namespace Receivables.Bll.Services
             Store store = mapper.Map<StoreDto, Store>(storeDto);
             try
             {
-                if (unitOfWork.StoreRepository.GetByName(store.Name) != null)
-                {
-                    Logger.Error("A Store with this name already exists");
-                    return new OperationDetails(false, "A Store with this name already exists", "Store");
-                }
+                //if (unitOfWork.StoreRepository.GetByName(store.Name) != null)
+                //{
+                //    Logger.Error("A Store with this name already exists");
+                //    return new OperationDetails(false, "A Store with this name already exists", "Store");
+                //}
                 await unitOfWork.StoreRepository.CreateAsync(store);
                 await unitOfWork.SaveAsync();
                 Logger.Info("Successfully added");

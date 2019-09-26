@@ -24,14 +24,14 @@
                         <div class="row">
                             <div class="col-lg-6">
                                 <div class="form-group">
-                                    @Html.LabelFor(m => m.Name, new { @class = "form-control-label" })
+                                    @Html.LabelFor(m => m.Name, "Имя", new { @class = "form-control-label" })
                                     @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
                                     @Html.ValidationMessageFor(m => m.Name, "", new { @class = "text-danger" })
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="form-group">
-                                    @Html.LabelFor(m => m.FullName, new { @class = "form-control-label" })
+                                    @Html.LabelFor(m => m.FullName, "Полное имя", new { @class = "form-control-label" })
                                     @Html.TextBoxFor(m => m.FullName, new { @class = "form-control" })
                                     @Html.ValidationMessageFor(m => m.FullName, "", new { @class = "text-danger" })
                                 </div>
@@ -40,7 +40,7 @@
                         <div class="row">
                             <div class="col-lg-6">
                                 <div class="form-group">
-                                    @Html.LabelFor(m => m.INN, new { @class = "form-control-label" })
+                                    @Html.LabelFor(m => m.INN, "ИНН", new { @class = "form-control-label" })
                                     @Html.TextBoxFor(m => m.INN, new { @class = "form-control" })
                                     @Html.ValidationMessageFor(m => m.INN, "", new { @class = "text-danger" })
                                 </div>
@@ -61,7 +61,7 @@
                             </div>
                             <div class="col-lg-6">
                                 <div class="form-group">
-                                    @Html.LabelFor(m => m.Address, new { @class = "form-control-label" })
+                                    @Html.LabelFor(m => m.Address, "Адрес", new { @class = "form-control-label" })
                                     @Html.TextBoxFor(m => m.Address, new { @class = "form-control" })
                                     @Html.ValidationMessageFor(m => m.Address, "", new { @class = "text-danger" })
                                 </div>
@@ -70,7 +70,7 @@
                     </div>
                     <hr class="my-4" />
 
-                    <button class="btn btn-outline-info" type="submit">Create</button>
+                    <button class="btn btn-outline-info" type="submit">Добавить</button>
                 }
             </div>
         </div>

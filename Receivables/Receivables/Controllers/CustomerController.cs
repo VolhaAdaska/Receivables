@@ -110,7 +110,7 @@ namespace Receivables.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult> Profile(int id)
+        public async Task<ActionResult> ProfileCustomer(int id)
         {
             CustomerDto customerDto = await customerService.GetCustomerByIdAsync(id);
             var customer = mapper.Map<CustomerDto, CustomerModel>(customerDto);
@@ -118,6 +118,32 @@ namespace Receivables.Controllers
             var agreementsView = agreements.Select(doc => mapper.Map<AgreementDto, AgreementModel>(doc));
             customer.Agreements = agreementsView;
             return View(customer);
+        }
+
+        [HttpGet]
+        public async Task<ActionResult> BlockedCustomer(int id)
+        {
+            var customer = await customerService.GetCustomerByIdAsync(id);
+            if (customer == null)
+            {
+                ModelState.AddModelError("Контрагент", "К сожалению, что-то пошло не так");
+                return RedirectToAction("Index", "Customer");
+            }
+
+            if (customer.IsBlocked)
+            {
+                ModelState.AddModelError("Контрагент", "Контрагент уже заблокирован");
+                return RedirectToAction("Index", "Customer");
+            }
+
+            var debtDto = new DebtDto
+            {
+                CustomerId = customer.Id,
+                CustomerINN = customer.INN,
+                CustomerName = customer.Name
+            };
+
+            return RedirectToAction("Index", "Customer");
         }
     }
 }

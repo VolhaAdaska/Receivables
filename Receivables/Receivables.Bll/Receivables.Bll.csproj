@@ -76,6 +76,10 @@
     <Compile Include="Dto\StoreDto.cs" />
     <Compile Include="Dto\UserDto.cs" />
     <Compile Include="Enum\Currency.cs" />
+    <Compile Include="Interfaces\IDebtClaimService.cs" />
+    <Compile Include="Interfaces\IDebtPaidService.cs" />
+    <Compile Include="Interfaces\IDebtStatusService.cs" />
+    <Compile Include="Interfaces\IDebtStoreService.cs" />
     <Compile Include="Models\StatusDebt.cs" />
     <Compile Include="Infrastructure\OperationDetails.cs" />
     <Compile Include="Interfaces\IAgreementService.cs" />
@@ -90,7 +94,11 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\CalculationService.cs" />
     <Compile Include="Services\CustomerService.cs" />
+    <Compile Include="Services\DebtClaimService.cs" />
+    <Compile Include="Services\DebtPaidService.cs" />
     <Compile Include="Services\DebtService.cs" />
+    <Compile Include="Services\DebtStatusService.cs" />
+    <Compile Include="Services\DebtStoreService.cs" />
     <Compile Include="Services\ProductService.cs" />
     <Compile Include="Services\StoreService.cs" />
     <Compile Include="Services\UserService.cs" />

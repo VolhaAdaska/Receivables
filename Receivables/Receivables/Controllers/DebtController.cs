@@ -80,6 +80,15 @@ namespace Receivables.Controllers
             return RedirectToAction("Index", "Debt");
         }
 
+        [HttpGet]
+        public async Task<ActionResult> ProfileStatus(int id)
+        {
+            var debtDto = await debtService.GetDebtByIdAsync(id);
+            var debt = mapper.Map<DebtDto, DebtModel>(debtDto);
+            debt = await EnrichDebtModel(debt, debtDto);
+            return PartialView(debt);
+        }
+
         private async Task<DebtModel> EnrichDebtModel(DebtModel debt, DebtDto debtDto)
         {
             var customerDto = await customerService.GetCustomerByIdAsync(debtDto.CustomerId).ConfigureAwait(false);

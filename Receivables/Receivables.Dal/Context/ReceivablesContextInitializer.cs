@@ -277,5 +277,43 @@ namespace Receivables.Dal.Context
 
             context.SaveChanges();
         }
+
+        private void InitializeDebtPaid(ReceivablesContext context)
+        {
+            context.DebtPaids.Add(new DebtPaid
+            {
+
+            });
+
+            context.SaveChanges();
+        }
+        private void InitializeDebtClaim(ReceivablesContext context)
+        {
+            context.DebtClaims.Add(new DebtClaim
+            {
+               
+            });
+
+            context.SaveChanges();
+        }
+        private void InitializeDebtStatus(ReceivablesContext context)
+        {
+            context.DebtStatuses.Add(new DebtStatus
+            {
+                
+            });
+
+            context.SaveChanges();
+        }
+        private void InitializeDebtStore(ReceivablesContext context)
+        {
+            context.DebtStores.Add(new DebtStore
+            {
+
+            });
+
+            context.SaveChanges();
+        }
+
     }
 }

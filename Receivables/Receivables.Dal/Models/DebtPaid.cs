@@ -4,7 +4,7 @@
     {
         public virtual Debt Debt { get; set; }
 
-        public int DebtPaidId { get; set; }
+        public int DebtId { get; set; }
 
         public decimal SumAmount { get; set; }
 

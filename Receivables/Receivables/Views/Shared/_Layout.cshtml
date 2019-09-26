@@ -15,6 +15,7 @@
     <link href="~/Assets/css/all.min.css" rel="stylesheet" />
     <!-- CSS Files -->
     <link href="~/Assets/css/argon-dashboard.css?v=1.1.0" rel="stylesheet" />
+    @*<link href="~/Content/themes/base/all.css" rel="stylesheet" type="text/css" />*@
 
     @if (!User.Identity.IsAuthenticated)
     {
@@ -32,7 +33,6 @@
     {
         <style>
             .main-style {
-              
             }
         </style>
     }
@@ -243,6 +243,7 @@
     </div>
 
     <!--   Core   -->
+    @*<script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>*@
     <script src="~/Assets/js/jquery.min.js"></script>
     <script src="~/Assets/js/bootstrap.bundle.min.js"></script>
     <!--   Optional JS   -->
@@ -261,6 +262,7 @@
 
     <script src="~/Scripts/jquery-3.3.1.min.js"></script>
     <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+
     @RenderSection("scripts", required: false)
 </body>
 

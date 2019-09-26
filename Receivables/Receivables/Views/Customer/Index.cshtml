@@ -125,7 +125,7 @@
                                         <th scope="row">
                                             <div class="media align-items-center">
                                                 <div class="media-body">
-                                                    @Html.ActionLink(@cust.Name, "Profile", "Customer", new { id = cust.Id }, new { @class = "mb-0 text-sm" })
+                                                    @Html.ActionLink(@cust.Name, "ProfileCustomer", "Customer", new { id = cust.Id }, new { @class = "mb-0 text-sm" })
                                                 </div>
                                             </div>
                                         </th>
@@ -166,7 +166,7 @@
                                                 <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
                                                     @Html.ActionLink("Изменить", "UpdateCustomer", "Customer", new { id = cust.Id }, new { @class = "dropdown-item" })
                                                     @Html.ActionLink("Удалить", "DeleteCustomer", "Customer", new { id = cust.Id }, new { @class = "dropdown-item" })
-                                                    @Html.ActionLink("Заблокировать", "Index", "Customer", null, new { @class = "dropdown-item" })
+                                                    @Html.ActionLink("Заблокировать", "BlockedCustomer", "Customer", null, new { @class = "dropdown-item" })
                                                 </div>
                                             </div>
                                         </td>

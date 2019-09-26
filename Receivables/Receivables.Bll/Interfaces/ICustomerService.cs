@@ -19,5 +19,7 @@ namespace Receivables.Bll.Interfaces
         IEnumerable<CustomerDto> GetActiveCustomer(string userId);
 
         CustomerDto GetCustomerByName(string name);
+
+        IList<CustomerDto> GetAllCustomer();
     }
 }

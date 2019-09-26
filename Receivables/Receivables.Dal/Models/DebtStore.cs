@@ -6,7 +6,7 @@ namespace Receivables.Dal.Models
     {
         public virtual Debt Debt { get; set; }
 
-        public int DebtPaidId { get; set; }
+        public int DebtId { get; set; }
 
         public DateTime Date { get; set; }
 

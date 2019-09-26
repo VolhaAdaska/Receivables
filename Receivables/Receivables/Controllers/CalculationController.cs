@@ -16,6 +16,7 @@ namespace Receivables.Controllers
         private readonly IMapper mapper;
         private readonly ICustomerService customerService;
         private readonly ICalculationService calculationService;
+        private List<CustomerSearchModel> customerSearchModels;
 
         public CalculationController(
             IMapper mapper, 
@@ -28,9 +29,11 @@ namespace Receivables.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult> Index()
+        public ActionResult Index()
         {
             var model = new CalculationModel();
+            var customers = customerService.GetAllCustomer();
+            customerSearchModels = customers.Select(p => mapper.Map<CustomerDto, CustomerSearchModel>(p)).ToList();
             return View(model);
         }
 
@@ -59,6 +62,21 @@ namespace Receivables.Controllers
                          select account;
 
             return PartialView(result);
+        }
+
+        public ActionResult AutocompleteSearch(string term)
+        {
+            if (customerSearchModels == null)
+            {
+                var customers = customerService.GetAllCustomer();
+                customerSearchModels = customers.Select(p => mapper.Map<CustomerDto, CustomerSearchModel>(p)).ToList();
+            }
+
+            var models = customerSearchModels.Where(a => a.Name.Contains(term))
+                            .Select(a => new { value = a.Name })
+                            .Distinct();
+
+            return Json(models, JsonRequestBehavior.AllowGet);
         }
     }
 }

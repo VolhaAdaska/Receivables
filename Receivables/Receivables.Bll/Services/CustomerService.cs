@@ -85,6 +85,12 @@ namespace Receivables.Bll.Services
             return customers.Select(p => mapper.Map<Customer, CustomerDto>(p)).ToList();
         }
 
+        public IList<CustomerDto> GetAllCustomer()
+        {
+            var customers = unitOfWork.CustomerRepository.GetAll();
+            return customers.Select(p => mapper.Map<Customer, CustomerDto>(p)).ToList();
+        }
+
         public async Task<CustomerDto> GetCustomerByIdAsync(int id)
         {
             Customer customer = await unitOfWork.CustomerRepository.GetByIdAsync(id);

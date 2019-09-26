@@ -6,7 +6,7 @@ namespace Receivables.Bll.Dto
     {
         public int Id { get; set; }
 
-        public int DebtPaidId { get; set; }
+        public int DebtId { get; set; }
 
         public DateTime Date { get; set; }
 
