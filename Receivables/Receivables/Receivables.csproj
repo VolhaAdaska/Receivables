@@ -254,7 +254,7 @@
     <Compile Include="Models\DebtClaim.cs" />
     <Compile Include="Models\DebtPaidModel.cs" />
     <Compile Include="Models\DebtStatusModel.cs" />
-    <Compile Include="Models\DebtStore.cs" />
+    <Compile Include="Models\DebtStoreModel.cs" />
     <Compile Include="Models\SearchModel.cs" />
     <Compile Include="Models\CalculationModel.cs" />
     <Compile Include="Models\CustomerModel.cs" />

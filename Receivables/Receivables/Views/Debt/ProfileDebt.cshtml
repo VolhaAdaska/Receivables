@@ -201,8 +201,8 @@
                                 <div class="row">
                                     <div class="col-md-2">
                                         <div class="form-group">
-                                            @Html.LabelFor(m => m.SumAmount, "Сумма долга", new { @class = "form-control-label" })
-                                            @Html.TextBoxFor(m => m.SumAmount, new { @class = "form-control" })
+                                            @Html.LabelFor(m => m.DebtPaid.SumAmount, "Сумма долга", new { @class = "form-control-label" })
+                                            @Html.TextBoxFor(m => m.DebtPaid.SumAmount, new { @class = "form-control" })
                                         </div>
                                     </div>
                                     <div class="col-lg-1">
@@ -213,20 +213,20 @@
                                     </div>
                                     <div class="col-lg-6">
                                         <div class="form-group">
-                                            @Html.LabelFor(m => m.Penalties, "Штрафные санкции", new { @class = "form-control-label" })
-                                            @Html.TextBoxFor(m => m.Penalties, new { @class = "form-control" })
+                                            @Html.LabelFor(m => m.DebtPaid.Fine, "Штрафные санкции", new { @class = "form-control-label" })
+                                            @Html.TextBoxFor(m => m.DebtPaid.Fine, new { @class = "form-control" })
                                         </div>
                                     </div>
                                     <div class="col-lg-1">
                                         <div class="form-group">
-                                            @Html.LabelFor(m => m.Penalties, "Госпошлина", new { @class = "form-control-label" })
-                                            @Html.TextBoxFor(m => m.Penalties, new { @class = "form-control" })
+                                            @Html.LabelFor(m => m.DebtPaid.StateDuty, "Госпошлина", new { @class = "form-control-label" })
+                                            @Html.TextBoxFor(m => m.DebtPaid.StateDuty, new { @class = "form-control" })
                                         </div>
                                     </div>
                                     <div class="col-lg-2">
                                         <div class="form-group">
-                                            @Html.LabelFor(m => m.Penalties, "Всего", new { @class = "form-control-label" })
-                                            @Html.TextBoxFor(m => m.Penalties, new { @class = "form-control" })
+                                            @Html.LabelFor(m => m.DebtPaid.Total, "Всего", new { @class = "form-control-label" })
+                                            @Html.TextBoxFor(m => m.DebtPaid.Total, new { @class = "form-control" })
                                         </div>
                                     </div>
 
@@ -247,7 +247,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-lg-3">
+                                    <div class="col-lg-6">
                                         <div class="form-group">
                                             @Html.LabelFor(m => m.NumDoc, "Номер исполнительного документа", new { @class = "form-control-label" })
                                             @Html.TextBoxFor(m => m.NumDoc, new { @class = "form-control" })
@@ -318,7 +318,50 @@
 
                         <!-- ТТН -->
                         <div class="tab-pane fade" id="tabs-icons-text-4" role="tabpanel" aria-labelledby="tabs-icons-text-4-tab">
-                            <p class="description">Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth.</p>
+                            <div class="tab-pane fade" id="tabs-icons-text-2" role="tabpanel" aria-labelledby="tabs-icons-text-2-tab">
+                                <div class="card-header bg-white border-0">
+                                    <div class="row align-items-center">
+                                        <div class="col-8">
+                                            <h3 class="mb-0">ТТН/Оплаты</h3>
+                                        </div>
+                                        <div class="col-4 text-right">
+                                            <a href="#!" class="btn btn-sm btn-primary">Добавить</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="table-responsive">
+                                    <table class="table align-items-center table-flush">
+                                        <thead class="thead-light">
+                                            <tr>
+                                                <th scope="col">Дата</th>
+                                                <th scope="col">Номер</th>
+                                                <th scope="col"></th>
+                                                <th scope="col">Сумма</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach (var doc in @Model.DebtStores)
+                                            {
+                                                <tr>
+                                                    <td>
+                                                        @doc.Date.ToShortDateString()
+                                                    </td>
+                                                    <td>
+                                                        @doc.Number
+                                                    </td>
+                                                    <td>
+                                                        @doc.DebtStoreType
+                                                    </td>
+                                                    <td>
+                                                        @doc.Sum
+                                                    </td>
+                                                </tr>
+                                            }
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
                         </div>
 
                         <!-- Претензия -->

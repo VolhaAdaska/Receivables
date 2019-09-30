@@ -55,7 +55,7 @@ namespace Receivables.Models
 
         public IList<DebtStatusModel> DebtStatuses { get; set; }
 
-        public IList<DebtStore> DebtStores { get; set; }
+        public IList<DebtStoreModel> DebtStores { get; set; }
 
         public DebtClaim DebtClaim { get; set; }
     }

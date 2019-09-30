@@ -12,6 +12,8 @@ namespace Receivables.Bll.Dto
 
         public int DebtStoreType { get; set; }
 
+        public string DebtStore { get; set; }
+
         public decimal Sum { get; set; }
 
         public string Number { get; set; }

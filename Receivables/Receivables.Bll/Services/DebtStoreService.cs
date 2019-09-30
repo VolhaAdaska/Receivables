@@ -1,8 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
 using NLog;
 using Receivables.Bll.Dto;
+using Receivables.Bll.Enum;
 using Receivables.Bll.Infrastructure;
 using Receivables.Bll.Interfaces;
 using Receivables.Dal.Interfaces;
@@ -76,25 +79,36 @@ namespace Receivables.Bll.Services
             }
         }
 
-        public async Task<DebtStoreDto> GetDebtStoreByIdAsync(int id)
+        public IList<DebtStoreDto> GetDebtStoreByDebtId(int id)
         {
-            DebtStore DebtStore = await unitOfWork.DebtStoreRepository.GetByIdAsync(id);
-            return mapper.Map<DebtStore, DebtStoreDto>(DebtStore);
+            var debtStore = unitOfWork.DebtStoreRepository.GetByDebtId(id);
+            var debtStoreDto = debtStore.Select(p => mapper.Map<DebtStore, DebtStoreDto>(p)).ToList();
+            foreach (var item in debtStoreDto)
+            {
+                item.DebtStore = (item.DebtStoreType == 1) ? StoreType.TTN : StoreType.Payment;
+            }
+            return debtStoreDto;
         }
 
-        public async Task<OperationDetails> UpdateDebtStoreAsync(DebtStoreDto DebtStoreDto)
+        public async Task<DebtStoreDto> GetDebtStoreByIdAsync(int id)
         {
-            if (DebtStoreDto == null)
+            DebtStore debtStore = await unitOfWork.DebtStoreRepository.GetByIdAsync(id);
+            return mapper.Map<DebtStore, DebtStoreDto>(debtStore);
+        }
+
+        public async Task<OperationDetails> UpdateDebtStoreAsync(DebtStoreDto debtStoreDto)
+        {
+            if (debtStoreDto == null)
             {
                 Logger.Error("Something went wrong");
                 return new OperationDetails(false, "К сожалению, что-то пошло не так....", "DebtStore");
             }
 
-            DebtStore DebtStore = mapper.Map<DebtStoreDto, DebtStore>(DebtStoreDto);
+            DebtStore debtStore = mapper.Map<DebtStoreDto, DebtStore>(debtStoreDto);
 
             try
             {
-                await unitOfWork.DebtStoreRepository.UpdateAsync(DebtStore);
+                await unitOfWork.DebtStoreRepository.UpdateAsync(debtStore);
                 await unitOfWork.SaveAsync();
                 Logger.Info("Successfully updated");
                 return new OperationDetails(true);

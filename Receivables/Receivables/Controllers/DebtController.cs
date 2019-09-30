@@ -19,6 +19,7 @@ namespace Receivables.Controllers
         private readonly IAgreementService agreementService;
         private readonly IDebtStatusService debtStatus;
         private readonly IDebtPaidService debtPaid;
+        private readonly IDebtStoreService debtStore;
         private readonly IMapper mapper;
 
         public DebtController(
@@ -27,6 +28,7 @@ namespace Receivables.Controllers
             IAgreementService agreementService,
             IDebtStatusService debtStatus,
             IDebtPaidService debtPaid,
+            IDebtStoreService debtStore,
             IMapper mapper)
         {
             this.debtService = debtService ?? throw new ArgumentNullException(nameof(debtService));
@@ -34,6 +36,7 @@ namespace Receivables.Controllers
             this.agreementService = agreementService ?? throw new ArgumentNullException(nameof(agreementService));
             this.debtStatus = debtStatus ?? throw new ArgumentNullException(nameof(debtStatus));
             this.debtPaid = debtPaid ?? throw new ArgumentNullException(nameof(debtPaid));
+            this.debtStore = debtStore ?? throw new ArgumentNullException(nameof(debtStore));
             this.mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
         }
 
@@ -114,6 +117,10 @@ namespace Receivables.Controllers
 
             var debtPaidDto = debtPaid.GetDebtPaidByDebtId(debt.Id);
             debt.DebtPaid = GetDebtPaidModel(debtPaidDto.Sum, debt);
+
+            var storesDto = debtStore.GetDebtStoreByDebtId(debt.Id);
+            var stores = storesDto.Select(p => mapper.Map<DebtStoreDto, DebtStoreModel>(p)).ToList();
+            debt.DebtStores = stores ?? new List<DebtStoreModel>();
             return debt;
         }
 
@@ -122,10 +129,27 @@ namespace Receivables.Controllers
             var stateDuty = (debt.StateDuty > sum) ? sum : debt.StateDuty;
             sum = sum - debt.StateDuty;
 
+            var sumAmount = decimal.Zero;
+            if (sum > 0)
+            {
+                sumAmount = debt.SumAmount > sum ? sum : debt.SumAmount;
+                sum -= debt.SumAmount;
+            }
+
+            var fine = decimal.Zero;
+            if (sum > 0)
+            {
+                var debtFine = debt.Penalties + debt.Fine + debt.InterestAmount;
+                fine = debtFine > sum ? sum : debtFine;
+            }
+
             return new DebtPaidModel
             {
-                StateDuty = stateDuty
-
+                StateDuty = stateDuty,
+                SumAmount = sumAmount,
+                Fine = fine,
+                DebtId = debt.Id,
+                Total = stateDuty + sumAmount + fine
             };
         }
     }

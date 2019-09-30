@@ -2,7 +2,7 @@
 
 namespace Receivables.Models
 {
-    public class DebtStore
+    public class DebtStoreModel
     {
         public int Id { get; set; }
 
@@ -15,5 +15,7 @@ namespace Receivables.Models
         public decimal Sum { get; set; }
 
         public string Number { get; set; }
+
+        public string DebtStore { get; set; }
     }
 }

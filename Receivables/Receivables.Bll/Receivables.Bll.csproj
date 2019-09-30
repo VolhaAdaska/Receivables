@@ -76,6 +76,7 @@
     <Compile Include="Dto\StoreDto.cs" />
     <Compile Include="Dto\UserDto.cs" />
     <Compile Include="Enum\Currency.cs" />
+    <Compile Include="Models\StoreType.cs" />
     <Compile Include="Interfaces\IDebtClaimService.cs" />
     <Compile Include="Interfaces\IDebtPaidService.cs" />
     <Compile Include="Interfaces\IDebtStatusService.cs" />
