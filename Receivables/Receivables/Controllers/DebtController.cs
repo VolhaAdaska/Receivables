@@ -20,6 +20,7 @@ namespace Receivables.Controllers
         private readonly IDebtStatusService debtStatus;
         private readonly IDebtPaidService debtPaid;
         private readonly IDebtStoreService debtStore;
+        private readonly IDebtClaimService debtClaim;
         private readonly IMapper mapper;
 
         public DebtController(
@@ -29,6 +30,7 @@ namespace Receivables.Controllers
             IDebtStatusService debtStatus,
             IDebtPaidService debtPaid,
             IDebtStoreService debtStore,
+            IDebtClaimService debtClaim,
             IMapper mapper)
         {
             this.debtService = debtService ?? throw new ArgumentNullException(nameof(debtService));
@@ -37,6 +39,7 @@ namespace Receivables.Controllers
             this.debtStatus = debtStatus ?? throw new ArgumentNullException(nameof(debtStatus));
             this.debtPaid = debtPaid ?? throw new ArgumentNullException(nameof(debtPaid));
             this.debtStore = debtStore ?? throw new ArgumentNullException(nameof(debtStore));
+            this.debtClaim = debtClaim ?? throw new ArgumentNullException(nameof(debtClaim));
             this.mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
         }
 
@@ -121,6 +124,18 @@ namespace Receivables.Controllers
             var storesDto = debtStore.GetDebtStoreByDebtId(debt.Id);
             var stores = storesDto.Select(p => mapper.Map<DebtStoreDto, DebtStoreModel>(p)).ToList();
             debt.DebtStores = stores ?? new List<DebtStoreModel>();
+
+            debt.DebtClaim = new DebtClaimModel
+            {
+                DebtId = 1,
+                ClaimName = "ОД +%",
+                DateClaimStart = DateTime.Now,
+                DateClaimEnd = DateTime.Now,
+                NumberClaim = "1",
+                PenaltyRate = 0.15,
+                RefinancingRate = 9.5
+            };
+
             return debt;
         }
 

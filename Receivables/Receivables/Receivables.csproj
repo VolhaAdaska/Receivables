@@ -251,7 +251,7 @@
     <Compile Include="Models\AccountModel.cs" />
     <Compile Include="Models\AgreementModel.cs" />
     <Compile Include="Models\CustomerSearchModel.cs" />
-    <Compile Include="Models\DebtClaim.cs" />
+    <Compile Include="Models\DebtClaimModel.cs" />
     <Compile Include="Models\DebtPaidModel.cs" />
     <Compile Include="Models\DebtStatusModel.cs" />
     <Compile Include="Models\DebtStoreModel.cs" />
@@ -314,6 +314,7 @@
     <Content Include="Views\Debt\ProfileDebt.cshtml" />
     <Content Include="Views\Debt\AddDebt.cshtml" />
     <Content Include="Views\Debt\ProfileStatus.cshtml" />
+    <Content Include="Views\DebtClaim\CalculateClaim.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -323,7 +324,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\DebtClaim\" />
     <Folder Include="Views\DebtPaid\" />
     <Folder Include="Views\DebtStatus\" />
     <Folder Include="Views\DebtStore\" />

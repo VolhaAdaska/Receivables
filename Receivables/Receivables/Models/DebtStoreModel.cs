@@ -16,6 +16,6 @@ namespace Receivables.Models
 
         public string Number { get; set; }
 
-        public string DebtStore { get; set; }
+        public string DebtStoreName { get; set; }
     }
 }

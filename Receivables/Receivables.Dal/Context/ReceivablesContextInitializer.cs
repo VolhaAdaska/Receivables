@@ -48,6 +48,7 @@ namespace Receivables.Dal.Context
             InitializeAccount(context);
             InitializeDebt(context);
             InitializeDebtStatus(context);
+            InitializeDebtStore(context);
 
             // base.Seed(context);
         }
@@ -292,7 +293,7 @@ namespace Receivables.Dal.Context
         {
             context.DebtClaims.Add(new DebtClaim
             {
-               
+
             });
 
             context.SaveChanges();
@@ -313,11 +314,32 @@ namespace Receivables.Dal.Context
         {
             context.DebtStores.Add(new DebtStore
             {
+                Date = DateTime.Parse("02/09/2019"),
+                DebtStoreType = 2,
+                Sum = 2000m,
+                Number = "1",
+                DebtId = 1
+            });
 
+            context.DebtStores.Add(new DebtStore
+            {
+                Date = DateTime.Parse("10/09/2019"),
+                DebtStoreType = 1,
+                Sum = 8154.66m,
+                Number = "1",
+                DebtId = 1
+            });
+
+            context.DebtStores.Add(new DebtStore
+            {
+                Date = DateTime.Parse("16/09/2019"),
+                DebtStoreType = 2,
+                Sum = 1500m,
+                Number = "2",
+                DebtId = 1
             });
 
             context.SaveChanges();
         }
-
     }
 }

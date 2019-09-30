@@ -85,7 +85,7 @@ namespace Receivables.Bll.Services
             var debtStoreDto = debtStore.Select(p => mapper.Map<DebtStore, DebtStoreDto>(p)).ToList();
             foreach (var item in debtStoreDto)
             {
-                item.DebtStore = (item.DebtStoreType == 1) ? StoreType.TTN : StoreType.Payment;
+                item.DebtStoreName = (item.DebtStoreType == 1) ? StoreType.TTN : StoreType.Payment;
             }
             return debtStoreDto;
         }

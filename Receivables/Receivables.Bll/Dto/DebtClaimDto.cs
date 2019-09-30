@@ -10,6 +10,8 @@ namespace Receivables.Bll.Dto
 
         public int ClaimType { get; set; }
 
+        public string ClaimName { get; set; }
+
         public DateTime DateClaimStart { get; set; }
 
         public DateTime DateClaimEnd { get; set; }

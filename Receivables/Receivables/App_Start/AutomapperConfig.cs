@@ -47,6 +47,21 @@ namespace Receivables
             CreateMap<DebtStatus, DebtStatusDto>();
             CreateMap<DebtStatusDto, DebtStatusModel>();
             CreateMap<DebtStatusModel, DebtStatusDto>();
+
+            CreateMap<DebtStoreDto, DebtStore>();
+            CreateMap<DebtStore, DebtStoreDto>();
+            CreateMap<DebtStoreDto, DebtStoreModel>();
+            CreateMap<DebtStoreModel, DebtStoreDto>();
+
+            CreateMap<DebtPaidDto, DebtPaid>();
+            CreateMap<DebtPaid, DebtPaidDto>();
+            CreateMap<DebtPaidDto, DebtPaidModel>();
+            CreateMap<DebtPaidModel, DebtPaidDto>();
+
+            CreateMap<DebtClaimDto, DebtClaim>();
+            CreateMap<DebtClaim, DebtClaimDto>();
+            CreateMap<DebtClaimDto, DebtClaimModel>();
+            CreateMap<DebtClaimModel, DebtClaimDto>();
         }
     }
 }

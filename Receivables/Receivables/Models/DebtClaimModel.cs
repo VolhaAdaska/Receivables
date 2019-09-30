@@ -2,13 +2,13 @@
 
 namespace Receivables.Models
 {
-    public class DebtClaim
+    public class DebtClaimModel
     {
         public int Id { get; set; }
 
         public int DebtId { get; set; }
 
-        public int ClaimType { get; set; }
+        public string ClaimName { get; set; }
 
         public DateTime DateClaimStart { get; set; }
 

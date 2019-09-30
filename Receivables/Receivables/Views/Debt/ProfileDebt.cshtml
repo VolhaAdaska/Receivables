@@ -29,7 +29,7 @@
             <div class="nav-wrapper">
                 <ul class="nav nav-pills nav-fill flex-column flex-md-row" id="tabs-icons-text" role="tablist">
                     <li class="nav-item">
-                        <a class="nav-link mb-sm-3 mb-md-0 active" id="tabs-icons-text-1-tab" data-toggle="tab" href="#tabs-icons-text-1" role="tab" aria-controls="tabs-icons-text-1" aria-selected="true">Обращение в ЮО</a>
+                        <a class="nav-link mb-sm-3 mb-md-0 active" id="tabs-icons-text-1-tab" data-toggle="tab" href="#tabs-icons-text-1" role="tab" aria-controls="tabs-icons-text-1" aria-selected="true">Общее</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link mb-sm-3 mb-md-0" id="tabs-icons-text-2-tab" data-toggle="tab" href="#tabs-icons-text-2" role="tab" aria-controls="tabs-icons-text-2" aria-selected="false">Ответы</a>
@@ -303,70 +303,131 @@
                         <!-- Документы -->
                         <div class="tab-pane fade" id="tabs-icons-text-3" role="tabpanel" aria-labelledby="tabs-icons-text-3-tab">
 
-                            @using (Ajax.BeginForm("AccountSearch", "Calculation", new AjaxOptions { UpdateTargetId = "results" }))
-                            {
+                            <form>
                                 <div class="custom-file">
-                                    <input type="file" class="custom-file-label" id="customFileLang" lang="en">
-                                    <label class="custom-file-input" for="customFileLang">Select file</label>
+                                    <input type="file" class="custom-file-input" id="customFileLang" lang="en">
+                                    <label class="custom-file-label" for="customFileLang">Select file</label>
                                 </div>
-                                <br>
-                                <button class="btn btn-outline-success" type="submit">Загрузить</button>
-                            }
+                            </form>
+                            @*@using (Ajax.BeginForm("AccountSearch", "Calculation", new AjaxOptions { UpdateTargetId = "results" }))
+                                {
+                                    <div class="custom-file">
+                                        <input type="file" class="custom-file-label" id="customFileLang" lang="en">
+                                        <label class="custom-file-input" for="customFileLang">Select file</label>
+                                    </div>
+                                    <br>
+                                    <button class="btn btn-outline-success" type="submit">Загрузить</button>
+                                }
 
-                            <div id="results"></div>
+                                <div id="results"></div>*@
                         </div>
 
                         <!-- ТТН -->
                         <div class="tab-pane fade" id="tabs-icons-text-4" role="tabpanel" aria-labelledby="tabs-icons-text-4-tab">
-                            <div class="tab-pane fade" id="tabs-icons-text-2" role="tabpanel" aria-labelledby="tabs-icons-text-2-tab">
-                                <div class="card-header bg-white border-0">
-                                    <div class="row align-items-center">
-                                        <div class="col-8">
-                                            <h3 class="mb-0">ТТН/Оплаты</h3>
-                                        </div>
-                                        <div class="col-4 text-right">
-                                            <a href="#!" class="btn btn-sm btn-primary">Добавить</a>
-                                        </div>
+                            <div class="card-header bg-white border-0">
+                                <div class="row align-items-center">
+                                    <div class="col-8">
+                                        <h3 class="mb-0">ТТН/Оплаты</h3>
+                                    </div>
+                                    <div class="col-4 text-right">
+                                        <a href="#!" class="btn btn-sm btn-primary">Добавить</a>
                                     </div>
                                 </div>
+                            </div>
 
-                                <div class="table-responsive">
-                                    <table class="table align-items-center table-flush">
-                                        <thead class="thead-light">
+                            <div class="table-responsive">
+                                <table class="table align-items-center table-flush">
+                                    <thead class="thead-light">
+                                        <tr>
+                                            <th scope="col">Дата</th>
+                                            <th scope="col">Номер</th>
+                                            <th scope="col">Тип документа</th>
+                                            <th scope="col">Сумма</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var doc in @Model.DebtStores)
+                                        {
                                             <tr>
-                                                <th scope="col">Дата</th>
-                                                <th scope="col">Номер</th>
-                                                <th scope="col"></th>
-                                                <th scope="col">Сумма</th>
+                                                <td>
+                                                    @doc.Date.ToShortDateString()
+                                                </td>
+                                                <td>
+                                                    @doc.Number
+                                                </td>
+                                                <td>
+                                                    @doc.DebtStoreName
+                                                </td>
+                                                <td>
+                                                    @doc.Sum
+                                                </td>
                                             </tr>
-                                        </thead>
-                                        <tbody>
-                                            @foreach (var doc in @Model.DebtStores)
-                                            {
-                                                <tr>
-                                                    <td>
-                                                        @doc.Date.ToShortDateString()
-                                                    </td>
-                                                    <td>
-                                                        @doc.Number
-                                                    </td>
-                                                    <td>
-                                                        @doc.DebtStoreType
-                                                    </td>
-                                                    <td>
-                                                        @doc.Sum
-                                                    </td>
-                                                </tr>
-                                            }
-                                        </tbody>
-                                    </table>
-                                </div>
+                                        }
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
 
                         <!-- Претензия -->
                         <div class="tab-pane fade" id="tabs-icons-text-5" role="tabpanel" aria-labelledby="tabs-icons-text-5-tab">
-                            <p class="description">Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth.</p>
+                            @using (Ajax.BeginForm("CalculateClaim", "DebtClaim", new AjaxOptions { UpdateTargetId = "results" }))
+                            {
+                                <div class="card-header bg-white border-0">
+                                    <div class="row align-items-center">
+                                        <div class="col-8">
+                                            <h3 class="mb-0">Претензия</h3>
+                                        </div>
+                                        <div class="col-4 text-right">                                        
+                                            <button class="btn btn-sm btn-primary" type="submit">Рассчитать</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="pl-lg-4">
+                                    <div class="row">
+                                        <div class="col-lg-3">
+                                            <div class="form-group">
+                                                @Html.LabelFor(m => m.DebtClaim.ClaimName, "Вид претензии", new { @class = "form-control-label" })
+                                                @Html.TextBoxFor(m => m.DebtClaim.ClaimName, new { @class = "form-control", @disabled = "disabled" })
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-3">
+                                            <div class="form-group">
+                                                @Html.LabelFor(m => m.DebtClaim.DateClaimStart, "Дата выставления претензии", new { @class = "form-control-label" })
+                                                <input class="datepicker form-control" placeholder="Select date" type="text" value="@Model.DebtClaim.DateClaimStart.ToShortDateString()" name="startDate">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-3">
+                                            <div class="form-group">
+                                                @Html.LabelFor(m => m.DebtClaim.NumberClaim, "Номер претензии", new { @class = "form-control-label" })
+                                                @Html.TextBoxFor(m => m.DebtClaim.NumberClaim, new { @class = "form-control", @disabled = "disabled" })
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-3">
+                                            <div class="form-group">
+                                                @Html.LabelFor(m => m.DebtClaim.PenaltyRate, "Ставка пени", new { @class = "form-control-label" })
+                                                @Html.TextBoxFor(m => m.DebtClaim.PenaltyRate, new { @class = "form-control", @disabled = "disabled" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="pl-lg-4">
+                                    <div class="row">
+                                        <div class="col-lg-3">
+                                            <div class="form-group">
+                                                @Html.LabelFor(m => m.DebtClaim.RefinancingRate, "Ставка нац. банка", new { @class = "form-control-label" })
+                                                @Html.TextBoxFor(m => m.DebtClaim.RefinancingRate, new { @class = "form-control", @disabled = "disabled" })
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-3">
+                                            <div class="form-group">
+                                                @Html.LabelFor(m => m.DebtClaim.DateClaimEnd, "Дата получения претензии", new { @class = "form-control-label" })
+                                                <input class="datepicker form-control" placeholder="Select date" type="text" value="@Model.DebtClaim.DateClaimEnd.ToShortDateString()" name="endDate">
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            }
                         </div>
                     </div>
                 </div>

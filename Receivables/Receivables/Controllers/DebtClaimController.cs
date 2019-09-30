@@ -21,5 +21,11 @@ namespace Receivables.Controllers
         {
             return View();
         }
+
+        [HttpPost]
+        public ActionResult CalculateClaim()
+        {
+            return PartialView();
+        }
     }
 }
