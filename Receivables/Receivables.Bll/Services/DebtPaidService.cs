@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
 using NLog;
@@ -74,6 +75,16 @@ namespace Receivables.Bll.Services
                 Logger.Error(ex.Message);
                 return new OperationDetails(false, ex.Message);
             }
+        }
+
+        public DebtPaidDto GetDebtPaidByDebtId(int id)
+        {
+            var paids = unitOfWork.DebtPaidRepository.GetByDebtId(id);
+            var debtDto = new DebtPaidDto
+            {
+                Sum = paids.Sum(x => x.Sum)
+            };
+            return debtDto;
         }
 
         public async Task<DebtPaidDto> GetDebtPaidByIdAsync(int id)

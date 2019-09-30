@@ -1,6 +1,6 @@
 ﻿namespace Receivables.Models
 {
-    public class DebtPaid
+    public class DebtPaidModel
     {
         public int Id { get; set; }
 

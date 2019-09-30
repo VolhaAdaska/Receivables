@@ -51,7 +51,7 @@ namespace Receivables.Models
 
         public DateTime DateDoc { get; set; }
 
-        public DebtPaid DebtPaid { get; set; }
+        public DebtPaidModel DebtPaid { get; set; }
 
         public IList<DebtStatusModel> DebtStatuses { get; set; }
 

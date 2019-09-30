@@ -13,5 +13,7 @@ namespace Receivables.Bll.Interfaces
         Task<OperationDetails> UpdateDebtPaidAsync(DebtPaidDto DebtPaidDto);
 
         Task<DebtPaidDto> GetDebtPaidByIdAsync(int id);
+
+        DebtPaidDto GetDebtPaidByDebtId(int id);
     }
 }

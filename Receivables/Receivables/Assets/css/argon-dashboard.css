@@ -4240,9 +4240,18 @@ input[type="button"].btn-block {
   opacity: 0;
 }
 
-.custom-file-input:focus~.custom-file-label {
-  border-color: rgba(50, 151, 211, 0.25);
-  box-shadow: none;
+.custom-inputfile {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+
+.custom-file-input:focus ~ .custom-file-label {
+    border-color: rgba(50, 151, 211, 0.25);
+    box-shadow: none;
 }
 
 .custom-file-input:focus~.custom-file-label::after {

@@ -47,6 +47,7 @@ namespace Receivables.Dal.Context
             InitializeProduct(context);
             InitializeAccount(context);
             InitializeDebt(context);
+            InitializeDebtStatus(context);
 
             // base.Seed(context);
         }
@@ -271,7 +272,7 @@ namespace Receivables.Dal.Context
                 Number = 1,
                 Status = "Новый",
                 Currency = 933,
-                NumDoc = "bla",
+                NumDoc = string.Empty,
                 DateDoc = DateTime.UtcNow
             });
 
@@ -300,7 +301,10 @@ namespace Receivables.Dal.Context
         {
             context.DebtStatuses.Add(new DebtStatus
             {
-                
+                Date = DateTime.Parse("10/09/2019"),
+                Status = "Новый",
+                Value = "Установлен автоматически",
+                DebtId = 1
             });
 
             context.SaveChanges();

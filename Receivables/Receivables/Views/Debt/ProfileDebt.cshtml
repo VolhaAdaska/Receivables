@@ -4,6 +4,16 @@
     ViewBag.Title = "Profile";
 }
 
+<style>
+
+    .custom-file-upload {
+        border: 1px solid #ccc;
+        display: inline-block;
+        padding: 6px 12px;
+        cursor: pointer;
+    }
+</style>
+
 @section Header{
     <div class="col-xl-12 order-xl-1">
         <div class="card bg-secondary shadow">
@@ -82,8 +92,9 @@
             <div class="card shadow">
                 <div class="card-body">
                     <div class="tab-content" id="myTabContent">
+                        <!-- Обращение в ЮО -->
                         <div class="tab-pane fade show active" id="tabs-icons-text-1" role="tabpanel" aria-labelledby="tabs-icons-text-1-tab">
-                            <!-- Обращение в ЮО -->
+
                             <!-- Основное -->
                             <hr class="my-4" />
                             <div class="pl-lg-4">
@@ -232,7 +243,7 @@
                                                 <div class="input-group-prepend">
                                                     <span class="input-group-text"><i class="ni ni-calendar-grid-58"></i></span>
                                                 </div>
-                                                <input class="datepicker form-control" placeholder="Select date" type="text" value="@Model.DateDoc" name="endDate">
+                                                <input class="datepicker form-control" placeholder="Select date" type="text" value="@Model.DateDoc.ToShortDateString()" name="endDate">
                                             </div>
                                         </div>
                                     </div>
@@ -246,8 +257,20 @@
                                 </div>
                             </div>
                         </div>
+
+                        <!-- Ответы -->
                         <div class="tab-pane fade" id="tabs-icons-text-2" role="tabpanel" aria-labelledby="tabs-icons-text-2-tab">
-                            <!-- Ответы -->
+                            <div class="card-header bg-white border-0">
+                                <div class="row align-items-center">
+                                    <div class="col-8">
+                                        <h3 class="mb-0">Ответы</h3>
+                                    </div>
+                                    <div class="col-4 text-right">
+                                        <a href="#!" class="btn btn-sm btn-primary">Добавить</a>
+                                    </div>
+                                </div>
+                            </div>
+
                             <div class="table-responsive">
                                 <table class="table align-items-center table-flush">
                                     <thead class="thead-light">
@@ -261,15 +284,8 @@
                                         @foreach (var doc in @Model.DebtStatuses)
                                         {
                                             <tr>
-                                                @*<th scope="row">
-                                                    <div class="media align-items-center">
-                                                        <div class="media-body">
-                                                            @Html.ActionLink(doc.CustomerName, "ProfileDebt", "Debt", new { id = doc.Id }, new { @class = "mb-0 text-sm" })
-                                                        </div>
-                                                    </div>
-                                                </th>*@
                                                 <td>
-                                                    @doc.Date.Date
+                                                    @doc.Date.ToShortDateString()
                                                 </td>
                                                 <td>
                                                     @doc.Status
@@ -283,7 +299,30 @@
                                 </table>
                             </div>
                         </div>
+
+                        <!-- Документы -->
                         <div class="tab-pane fade" id="tabs-icons-text-3" role="tabpanel" aria-labelledby="tabs-icons-text-3-tab">
+
+                            @using (Ajax.BeginForm("AccountSearch", "Calculation", new AjaxOptions { UpdateTargetId = "results" }))
+                            {
+                                <div class="custom-file">
+                                    <input type="file" class="custom-file-label" id="customFileLang" lang="en">
+                                    <label class="custom-file-input" for="customFileLang">Select file</label>
+                                </div>
+                                <br>
+                                <button class="btn btn-outline-success" type="submit">Загрузить</button>
+                            }
+
+                            <div id="results"></div>
+                        </div>
+
+                        <!-- ТТН -->
+                        <div class="tab-pane fade" id="tabs-icons-text-4" role="tabpanel" aria-labelledby="tabs-icons-text-4-tab">
+                            <p class="description">Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth.</p>
+                        </div>
+
+                        <!-- Претензия -->
+                        <div class="tab-pane fade" id="tabs-icons-text-5" role="tabpanel" aria-labelledby="tabs-icons-text-5-tab">
                             <p class="description">Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth.</p>
                         </div>
                     </div>

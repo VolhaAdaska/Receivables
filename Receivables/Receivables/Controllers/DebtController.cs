@@ -18,6 +18,7 @@ namespace Receivables.Controllers
         private readonly ICustomerService customerService;
         private readonly IAgreementService agreementService;
         private readonly IDebtStatusService debtStatus;
+        private readonly IDebtPaidService debtPaid;
         private readonly IMapper mapper;
 
         public DebtController(
@@ -25,12 +26,14 @@ namespace Receivables.Controllers
             ICustomerService customerService,
             IAgreementService agreementService,
             IDebtStatusService debtStatus,
+            IDebtPaidService debtPaid,
             IMapper mapper)
         {
             this.debtService = debtService ?? throw new ArgumentNullException(nameof(debtService));
             this.customerService = customerService ?? throw new ArgumentNullException(nameof(customerService));
             this.agreementService = agreementService ?? throw new ArgumentNullException(nameof(agreementService));
             this.debtStatus = debtStatus ?? throw new ArgumentNullException(nameof(debtStatus));
+            this.debtPaid = debtPaid ?? throw new ArgumentNullException(nameof(debtPaid));
             this.mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
         }
 
@@ -108,7 +111,22 @@ namespace Receivables.Controllers
             var status = statusDto.Select(p => mapper.Map<DebtStatusDto, DebtStatusModel>(p)).ToList();
             
             debt.DebtStatuses = status ?? new List<DebtStatusModel>();
+
+            var debtPaidDto = debtPaid.GetDebtPaidByDebtId(debt.Id);
+            debt.DebtPaid = GetDebtPaidModel(debtPaidDto.Sum, debt);
             return debt;
+        }
+
+        private DebtPaidModel GetDebtPaidModel(decimal sum, DebtModel debt)
+        {
+            var stateDuty = (debt.StateDuty > sum) ? sum : debt.StateDuty;
+            sum = sum - debt.StateDuty;
+
+            return new DebtPaidModel
+            {
+                StateDuty = stateDuty
+
+            };
         }
     }
 }
